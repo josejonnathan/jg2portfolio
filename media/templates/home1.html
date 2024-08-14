@@ -1,0 +1,70 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid" style="background-color: {{ colors.primary }};">
+    <div class="row d-flex flex-wrap justify-content-end align-items-center parallax" 
+         style="background-image: url({{ hero_image.image }}); 
+                background-size: cover; 
+                background-position: center; 
+                background-attachment: fixed;
+                background-repeat: no-repeat; 
+                height: 100vh;">
+        <div class="col-md-4 col-12 text-center" style="padding-right: 50px;"> <!-- Ajuste de padding a la derecha -->
+            <h1 style="font-family: Orbitron;">Welcome to my site, feel free to take a look around but please don't touch this button!</h1>
+            <div class="d-flex justify-content-center">
+                <div class="mix-btn p-2 my-3" style="width: 100px; border: 6px solid black; border-radius: 15px; background-color: {{ colors.tertiary }};">
+                    <img class="img-fluid" src="{% static 'images/mx1_c.png' %}" alt="Mix">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" style="background-color: {{ colors.primary }};">
+    <div class="row d-flex flex-wrap justify-content-end align-items-center parallax" 
+         style="background-image: url({{ hero_image.image }}); 
+                background-size: cover; 
+                background-position: center; 
+                background-attachment: fixed;
+                background-repeat: no-repeat; 
+                height: 100vh;">
+        <div class="col-md-4 col-12 text-center" style="padding-right: 50px;"> <!-- Ajuste de padding a la derecha -->
+            <h2 style="font-family: Orbitron; ">I'm Jonnathan Gonzalez</h2>
+            <p>An Audio Engineer and Software developer fom Colombia, based in Berlin</p>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" style="background-color: {{ colors.secondary }};">
+    <div class="row d-flex flex-wrap justify-content-center align-items-center">
+        <div class="col-12 text-center my-5">
+            <h2 style="font-family: Orbitron; ;">Some of my projects</h2>
+        </div>
+        {% for project in projects %}
+        <div class="col-12 col-md-6 col-lg-4 m-5 d-flex justify-content-center">
+            <div class="text-center">
+                <img class="img-fluid" src="{{ project.image }}" alt="">  
+                <div class="card-body mt-3">
+                    <h5 class="card-title my-3" style="font-family: Orbitron;">{{ project.name }}</h5>
+                    <p class="card-text">{{ project.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
