@@ -1,0 +1,129 @@
+/* Animations */
+
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes flip {
+    from {
+        transform: rotateY(0);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+.flip {
+    transform: rotateY(0);
+    transition: transform 0.6s;
+}
+
+.flip-active {
+    animation: flip 0.6s forwards;
+}
+
+.spin-loop {
+    display: inline-block;
+    animation: spin 7s linear infinite;
+}
+
+
+/* Estado inicial del segundo bloque (oculto) */
+#section2 {
+    opacity: 1;
+    z-index: 3;
+}
+
+#projects-section {
+    display: none;
+    opacity: 0;
+}
+
+/* Animación para deslizar el segundo bloque desde abajo */
+@keyframes slide-up-in {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+        visibility: visible;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Animación para desplazar el primer bloque hacia arriba */
+@keyframes slide-up {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+/* Clase para activar la animación del primer bloque hacia arriba */
+.slide-up {
+    animation: slide-up 1s forwards;
+}
+
+/* Clase para activar la animación del segundo bloque deslizándose hacia arriba */
+.slide-up-in {
+    animation: slide-up-in 1s forwards;
+    visibility: visible !important;
+}
+
+/* Custom Styles */
+
+
+.body{
+    background-color: #ffffff;
+}
+
+.main-row{
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed;
+    background-repeat: no-repeat; 
+    height: 100vh;
+}
+
+.mix-btn{
+    width: 60px; 
+    border: 3px solid rgb(20, 11, 11); 
+    border-radius: 80px;
+    box-shadow:  0 0px 10px rgb(0, 0, 0);
+}
+
+.mix-btn:hover{
+    background-color: #dddddd !important;
+}
+
+
+
+.mix-btn img{
+    width: 100px; 
+    transition: 0.3s;
+}
+
+.mix-btn img:hover{
+    transform: scale(1.2);
+}
+
+
+.text-link{
+    color: black;
+    text-decoration: none;
+}
+
+
+

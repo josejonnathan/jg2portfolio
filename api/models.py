@@ -25,7 +25,6 @@ class Colors(models.Model):
 
 class Template(models.Model):
     name = models.CharField(max_length=100, help_text="Name of the template")
-    html_file = models.FileField(upload_to='templates/', help_text="HTML file for the template")
     colors = models.ForeignKey(Colors, on_delete=models.SET_NULL, null=True, blank=True, help_text="Color scheme for the template")
     hero_image = models.ForeignKey(HeroImage, on_delete=models.SET_NULL, null=True, blank=True, help_text="Hero image for the template")
     active = models.BooleanField(default=True, help_text="Indicates if this template is active")
@@ -41,6 +40,7 @@ class Project(models.Model):
     image = models.ImageField(upload_to='proyectos/', help_text="Image of the project")
     creation_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
+    order = models.IntegerField(help_text="Order of the project in the list", default=0)
 
     def __str__(self):
         return self.name

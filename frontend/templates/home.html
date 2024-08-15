@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<!-- Contenedor Principal -->
+<div id="main-container" class="container-fluid" style="background-color: {{ selected_template.colors.primary }}; overflow: hidden; position: relative;">
+    <div class="main-row d-flex flex-wrap justify-content-end align-items-center" style="background-image: url('{{ selected_template.hero_image.image.url }}'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <!-- Bloque1 -->
+        <div id="section1" class="row d-flex justify-content-end align-items-center" 
+             style="height: 100vh; position: relative; z-index: 2;">
+            <div class="col-md-5 col-12 text-center ms-auto" style="padding-right: 50px;">
+                <h2 style="font-family: Orbitron;">Hi!, I'm Jonnathan Gonzalez</h2>
+                <p style="line-height: 2;">I'm an Audio Engineer transitioning into a
+                    dynamic Fullstack Developer role, leveraging
+                    over 20 years of audio expertise.
+                    I bring a robust set of skills: problem-solving,
+                    adaptability, creativity, communication,
+                    attention to detail, team collaboration,
+                    leadership, and project management.</p>
+                <div class="d-flex justify-content-center">
+                    <div id="btn1" class="mix-btn my-3 spin-loop" style="background-color: {{ selected_template.colors.tertiary }}">
+                        <img class="img-fluid" src="{% static 'images/btn_cyc.png' %}" alt="Mix">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bloque2 -->
+        <div id="section2" class="row d-flex justify-content-end align-items-center" 
+             style="height: 100vh; position: absolute; top: 100vh; width: 100%; z-index: 3;">
+            <div class="col-md-5 col-12 text-end ms-auto" style="padding-right: 50px; padding-left: 50px;">
+                <h2 style="font-family: Orbitron;">I'm Jonnathan Gonzalez</h2>
+                <p style="line-height: 2;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="d-flex justify-content-center">
+                    <div id="btn2" class="mix-btn my-3 spin-loop" style="background-color: {{ selected_template.colors.tertiary }}">
+                        <img class="img-fluid" src="{% static 'images/btn_cyc.png' %}" alt="Mix">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bloque3 -->
+        <div id="section3" class="row d-flex justify-content-end align-items-center" 
+             style="height: 100vh; position: absolute; top: 200vh; width: 100%; z-index: 3;">
+            <div class="col-md-5 col-12 text-end ms-auto" style="padding-right: 50px; padding-left: 50px;">
+                <h2 style="font-family: Orbitron;">3rd</h2>
+                <p style="line-height: 2;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="d-flex justify-content-center">
+                    <div id="btn3" class="mix-btn my-3 spin-loop" style="background-color: {{ selected_template.colors.tertiary }}">
+                        <img class="img-fluid" src="{% static 'images/btn_cyc.png' %}" alt="Mix">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Proyectos (oculto inicialmente) -->
+<div id="projects-section" class="container-fluid" style="background-color: {{ selected_template.colors.secondary }}; opacity: 0;">
+    <div class="row d-flex flex-wrap justify-content-center align-items-center">
+        <div class="col-12 text-center my-5">
+            <h2 style="font-family: Orbitron;">Some of my projects</h2>
+        </div>
+        {% for project in projects %}
+        <div class="col-12 col-md-6 col-lg-4 m-5 d-flex justify-content-center">
+            <div class="img-flip text-center">
+                <a href="{{ project.url }}" target="_blank">
+                    <img class="img-fluid flip" src="{{ project.image.url }}" alt="{{ project.name }}">  
+                </a>
+                <div class="card-body mt-3">
+                    <a href="{{ project.url }}" target="_blank" style="text-decoration: none;">
+                        <h5 class="text-link my-3" style="font-family: Orbitron;">{{ project.name }}</h5>
+                    </a>
+                    <p class="card-text">{{ project.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const btn1 = document.getElementById('btn1');
+        const section1 = document.getElementById('section1');
+        const section2 = document.getElementById('section2');
+        const section3 = document.getElementById('section3');
+        const projectsSection = document.getElementById('projects-section');
+
+        btn1.addEventListener('click', function() {
+            // Deslizar el primer bloque hacia arriba
+            section1.style.transform = "translateY(-100vh)";
+            section1.style.transition = "transform 1s ease-in-out";
+
+            // Deslizar el segundo bloque hacia arriba después de 1s
+            setTimeout(function() {
+                section2.style.transform = "translateY(-100vh)";
+                section2.style.transition = "transform 1s ease-in-out";
+            }, 1000);
+        });
+
+        const btn2 = document.getElementById('btn2');
+        btn2.addEventListener('click', function() {
+            // Deslizar el segundo bloque hacia arriba
+            section2.style.transform = "translateY(-200vh)";
+            section2.style.transition = "transform 1s ease-in-out";
+
+            // Deslizar el tercer bloque hacia arriba después de 1s
+            setTimeout(function() {
+                section3.style.transform = "translateY(-200vh)";
+                section3.style.transition = "transform 1s ease-in-out";
+            }, 1000);
+        });
+
+        const btn3 = document.getElementById('btn3');
+        btn3.addEventListener('click', function() {
+            // Mostrar la sección de proyectos
+            projectsSection.style.display = 'block';
+            setTimeout(function() {
+                projectsSection.style.opacity = 1;
+                projectsSection.style.transition = "opacity 1s ease-in-out";
+
+                // Desplazar suavemente la vista hacia la sección de proyectos
+                projectsSection.scrollIntoView({ behavior: 'smooth' });
+            }, 100); // Pequeño retraso para asegurar que el display:block se aplique
+        });
+    });
+</script>
+{% endblock %}

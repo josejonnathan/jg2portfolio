@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import render_template_from_api
+from .views import home_view 
 
 urlpatterns = [
-    path('render-template/<int:template_id>/', render_template_from_api, name='render_template'),
+    path('', home_view, name='home'), 
 ]
