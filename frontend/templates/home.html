@@ -4,7 +4,7 @@
 {% block head %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+<link href="{{ selected_template.font.url }}" rel="stylesheet">
 
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
@@ -19,8 +19,8 @@
         <div id="section1" class="row d-flex justify-content-end align-items-center" 
              style="height: 100vh; position: relative; z-index: 2;">
             <div class="col-md-5 col-12 text-center ms-auto" style="padding-right: 50px;">
-                <h2 style="font-family: Orbitron;">Hi!, I'm Jonnathan Gonzalez</h2>
-                <p style="line-height: 2;">I'm an Audio Engineer transitioning into a
+                <h2 style="font-family: {{ selected_template.font }};">HI!, I'M JONNATHAN GONZALEZ</h2>
+                <p style="line-height: 2;">{{ selected_template.name }}transitioning into a
                     dynamic Fullstack Developer role, leveraging
                     over 20 years of audio expertise.
                     I bring a robust set of skills: problem-solving,
@@ -38,7 +38,7 @@
         <div id="section2" class="row d-flex justify-content-end align-items-center" 
              style="height: 100vh; position: absolute; top: 100vh; width: 100%; z-index: 3;">
             <div class="col-md-5 col-12 text-end ms-auto" style="padding-right: 50px; padding-left: 50px;">
-                <h2 style="font-family: Orbitron;">I'm Jonnathan Gonzalez</h2>
+                <h2 style="font-family: {{ selected_template.font }};">I'm Jonnathan Gonzalez</h2>
                 <p style="line-height: 2;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 <div class="d-flex justify-content-center">
                     <div id="btn2" class="mix-btn my-3 spin-loop" style="background-color: {{ selected_template.colors.tertiary }}">
@@ -51,7 +51,7 @@
         <div id="section3" class="row d-flex justify-content-end align-items-center" 
              style="height: 100vh; position: absolute; top: 200vh; width: 100%; z-index: 3;">
             <div class="col-md-5 col-12 text-end ms-auto" style="padding-right: 50px; padding-left: 50px;">
-                <h2 style="font-family: Orbitron;">3rd</h2>
+                <h2 style="font-family: {{ selected_template.font }};">3rd</h2>
                 <p style="line-height: 2;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 <div class="d-flex justify-content-center">
                     <div id="btn3" class="mix-btn my-3 spin-loop" style="background-color: {{ selected_template.colors.tertiary }}">
@@ -67,7 +67,7 @@
 <div id="projects-section" class="container-fluid" style="background-color: {{ selected_template.colors.secondary }}; opacity: 0;">
     <div class="row d-flex flex-wrap justify-content-center align-items-center">
         <div class="col-12 text-center my-5">
-            <h2 style="font-family: Orbitron;">Some of my projects</h2>
+            <h2 style="font-family: {{ selected_template.font }};">Some of my projects</h2>
         </div>
         {% for project in projects %}
         <div class="col-12 col-md-6 col-lg-4 m-5 d-flex justify-content-center">
@@ -77,7 +77,7 @@
                 </a>
                 <div class="card-body mt-3">
                     <a href="{{ project.url }}" target="_blank" style="text-decoration: none;">
-                        <h5 class="text-link my-3" style="font-family: Orbitron;">{{ project.name }}</h5>
+                        <h5 class="text-link my-3" style="font-family: {{ selected_template.font }};">{{ project.name }}</h5>
                     </a>
                     <p class="card-text">{{ project.description }}</p>
                 </div>
