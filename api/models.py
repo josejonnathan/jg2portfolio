@@ -53,17 +53,7 @@ class Template(models.Model):
         return self.name
     
 
-class Project(models.Model):
-    name = models.CharField(max_length=100, help_text="Name of the project")
-    description = models.TextField(help_text="Description of the project")
-    url = models.URLField(max_length=200, help_text="URL of the project")
-    image = models.ImageField(upload_to='proyectos/', help_text="Image of the project")
-    creation_date = models.DateTimeField(auto_now_add=True)
-    update_date = models.DateTimeField(auto_now=True)
-    order = models.IntegerField(help_text="Order of the project in the list", default=0)
 
-    def __str__(self):
-        return self.name
     
 
 

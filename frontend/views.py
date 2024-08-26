@@ -1,38 +1,24 @@
-from django.shortcuts import render
-from api.models import Project, Template
-import random
+from django.shortcuts import render, get_object_or_404
+from django.views.generic import DetailView
+from curriculum.models import Profile
 
-def home_view(request):
-    projects = Project.objects.all()  # Obtén todos los proyectos de la base de datos
-    templates = Template.objects.filter(easter_egg=False)  # Filtra templates donde easter_egg es False
+class CurriculumDetailView(DetailView):
+    model = Profile
+    template_name = 'curriculum_detail.html'
+    context_object_name = 'profile'
 
-    if templates.exists():  # Verifica si hay templates disponibles
-        selected_template = random.choice(templates)  # Selecciona un template aleatorio
-    else:
-        selected_template = None  # Maneja el caso en el que no haya templates
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        profile = self.get_object()
 
-    context = {
-        'projects': projects,
-        'selected_template': selected_template,
-    }
-
-    return render(request, 'home.html', context)  # Renderiza el template seleccionado o uno por defecto
-
-
-def egg_view(request):
-    projects = Project.objects.all()  # Obtén todos los proyectos de la base de datos
-    templates = Template.objects.filter(easter_egg=True)  # Filtra templates donde easter_egg es True
-
-    if templates.exists():  # Verifica si hay templates disponibles
-        selected_template = random.choice(templates)  # Selecciona un template aleatorio
-    else:
-        selected_template = None  # Maneja el caso en el que no haya templates
-
-    context = {
-        'projects': projects,
-        'selected_template': selected_template,
-    }
-
-    return render(request, 'home_egg.html', context)  # Renderiza el template seleccionado o uno por defecto
+        # Agregar la información relacionada
+        context['skills'] = profile.skills.all()
+        context['languages'] = profile.languages.all()
+        context['interests'] = profile.interests.all()
+        context['projects'] = profile.projects.all()
+        context['education'] = profile.education.all()
+        context['experience'] = profile.experience.all()
+        print(context['experience'])
 
 
+        return context

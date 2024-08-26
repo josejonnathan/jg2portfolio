@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-^htlz#q8fi_#o*w!drdltgls563(p)9zs9ylj=(%cr+(ux6ug5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.178.95', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['192.168.178.95', '192.168.178.29', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -28,8 +28,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api.apps.ApiConfig',
     'rest_framework',
+    'drf_yasg',
     'rest_framework.authtoken',
     'frontend.apps.FrontendConfig',
+    'curriculum.apps.CurriculumConfig',
 ]
 
 MIDDLEWARE = [
@@ -119,3 +121,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# rest-framework
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="{{ selected_template.font.url }}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container" style="color: {% if selected_template.text_light %}{{ selected_template.colors.light }}{% else %}inherit{% endif %};">
+    <div class="row">
+        <!-- Primera Columna (Imagen Principal) -->
+        <div class="col-md-3 col-12 p-2">
+            <div class="main-info sticky-top" style="background-color: {{ selected_template.colors.primary }}; padding: 15px;"> <!-- Clase sticky-top para hacer que la columna sea fija -->
+                <div class="image-crop">
+                    <img class="img-fluid flip image-crop" src="{{ selected_template.hero_image.image.url }}" alt="{{ project.name }}">
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Segunda Columna (Información Adicional) -->
+        <div class="col-md-9 col-12 p-2">
+            <div class="about-info text-center mb-4 text-dark" style="background-color: {{ selected_template.colors.secondary }}; padding: 15px;">
+                <h2 style="font-family: {{ selected_template.font }};">{{ selected_template.name }}</h2>
+                <p>{{ selected_template.colors }}</p>
+                <p>{{ selected_template.font }}</p>
+            </div>
+
+            <!-- Tercera Columna (Tarjetas de Proyectos) -->
+            <div class="main-info" style="background-image: url('{{ selected_template.hero_background_image.image.url }}'); background-size: cover; background-position: center; background-attachment: fixed; background-color: {{ selected_template.colors.tertiary }};">
+                <h1 class="text-center my-3" style="font-family: {{ selected_template.font }};">Some of my projects</h1>
+                <div class="row">
+                    {% for project in projects %}
+                    <div class="col-md-6 col-12 mb-4 px-2">
+                        <div class="card h-100 d-flex flex-row" style="background-color: rgba(68, 68, 68, 0.697);">
+                            <div class="col-4 p-0">
+                                <a href="{{ project.url }}">
+                                    <img class="img-fluid p-3" src="{{ project.image.url }}" alt="{{ project.name }}" style="object-fit: cover; height: 100%; width: 100%;">
+                                </a>
+                            </div>
+                            <div class="col-8 d-flex flex-column justify-content-center">
+                                <div class="card-body text-light">
+                                    <a href="{{ project.url }}" style="text-decoration: none; color: white;">
+                                        <h4 class="card-title" style="font-family: {{ selected_template.font }};">{{ project.name }}</h4>
+                                    </a>       
+                                    <p class="card-text font-italic">
+                                        {{ project.description|slice:":120" }}{% if project.description|length > 120 %}...{% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

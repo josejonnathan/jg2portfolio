@@ -86,7 +86,7 @@
 
 
 .body{
-    background-color: #ffffff;
+    background-color: #363636;
 }
 
 .main-row{
@@ -126,4 +126,39 @@
 }
 
 
+/* home2 */
 
+
+.main-info{
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.about-info{
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.image-crop {
+    width: 200px; /* Ancho del contenedor */
+    height: 200px; /* Altura del contenedor */
+    overflow: hidden; /* Oculta las partes de la imagen que están fuera del contenedor */
+}
+
+.image-crop img {
+    width: 100%; /* Ancho de la imagen para que llene el contenedor */
+    height: 100%; /* Altura de la imagen para que llene el contenedor */
+    object-fit: cover; /* Recorta la imagen para llenar el contenedor sin deformarla */
+    object-position: left; /* Posiciona la imagen en el centro del contenedor */
+}
+
+.general-button{
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    color: white;
+}
