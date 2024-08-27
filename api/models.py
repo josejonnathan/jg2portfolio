@@ -43,6 +43,7 @@ class Font(models.Model):
 class Template(models.Model):
     name = models.CharField(max_length=100, help_text="Name of the template")
     font = models.ForeignKey(Font, on_delete=models.SET_NULL, null=True, blank=True, help_text="Font for the template")
+    body_font = models.ForeignKey(Font, on_delete=models.SET_NULL, null=True, blank=True, related_name='body_font', help_text="Body font for the template")
     colors = models.ForeignKey(Colors, on_delete=models.SET_NULL, null=True, blank=True, help_text="Color scheme for the template")
     hero_image = models.ForeignKey(HeroImage, on_delete=models.SET_NULL, null=True, blank=True, help_text="Hero image for the template")
     hero_background_image = models.ForeignKey(HeroBackgroundImage, on_delete=models.SET_NULL, null=True, blank=True, help_text="Hero background image for the template")

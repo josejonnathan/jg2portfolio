@@ -4,107 +4,142 @@
 {% block head %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="{{ selected_template.font.url }}" rel="stylesheet">
+<link href="{{ profile.template.font.url }}" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
 {% endblock %}
 
 {% block content %}
 
-<div class="container" style="color: {% if selected_template.text_light %}{{ selected_template.colors.light }}{% else %}inherit{% endif %};">
+<div class="container" style="color: black;">
     <div class="row">
         <!-- Primera Columna (Imagen Principal) -->
-        <div class="col-md-3 col-12 p-2">
-            <div class="main-info sticky-top" style="background-color: {{ selected_template.colors.primary }}; padding: 15px;"> <!-- Clase sticky-top para hacer que la columna sea fija -->
-                <h3 class="text-center">{{ profile.name }}</h3>
-                <div class="image-crop ">
+        <div class="col-md-3 col-12 p-2" style="color: black;">
+            <div class="main-info sticky-top" style="background-color: {{ profile.template.colors.primary }}; padding: 15px;"> <!-- Clase sticky-top para hacer que la columna sea fija -->
+                <h2 class="text-center my-3" style="font-family: {{ profile.template.font }};">{{ profile.name }}</h2>
+                {% if profile.title %}
+                <p class="text-center">{{ profile.title }}</p>
+                {% endif %}
+                {% if profile.picture %}
+                <div class="profile-image text-center my-3">
                     <img class="img-fluid flip image-crop" src="{{ profile.picture.url }}" alt="{{ project.name }}">
                 </div>
+                {% endif %}
                 <!-- socials -->
-                <div class="d-flex p-2">
+                <div class="d-flex flex-wrap justify-content-center social-icon p-2">
                     {% if profile.website %}
-                    <a href="{{ profile.website }}"><img class="img-fluid p-2" src="{% static 'images/website.png' %}" alt=""></a>
+                    <a href="{{ profile.website }}"><img class=" p-2" src="{% static 'images/website.png' %}" alt=""></a>
                     {% endif %}
                     {% if profile.linkedin %}
-                    <a href="{{ profile.linkedin }}"><img class="img-fluid p-2" src="{% static 'images/linkedin.png' %}" alt=""></a>
+                    <a href="{{ profile.linkedin }}"><img class=" p-2" src="{% static 'images/linkedin.png' %}" alt=""></a>
                     {% endif %}
                     {% if profile.github %}
-                    <a href="{{ profile.github }}"><img class="img-fluid p-2"  src="{% static 'images/git.png' %}" alt=""></a>
+                    <a href="{{ profile.github }}"><img class=" p-2"  src="{% static 'images/git.png' %}" alt=""></a>
                     {% endif %}
                     {% if profile.twitter %}
-                    <a href="{{ profile.twitter }}"><img class="img-fluid p-2"  src="{% static 'images/x.png' %}" alt=""></a>
+                    <a href="{{ profile.twitter }}"><img class=" p-2"  src="{% static 'images/x.png' %}" alt=""></a>
                     {% endif %}
                     {% if profile.facebook %}
-                    <a href="{{ profile.facebook }}"><img class="img-fluid p-2"  src="{% static 'images/facebook.png' %}" alt=""></a>
+                    <a href="{{ profile.facebook }}"><img class=" p-2"  src="{% static 'images/facebook.png' %}" alt=""></a>
                     {% endif %}
                     {% if profile.instagram %}
-                    <a href="{{ profile.instagram }}"><img class="img-fluid p-2"  src="{% static 'images/instagram.png' %}" alt=""></a>
+                    <a href="{{ profile.instagram }}"><img class=" p-2"  src="{% static 'images/instagram.png' %}" alt=""></a>
                     {% endif %}
                 </div>
                 
-                <p>{{ profile.email }}</p>
-                <p>{{ profile.phone }}</p>
-                <p>{{ profile.address }}</p>
-                <p>Profile: {{ profile.bio }}</p>
 
-                <h5>Skills</h5>
+                <p><img class="bullet-icon" src="{% static 'images/mail.png' %}" alt=""> <a href="mailto:"{{ profile.email }}" class="text-link-black"> {{ profile.email }}</a></p>
+                {% if profile.phone %}
+                <p><img class="bullet-icon" src="{% static 'images/phone.png' %}" alt=""> {{ profile.phone }}</p>
+                {% endif %}
+                {% if profile.address %}
+                <p><img class="bullet-icon" src="{% static 'images/location.png' %}" alt=""> {{ profile.address }}</p>
+                {% endif %}
+                
+
+                <h5 style="font-family: {{ profile.template.font }};"> <img class="bullet-icon" src="{% static 'images/profile.png' %}" alt=""> Profile</h5>
+                <p>{{ profile.bio }}</p>
+                
+                {% if skills %}
+                <h5 style="font-family: {{ profile.template.font }};"><img class="bullet-icon" src="{% static 'images/skills.png' %}" alt=""> Skills</h5>
                 <div class="d-flex flex-wrap">
                     {% for skill in skills %}
                     <span class="badge badge-secondary m-1 text-dark">{{ skill.name }}</span>
                     {% endfor %}
                 </div>
-                <h5>Languages</h5>
+                {% endif %}
+                {% if languages %}
+                <h5 style="font-family: {{ profile.template.font }};"><img class="bullet-icon" src="{% static 'images/languages.png' %}" alt=""> Languages</h5>
                 <div class="d-flex flex-wrap">
                     {% for language in languages %}
                     <span class="badge badge-secondary m-1 text-dark">{{ language.name }} - {{ language.level}}</span>
                     {% endfor %}
                 </div>
+                {% endif %}
+                {% if interests %}
+                <h5 style="font-family: {{ profile.template.font }};"><img class="bullet-icon" src="{% static 'images/interest2.png' %}" alt=""> Interests</h5>
+                <div class="d-flex flex-wrap">
+                    {% for interest in interests %}
+                    <span class="badge badge-secondary m-1 text-dark">{{ interest.name }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
         </div>
 
         <!-- Segunda Columna (Información Adicional) -->
         <div class="col-md-9 col-12 p-2">
             <!-- education -->
-            <div class="about-info text-center mb-4 text-dark" style="background-color: {{ selected_template.colors.secondary }}; padding: 15px;">
-                <h3 style="font-family: {{ selected_template.font }};">Education</h3>
+            <div class="about-info text-center mb-4 p-4" 
+            style="background-color: {{ profile.template.colors.secondary }}; 
+            padding: 15px; 
+            color:  black;">
+                <img class="bullet-icon" src="{% static 'images/edu.png' %}" alt="">
+                <h2 class="my-3" style="font-family: {{ profile.template.font }};"> Education</h2>
                 {% for education in education %}
-                <div class="row">
+                <div class="row mb-2">
                     <div class="col-12">
-                        <h5>{{ education.degree }}, {{ education.institution }} - {{ education.start_date }} - {{ education.end_date }}</h5>
-                        <p></p>
-                        <p>{{ education.description }}</p>
+                        <h5 class="text-end" style="font-family: {{ profile.template.font }};">{{ education.degree }}, {{ education.institution }} - {{ education.start_date }} - {{ education.end_date }}</h5>
+                        <p class="text-start" >{{ education.description }}</p>
                     </div>
                 </div>
                 {% endfor %}
             </div>
             <!-- expierence -->
-            <div class="about-info text-center mb-4 text-dark" style="background-color: {{ selected_template.colors.secondary }}; padding: 15px;">
-                <h3 style="font-family: {{ selected_template.font }};">Experience</h3>
+            <div class="about-info text-center mb-4 p-4" 
+            style="background-color: {{ profile.template.colors.secondary }}; 
+            padding: 15px; 
+            color: black ;">
+                <img class="bullet-icon" src="{% static 'images/job.png' %}" alt="">
+                <h2 class="my-3" style="font-family: {{ profile.template.font }};"> Experience</h2>
                 {% for job in experience %}
-                <div class="row">
+                <div class="row mb-2">
                     <div class="col-12">
-                        <h5>{{ job.job_title }}, {{ job.company }} - {{ job.start_date }} - {{ job.end_date }}</h5>
-                        <p></p>
-                        <p>{{ job.description }}</p>
+                        <h5 class="text-end" style="font-family: {{ profile.template.font }};">{{ job.job_title }}, {{ job.company }} - {{ job.start_date }} - {{ job.end_date }}</h5>
+                        <p class="text-start">{{ job.description }}</p>
                     </div>
                 </div>
                 {% endfor %}
             </div>
 
             <!-- Tercera Columna (Tarjetas de Proyectos) -->
-            <div class="main-info" style="background-image: url('{{ selected_template.hero_background_image.image.url }}'); background-size: cover; background-position: center; background-attachment: fixed; background-color: {{ selected_template.colors.tertiary }};">
-                <h3 class="text-center my-3" style="font-family: {{ selected_template.font }};">Some of my projects</h3>
+            {% if projects %} 
+            <div class="about-info text-center" style="background-image: url('{{ selected_template.hero_background_image.image.url }}'); background-size: cover; background-position: center; background-attachment: fixed; background-color: {{ profile.template.colors.tertiary }};">
+                <img class="bullet-icon" src="{% static 'images/projects_w.png' %}" alt="">
+                <h2 class="text-center my-3 text-light" style="font-family: {{ profile.template.font }};">Some of my projects</h2>
                 <div class="row">
                     {% for project in projects %}
-                    <div class="col-md-6 col-12 mb-4 px-2">
-                        <div class="card h-100 d-flex flex-row" style="background-color: rgba(68, 68, 68, 0.697);">
+                    <div class="col-md-6 col-12 my-4 px-2">
+                        <div class="card animated-card h-100 d-flex flex-row text-dark" style="background-color: {{ profile.template.colors.secondary }};">
                             <div class="col-4 p-0">
                                 <a href="{{ project.url }}">
                                     <img class="img-fluid p-3" src="{{ project.image.url }}" alt="{{ project.name }}" style="object-fit: cover; height: 100%; width: 100%;">
                                 </a>
                             </div>
                             <div class="col-8 d-flex flex-column justify-content-center">
-                                <div class="card-body text-light">
-                                    <a href="{{ project.url }}" style="text-decoration: none; color: white;">
+                                <div class="card-body text-dark">
+                                    <a class="text-link" href="{{ project.url }}" style="font-family: {{ profile.template.font }};">
                                         <h5 class="card-title" style="font-family: {{ selected_template.font }};">{{ project.name }}</h5>
                                     </a>       
                                     <p class="card-text font-italic">
@@ -117,6 +152,7 @@
                     {% endfor %}
                 </div>
             </div>
+            {% endif %}
         </div>
     </div>
 </div>

@@ -2,10 +2,12 @@
 
 from django.db import models
 from django.conf import settings
+from api.models import Template
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, blank=True, null=True)
     bio = models.TextField(blank=True)
     email = models.EmailField()
     phone = models.CharField(max_length=20, blank=True)
@@ -17,6 +19,8 @@ class Profile(models.Model):
     instagram = models.URLField(blank=True)
     facebook = models.URLField(blank=True)
     picture = models.ImageField(upload_to='profiles', blank=True, null=True)
+    template = models.ForeignKey(Template, on_delete=models.SET_NULL, blank=True, null=True)
+    background_dark = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

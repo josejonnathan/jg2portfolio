@@ -18,7 +18,6 @@ class CurriculumDetailView(DetailView):
         context['projects'] = profile.projects.all()
         context['education'] = profile.education.all()
         context['experience'] = profile.experience.all()
-        print(context['experience'])
 
 
         return context
