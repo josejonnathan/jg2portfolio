@@ -28,7 +28,7 @@ class Profile(models.Model):
 class Skill(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='skills')
     name = models.CharField(max_length=100)
-    description = models.TextField(blank=True)
+    level = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
@@ -38,7 +38,6 @@ class Language(models.Model):
         ('Basic', 'Basic'),
         ('Intermediate', 'Intermediate'),
         ('Advanced', 'Advanced'),
-        ('Native', 'Native'),
     ]
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='languages')
     name = models.CharField(max_length=100)

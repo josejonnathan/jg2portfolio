@@ -190,3 +190,9 @@
 .animated-card:hover{
     transform: scale(1.04);
 }
+
+.qr-code{
+    border-radius: 15px;
+    width: 100px;
+}
+
