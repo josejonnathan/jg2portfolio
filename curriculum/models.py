@@ -4,6 +4,15 @@ from django.db import models
 from django.conf import settings
 from api.models import Template
 
+
+class HTMLTemplate(models.Model):
+    name = models.CharField(max_length=100)
+    html = models.FileField(upload_to='templates')
+    
+    def __str__(self):
+        return self.name
+    
+
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
@@ -21,6 +30,7 @@ class Profile(models.Model):
     picture = models.ImageField(upload_to='profiles', blank=True, null=True)
     template = models.ForeignKey(Template, on_delete=models.SET_NULL, blank=True, null=True)
     background_dark = models.BooleanField(default=False)
+    htmltemplate = models.ForeignKey(HTMLTemplate, on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -93,6 +103,8 @@ class Experience(models.Model):
         if self.end_date and self.end_date < self.start_date:
             raise ValidationError(_('End date cannot be earlier than start date.'))
 
-
     def __str__(self):
         return f"{self.job_title} at {self.company}"
+    
+
+

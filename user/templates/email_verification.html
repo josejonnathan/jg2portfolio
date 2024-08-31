@@ -1,0 +1,6 @@
+{% autoescape off %}
+Hola {{ user.username }},
+Por favor haz clic en el siguiente enlace para verificar tu dirección de correo electrónico y completar tu registro:
+<a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">Activar tu cuenta</a>
+{% endautoescape %}
+
