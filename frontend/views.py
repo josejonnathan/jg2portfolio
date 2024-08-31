@@ -24,7 +24,7 @@ class CurriculumDetailView(DetailView):
             return [profile.htmltemplate.html.path]
         else:
             # Devuelve el template por defecto si no se seleccionó HTMLTemplate
-            return ['curriculum_detail2.html']
+            return ['curriculum_detail.html']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

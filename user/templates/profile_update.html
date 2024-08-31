@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Actualizar Perfil</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }} <!-- Renderiza el formulario usando el método as_p para etiquetas <p> -->
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+</div>
+{% endblock %}

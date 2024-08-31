@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <h2 class="text-center">Welcome {{ user.username }}</h2>
+        <p>
+        <a href="{% url 'curriculum_detail' profile.pk %}" class="btn btn-info">Your CV</a>
+        <a href="{% url 'logout' %}" class="btn btn-info">Logout</a>
+    </p>
+    <div class="col-12"><hr ></div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            {% if profile.picture %}
+            <img class="img-fluid rounded-circle" src="{{ profile.picture.url }}" alt="{{ profile.name }}" class="img-fluid">
+            {% endif %}
+            <h3>Your Profile</h3> <a href="{% url 'profile_update' %}" class="btn btn-info">Update</a>
+
+            <p>{{ profile.bio }}</p>
+        </div>
+
+        <div class="col-md-6">
+            <h3>Details</h3>
+            <p>Title: {{ profile.title }}</p>
+            <p>Name: {{ profile.name }}</p>
+            <p>Email: {{ profile.email }}</p>
+            <p>Phone: {{ profile.phone }}</p>
+            <p>Address: {{ profile.address }}</p>
+
+            <h3>Links</h3>
+            <p>Website: <a href="{{ profile.website }}">{{ profile.website }}</a> </p>
+            <p>LinkedIn: {{ profile.linkedin }}</p>
+            <p>GitHub: <a href="{{ profile.github }}" target="_blank">{{ profile.github }}</a></p>
+            <p>Twitter: <a href="{{ profile.twitter }}" target="_blank">{{ profile.twitter }}</a></p>
+            <p>Facebook: <a href="{{ profile.facebook }}" target="_blank">{{ profile.facebook }}</a></p>
+            <p>Instagram: <a href="{{ profile.instagram }}" target="_blank">{{ profile.instagram }}</a> </p>
+        </div>
+        <div class="col-12"><hr ></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Skills</h3>
+            <ul>
+                {% for skill in skills %}
+                <li>{{ skill.name }} - {{ skill.level }}%</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3>Languages</h3>
+            <ul>
+                {% for language in languages %}
+                <li>{{ language.name }} - {{ language.level }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3>Interests</h3>
+            <ul>
+                {% for interest in interests %}
+                <li>{{ interest.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-12"><hr ></div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Education</h3>
+                <ul>
+                    {% for education in education %}
+                    <h5>{{ education.degree }} -{{ education.institution }}</h5>
+                    <p>{{ education.start_date }} - {{ education.end_date }}</p> 
+                    <p>{{ education.description }}</p>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Experience</h3>
+                <ul>
+                    {% for job in experience %}
+                    <h5>{{ job.job_title }} - {{ job.company }}</h5>
+                    <p>{{ job.start_date }} - {{ job.end_date }}</p>
+                    <p>{{ job.description }}</p>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-12"><hr ></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Projects</h3>
+            <ul>
+                
+                {% for project in projects %}
+                <div class="row d-flex flex-wrap justify-content-center">
+                    <div class="col-7">
+                        <a href="{{ project.url }}"><h5>{{ project.name }}</h5></a>
+                        <p>{{ project.description }}</p>
+                    </div>
+                    <div class="col-3">
+                        <img src="{{ project.image.url }}" alt="{{ project.name }}" class="img-fluid">
+                    </div>
+                </div>
+                
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="col-12"><hr ></div>
+    </div>
+
+    
+        
+    
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Verify your email</h2>
+    <p>We have sent you an email with a link to verify your email address. Please check your inbox.</p>
+    <p>If you do not receive the email within a few minutes, please check your spam folder.</p>
+    <a href="{% url 'login' %}">Login</a>
+</div>
+{% endblock %}
