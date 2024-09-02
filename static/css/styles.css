@@ -140,21 +140,58 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.profile-image{
+.profile-image-round{
     border-radius: 50%;
+    max-width: 400px;
     /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); */
 }
 
-.profile-image img{
+.profile-image-round img{
     border-radius: 50%;
+}
+
+.profile-image-square{
+    border-radius: 15px;
+    max-width: 350px;
+
+}
+
+.profile-image-square img{
+    border-radius: 10px;
 }
 
 .text-link-black{
     color: black;
     text-decoration: none;
+    transition: 0.3s;
+
+}
+
+.text-link-black:hover{
+    color: #ff9500;
+    text-decoration: none;
 }
 
 .text-link-white{
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+
+}
+
+.text-link-white:hover{
+    color: #ff9500;
+    text-decoration: none;
+}
+
+.text-link-orange{
+    color: #ff9500;
+    text-decoration: none;
+    transition: 0.3s;
+
+}
+
+.text-link-orange:hover{
     color: white;
     text-decoration: none;
 }
@@ -196,3 +233,51 @@
     width: 100px;
 }
 
+
+.general-button-orange{
+    background-color: #ff9500;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 8px;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.general-button-orange:hover{
+    background-color: #ff9500;
+    color: white;
+    transform: scale(1.0);
+}
+
+.general-button-white{
+    background-color: #ffffff;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 8px;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.general-button-white:hover{
+    background-color: #ff9500;
+    color: white;
+    transform: scale(1.0);
+}
+
+.general-button-black{
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 8px;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.general-button-black:hover{
+    background-color: #ff9500;
+    color: white;
+    transform: scale(1.0);
+}

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "CV_base.html" %}
 {% load static %}
 
 {% block head %}
@@ -84,7 +84,7 @@
                 </div>
                 {% if profile.picture %}
                 <div class="text-center mb-4">
-                    <img class="img-fluid rounded-circle" src="{{ profile.picture.url }}" alt="{{ profile.name }}" style="max-width: 150px;">
+                    <img class="img-fluid rounded-circle" src="{{ profile.picture.url }}" alt="{{ profile.name }}" >
                 </div>
                 {% endif %}
                 <div class="contact-info">

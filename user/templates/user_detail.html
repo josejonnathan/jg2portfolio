@@ -1,27 +1,56 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+
+<style>
+    /* Aplica la fuente 'Roboto' a todos los elementos de encabezado (h1, h2, h3, h4, h5, h6) */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Righteous';
+    }
+</style>
+
+{% endblock %}
+
+
+
 
 {% block content %}
-<div class="container mt-5">
-    <div class="row">
+
+
+<div class="container my-5">
+    <div class="row ">
         <h2 class="text-center">Welcome {{ user.username }}</h2>
-        <p>
-        <a href="{% url 'curriculum_detail' profile.pk %}" class="btn btn-info">Your CV</a>
-        <a href="{% url 'logout' %}" class="btn btn-info">Logout</a>
-    </p>
+        <div class="col-12 d-flex flex-wrap justify-content-around my-3">
+            <a href="{% url 'curriculum_detail' profile.pk %}" class="general-button-orange">Your CV</a>
+            <a href="{% url 'profile_template' %}" class="general-button-orange">Customize CV</a>
+            <a href="{% url 'logout' %}" class="general-button-orange">Logout</a>
+        </div>
+    
+
+        
     <div class="col-12"><hr ></div>
     </div>
     
     <div class="row">
+        <div class="col-12 text-center my-3">
+            <h3>Your Profile</h3>
+            <a href="{% url 'profile_update' %}" class="general-button-black my-3">Edit</a>
+        </div>
         <div class="col-md-6">
-            {% if profile.picture %}
-            <img class="img-fluid rounded-circle" src="{{ profile.picture.url }}" alt="{{ profile.name }}" class="img-fluid">
-            {% endif %}
-            <h3>Your Profile</h3> <a href="{% url 'profile_update' %}" class="btn btn-info">Update</a>
+            
+            <div class="text-center">
+                {% if profile.picture %}
+                <img class="img-fluid profile-image-square" src="{{ profile.picture.url }}" alt="{{ profile.name }}">
+                {% endif %}
 
-            <p>{{ profile.bio }}</p>
+            </div>
+            
+
+            <p class="my-3">{{ profile.bio }}</p>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 my-3">
             <h3>Details</h3>
             <p>Title: {{ profile.title }}</p>
             <p>Name: {{ profile.name }}</p>
@@ -30,19 +59,23 @@
             <p>Address: {{ profile.address }}</p>
 
             <h3>Links</h3>
-            <p>Website: <a href="{{ profile.website }}">{{ profile.website }}</a> </p>
-            <p>LinkedIn: {{ profile.linkedin }}</p>
-            <p>GitHub: <a href="{{ profile.github }}" target="_blank">{{ profile.github }}</a></p>
-            <p>Twitter: <a href="{{ profile.twitter }}" target="_blank">{{ profile.twitter }}</a></p>
-            <p>Facebook: <a href="{{ profile.facebook }}" target="_blank">{{ profile.facebook }}</a></p>
-            <p>Instagram: <a href="{{ profile.instagram }}" target="_blank">{{ profile.instagram }}</a> </p>
+            <p>Website: <a class="text-link-black" href="{{ profile.website }}">{{ profile.website }}</a> </p>
+            <p>LinkedIn: <a class="text-link-black" href="{{ profile.linkedin }}">{{ profile.linkedin }}</a> </p>
+            <p>GitHub: <a class="text-link-black" href="{{ profile.github }}" target="_blank">{{ profile.github }}</a></p>
+            <p>Twitter: <a class="text-link-black" href="{{ profile.twitter }}" target="_blank">{{ profile.twitter }}</a></p>
+            <p>Facebook: <a class="text-link-black" href="{{ profile.facebook }}" target="_blank">{{ profile.facebook }}</a></p>
+            <p>Instagram: <a class="text-link-black" href="{{ profile.instagram }}" target="_blank">{{ profile.instagram }}</a> </p>
         </div>
         <div class="col-12"><hr ></div>
     </div>
 
     <div class="row">
         <div class="col-md-4">
-            <h3>Skills</h3>
+            <div class="d-flex">
+                <h3>Skills</h3>
+                <a href="{% url 'skill_create' %}" class="general-button-black mx-3">New</a>
+            </div>
+            
             <ul>
                 {% for skill in skills %}
                 <li>{{ skill.name }} - {{ skill.level }}%</li>
@@ -98,11 +131,11 @@
                 {% for project in projects %}
                 <div class="row d-flex flex-wrap justify-content-center">
                     <div class="col-7">
-                        <a href="{{ project.url }}"><h5>{{ project.name }}</h5></a>
+                        <a class="text-link-black" href="{{ project.url }}"><h5>{{ project.name }}</h5></a>
                         <p>{{ project.description }}</p>
                     </div>
                     <div class="col-3">
-                        <img src="{{ project.image.url }}" alt="{{ project.name }}" class="img-fluid">
+                        <a class="text-link-black" href="{{ project.url }}"><img src="{{ project.image.url }}" alt="{{ project.name }}" class="img-fluid"></a>
                     </div>
                 </div>
                 

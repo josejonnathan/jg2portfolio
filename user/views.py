@@ -14,7 +14,7 @@ from django.core.mail import EmailMessage
 from django.urls import reverse, reverse_lazy
 from django.http import HttpResponse
 from django.contrib import messages
-from user.forms import CustomUserCreationForm, ProfileForm
+from user.forms import CustomUserCreationForm, ProfileForm, ProfileTemplateForm, SkillForm
 from django.conf import settings
 from curriculum.models import Profile 
 from curriculum.models import Skill, Language, Interest, Education, Experience, Project
@@ -138,7 +138,6 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = Profile
     form_class = ProfileForm  # Usar el formulario personalizado
     template_name = 'profile_update.html'
-    success_url = reverse_lazy('user_detail')
 
     def get_object(self):
         # Obtener el perfil del usuario autenticado
@@ -147,46 +146,69 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         messages.success(self.request, 'Your profile has been updated successfully!')
         return super().form_valid(form)
+
+    def get_success_url(self):
+        # Redirigir al currículum relacionado con el perfil actualizado
+        return reverse('curriculum_detail', kwargs={'pk': self.object.pk})
     
 
-class SkillListView(LoginRequiredMixin, ListView):
-    model = Skill
-    template_name = 'skill_list.html'
+class ProfileTemplateUpdateView(LoginRequiredMixin, UpdateView):
+    model = Profile
+    form_class = ProfileTemplateForm
+    template_name = 'profile_template_update.html'
 
-    def get_queryset(self):
-        # Obtener las habilidades del perfil del usuario autenticado
-        profile = get_object_or_404(Profile, user=self.request.user)
-        return Skill.objects.filter(profile=profile)
+    def get_object(self):
+        return get_object_or_404(Profile, user=self.request.user)
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Your profile template has been updated successfully!')
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        # Redirigir al currículum relacionado con el perfil actualizado
+        return reverse('curriculum_detail', kwargs={'pk': self.object.pk})
+    
+
+# Skills
 
 # Vista de creación para Skills
 class SkillCreateView(LoginRequiredMixin, CreateView):
     model = Skill
-    fields = ['name', 'level']
+    form_class = SkillForm
     template_name = 'skill_form.html'
-    success_url = reverse_lazy('skill_list')
 
     def form_valid(self, form):
-        # Asignar automáticamente el perfil del usuario autenticado
+        # Asociar la nueva habilidad con el perfil del usuario actual
         form.instance.profile = get_object_or_404(Profile, user=self.request.user)
-        messages.success(self.request, 'Skill added successfully!')
+        messages.success(self.request, 'Skill created successfully!')
         return super().form_valid(form)
+
+    def get_success_url(self):
+        # Redirigir al currículum detallado del perfil actual
+        return reverse_lazy('curriculum_detail', kwargs={'pk': self.object.profile.pk})
 
 # Vista de actualización para Skills
 class SkillUpdateView(LoginRequiredMixin, UpdateView):
     model = Skill
-    fields = ['name', 'level']
+    form_class = SkillForm
     template_name = 'skill_form.html'
-    success_url = reverse_lazy('skill_list')
 
     def form_valid(self, form):
         messages.success(self.request, 'Skill updated successfully!')
         return super().form_valid(form)
 
+    def get_success_url(self):
+        # Redirigir al currículum detallado del perfil actual
+        return reverse_lazy('curriculum_detail', kwargs={'pk': self.object.profile.pk})
+
 # Vista de eliminación para Skills
 class SkillDeleteView(LoginRequiredMixin, DeleteView):
     model = Skill
     template_name = 'skill_confirm_delete.html'
-    success_url = reverse_lazy('skill_list')
+
+    def get_success_url(self):
+        # Redirigir al currículum detallado del perfil actual
+        return reverse_lazy('curriculum_detail', kwargs={'pk': self.object.profile.pk})
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, 'Skill deleted successfully!')

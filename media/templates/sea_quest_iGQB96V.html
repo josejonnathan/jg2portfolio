@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "CV_base.html" %}
 {% load static %}
 
 {% block head %}
@@ -22,7 +22,7 @@
                 <p class="text-center">{{ profile.title }}</p>
                 {% endif %}
                 {% if profile.picture %}
-                <div class="profile-image text-center my-3">
+                <div class="profile-image-round text-center my-3">
                     <img class="img-fluid flip image-crop" src="{{ profile.picture.url }}" alt="{{ project.name }}">
                 </div>
                 {% endif %}

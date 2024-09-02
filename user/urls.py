@@ -19,9 +19,9 @@ urlpatterns = [
     # Rutas para el perfil de usuario
     path('details/', user_views.UserDetailView.as_view(), name='user_detail'),  
     path('profile/update/', user_views.ProfileUpdateView.as_view(), name='profile_update'),
+    path('profile/template/', user_views.ProfileTemplateUpdateView.as_view(), name='profile_template'),
     
     # Rutas para Skills
-    path('skills/', user_views.SkillListView.as_view(), name='skill_list'),
     path('skills/create/', user_views.SkillCreateView.as_view(), name='skill_create'),
     path('skills/update/<int:pk>/', user_views.SkillUpdateView.as_view(), name='skill_update'),
     path('skills/delete/<int:pk>/', user_views.SkillDeleteView.as_view(), name='skill_delete'),

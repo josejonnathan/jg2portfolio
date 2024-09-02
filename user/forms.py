@@ -6,24 +6,30 @@ from curriculum.models import Skill, Language, Interest, Education, Experience, 
 
 
 class CustomUserCreationForm(UserCreationForm):
-    email = forms.EmailField(required=True, help_text='Requerido. Introduzca una dirección de correo electrónico válida.')
+    email = forms.EmailField(
+        required=True,
+        help_text='Required. Inform a valid email address.',
+        widget=forms.EmailInput(attrs={'class': 'form-control'})  # Aplicar Bootstrap aquí
+    )
 
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control'}),  # Aplicar Bootstrap aquí
+        }
 
-    def save(self, commit=True):
-        user = super().save(commit=False)
-        user.email = self.cleaned_data['email']
-        if commit:
-            user.save()
-        return user
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Aplicar la clase 'form-control' a los campos de contraseña manualmente
+        self.fields['password1'].widget.attrs.update({'class': 'form-control'})
+        self.fields['password2'].widget.attrs.update({'class': 'form-control'})
     
 
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['name', 'title', 'bio', 'email', 'phone', 'address', 'website', 'linkedin', 'github', 'twitter', 'instagram', 'facebook', 'picture', 'template', 'background_dark', 'htmltemplate']
+        fields = ['name', 'title', 'bio', 'email', 'phone', 'address', 'website', 'linkedin', 'github', 'twitter', 'instagram', 'facebook', 'picture']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'title': forms.TextInput(attrs={'class': 'form-control'}),
@@ -38,7 +44,23 @@ class ProfileForm(forms.ModelForm):
             'instagram': forms.URLInput(attrs={'class': 'form-control'}),
             'facebook': forms.URLInput(attrs={'class': 'form-control'}),
             'picture': forms.ClearableFileInput(attrs={'class': 'form-control'}),
-            'template': forms.Select(attrs={'class': 'form-control'}),
+        }
+
+class ProfileTemplateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['template', 'background_dark', 'htmltemplate']
+        widgets = {
+            'template': forms.Select(attrs={'class': 'form-control'},),
             'background_dark': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
             'htmltemplate': forms.Select(attrs={'class': 'form-control'}),
+        }
+
+class SkillForm(forms.ModelForm):
+    class Meta:
+        model = Skill
+        fields = ['name', 'level']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'level': forms.NumberInput(attrs={'class': 'form-control'}),
         }
