@@ -25,36 +25,35 @@ urlpatterns = [
     path('skills/create/', user_views.SkillCreateView.as_view(), name='skill_create'),
     path('skills/update/<int:pk>/', user_views.SkillUpdateView.as_view(), name='skill_update'),
     path('skills/delete/<int:pk>/', user_views.SkillDeleteView.as_view(), name='skill_delete'),
-
+ 
     # Rutas para Languages
-    path('languages/', user_views.LanguageListView.as_view(), name='language_list'),
     path('languages/create/', user_views.LanguageCreateView.as_view(), name='language_create'),
     path('languages/update/<int:pk>/', user_views.LanguageUpdateView.as_view(), name='language_update'),
     path('languages/delete/<int:pk>/', user_views.LanguageDeleteView.as_view(), name='language_delete'),
 
     # Rutas para Interests
-    path('interests/', user_views.InterestListView.as_view(), name='interest_list'),
     path('interests/create/', user_views.InterestCreateView.as_view(), name='interest_create'),
     path('interests/update/<int:pk>/', user_views.InterestUpdateView.as_view(), name='interest_update'),
     path('interests/delete/<int:pk>/', user_views.InterestDeleteView.as_view(), name='interest_delete'),
 
     # Rutas para Education
-    path('education/', user_views.EducationListView.as_view(), name='education_list'),
     path('education/create/', user_views.EducationCreateView.as_view(), name='education_create'),
     path('education/update/<int:pk>/', user_views.EducationUpdateView.as_view(), name='education_update'),
     path('education/delete/<int:pk>/', user_views.EducationDeleteView.as_view(), name='education_delete'),
 
     # Rutas para Experience
-    path('experience/', user_views.ExperienceListView.as_view(), name='experience_list'),
     path('experience/create/', user_views.ExperienceCreateView.as_view(), name='experience_create'),
     path('experience/update/<int:pk>/', user_views.ExperienceUpdateView.as_view(), name='experience_update'),
     path('experience/delete/<int:pk>/', user_views.ExperienceDeleteView.as_view(), name='experience_delete'),
 
     # Rutas para Projects
-    path('projects/', user_views.ProjectListView.as_view(), name='project_list'),
     path('projects/create/', user_views.ProjectCreateView.as_view(), name='project_create'),
     path('projects/update/<int:pk>/', user_views.ProjectUpdateView.as_view(), name='project_update'),
     path('projects/delete/<int:pk>/', user_views.ProjectDeleteView.as_view(), name='project_delete'),
+
+    path('select-theme/', user_views.TemplateSelectionView.as_view(), name='theme_selection'),
+    path('select-theme/<int:template_id>/', user_views.select_template, name='select_theme'),
+
 
 ]
 

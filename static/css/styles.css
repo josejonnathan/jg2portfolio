@@ -239,6 +239,7 @@
     color: black;
     border: none;
     border-radius: 10px;
+    display: inline-block;
     padding: 8px 8px;
     transition: 0.3s;
     text-decoration: none;
@@ -255,6 +256,7 @@
     color: black;
     border: none;
     border-radius: 10px;
+    display: inline-block;
     padding: 8px 8px;
     transition: 0.3s;
     text-decoration: none;
@@ -263,7 +265,6 @@
 .general-button-white:hover{
     background-color: #ff9500;
     color: white;
-    transform: scale(1.0);
 }
 
 .general-button-black{
@@ -271,13 +272,22 @@
     color: white;
     border: none;
     border-radius: 10px;
+    display: inline-block;
     padding: 8px 8px;
     transition: 0.3s;
     text-decoration: none;
 }
 
 .general-button-black:hover{
-    background-color: #ff9500;
-    color: white;
-    transform: scale(1.0);
+    background-color: #000000;
+    color: #ff9500;
+}
+
+.action-icon img{
+    width:20px;
+    transition: 0.3s;
+}
+
+.action-icon img:hover{
+    transform: scale(1.2);
 }

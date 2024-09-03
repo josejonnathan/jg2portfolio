@@ -24,12 +24,15 @@
 </head>
 <body style="background-color: {% if profile.background_dark %} {{ profile.template.colors.dark }} {% else %} {{ profile.template.colors.light }} {% endif %}; font-family: {{ profile.template.body_font }}">
 
+{% if request.user == profile.user %}
 <div class="row my-4">
   <div class="col-12 d-flex justify-content-around">
     <a href="{% url 'user_detail' %}" class="general-button-orange">Back to editor</a>
-    <a href="{% url 'profile_template' %}" class="general-button-orange">Customize</a>
+    <a href="{% url 'profile_template' %}" class="general-button-orange">Template Selection</a>
+    <a href="{% url 'theme_selection' %}" class="general-button-orange">Theme Selection</a>
   </div>
 </div>
+{% endif %}
 
 
     {% block content %}  

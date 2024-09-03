@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-    <h2>Activation Complete</h2>
-    <p>Your account has been activated successfully. You can now login to your account.</p>
-    <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+<div class="row my-4">
+    <div class="col-md-5 offset-md-3">
+        <h2>Activation Complete</h2>
+        <p>Your account has been activated successfully. You can now login to your account.</p>
+        <a href="{% url 'login' %}" class="general-button-orange my-3">Login</a>
+    </div>
 </div>
 {% endblock %}

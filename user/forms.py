@@ -49,11 +49,14 @@ class ProfileForm(forms.ModelForm):
 class ProfileTemplateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['template', 'background_dark', 'htmltemplate']
+        fields = ['background_dark', 'htmltemplate']
         widgets = {
-            'template': forms.Select(attrs={'class': 'form-control'},),
             'background_dark': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
             'htmltemplate': forms.Select(attrs={'class': 'form-control'}),
+        }
+        labels = {
+            'background_dark': 'Dark Background',
+            'htmltemplate': 'Template',
         }
 
 class SkillForm(forms.ModelForm):
@@ -63,4 +66,60 @@ class SkillForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'level': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
+
+class LanguageForm(forms.ModelForm):
+    class Meta:
+        model = Language
+        fields = ['name', 'level']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'level': forms.Select(attrs={'class': 'form-control'}),  # Cambia esto si tienes un widget diferente para 'level'
+        }
+
+class InterestForm(forms.ModelForm):
+    class Meta:
+        model = Interest
+        fields = ['name']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+
+class EducationForm(forms.ModelForm):
+    class Meta:
+        model = Education
+        fields = ['institution', 'degree', 'start_date', 'end_date', 'description']
+        widgets = {
+            'institution': forms.TextInput(attrs={'class': 'form-control'}),
+            'degree': forms.TextInput(attrs={'class': 'form-control'}),
+            'start_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'end_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+        }
+
+class ExperienceForm(forms.ModelForm):
+    class Meta:
+        model = Experience
+        fields = ['job_title', 'company', 'start_date', 'end_date', 'description']
+        widgets = {
+            'job_title': forms.TextInput(attrs={'class': 'form-control'}),
+            'company': forms.TextInput(attrs={'class': 'form-control'}),
+            'start_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'end_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+        }
+
+
+class ProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ['name', 'description', 'start_date', 'end_date', 'url', 'image']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+            'start_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'end_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'url': forms.URLInput(attrs={'class': 'form-control'}),
+            'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
         }

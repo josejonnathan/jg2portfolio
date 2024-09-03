@@ -19,7 +19,7 @@
                 </div>
                 {% if profile.picture %}
                 <div class="text-center mb-4">
-                    <img class="img-fluid rounded " src="{{ profile.picture.url }}" alt="{{ profile.name }}" >
+                    <img class="img-fluid profile-image-square" src="{{ profile.picture.url }}" alt="{{ profile.name }}" style="max-width: 150px;">
                 </div>
                 {% endif %}
                 <div class="contact-info">
@@ -108,13 +108,13 @@
         </div>
         <!-- Detalles -->
         <div class="col-md-9 " style="background-color: {{ profile.template.colors.secondary }};">
-            <div class="row justify-content-center text-light p-4" style="background-color: {{ profile.template.colors.tertiary }};">
+            <div class="row justify-content-center p-4" style="background-color: {{ profile.template.colors.tertiary }};">
                 <h4 class="border-bottom pb-2 " style="font-family: {{ profile.template.font }};">PROFILE</h4>
                 <p>{{ profile.bio }}</p>
                 
             </div>
 
-            <div class="row p-4 text-black" style="background-color: {{ profile.template.colors.secondary }};">
+            <div class="row p-4" style="background-color: {{ profile.template.colors.secondary }};">
             <!-- Sección de Educación -->
                 <h4 class="border-bottom pb-2 mt-4" style="font-family: {{ profile.template.font }};">EDUCATION</h4>
                 {% for education in education %}
@@ -145,7 +145,7 @@
             </div>
 
             {% if projects %}
-            <div class="row justify-content-center text-light p-4" style="background-color: {{ profile.template.colors.tertiary }};">
+            <div class="row justify-content-center p-4" style="background-color: {{ profile.template.colors.tertiary }};">
                 <h4 class="border-bottom pb-2 mt-4" style="font-family: {{ profile.template.font }};">PROJECTS</h4>
                 <div class="row d-flex flex-wrap justify-content-around">
                     {% for project in projects %}

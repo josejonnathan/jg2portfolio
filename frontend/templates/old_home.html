@@ -14,10 +14,10 @@
 
 <!-- Contenedor Principal -->
 <div id="main-container" class="container-fluid" style="background-color: {{ selected_template.colors.primary }}; overflow: hidden; position: relative;">
-    <div class="main-row d-flex flex-wrap justify-content-end align-items-center" style="background-image: url('{{ selected_template.hero_image.image.url }}'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="main-row d-flex flex-wrap justify-content-end align-items-center" style="background-image: url('{% static 'images/hero_1.png' %}'); background-size: cover; background-position: center; background-attachment: fixed;">
         <!-- Bloque1 -->
         <div id="section1" class="row d-flex justify-content-end align-items-center" 
-             style="height: 100vh; position: relative; z-index: 2;">
+             style="height: 100vh; position: relative; z-index: 2; ">
             <div class="col-md-5 col-12 text-center ms-auto" style="padding-right: 50px;">
                 <h2 style="font-family: {{ selected_template.font }};">HI!, I'M JONNATHAN GONZALEZ</h2>
                 <p style="line-height: 2;">{{ selected_template.name }}transitioning into a

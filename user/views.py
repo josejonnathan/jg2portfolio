@@ -14,11 +14,12 @@ from django.core.mail import EmailMessage
 from django.urls import reverse, reverse_lazy
 from django.http import HttpResponse
 from django.contrib import messages
-from user.forms import CustomUserCreationForm, ProfileForm, ProfileTemplateForm, SkillForm
+from user.forms import CustomUserCreationForm, ProfileForm, ProfileTemplateForm, SkillForm, LanguageForm, InterestForm, EducationForm, ExperienceForm, ProjectForm
 from django.conf import settings
 from curriculum.models import Profile 
 from curriculum.models import Skill, Language, Interest, Education, Experience, Project
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import CreateView, UpdateView, DeleteView, TemplateView
+from api.models import Template
 
 
 
@@ -149,7 +150,7 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         # Redirigir al currículum relacionado con el perfil actualizado
-        return reverse('curriculum_detail', kwargs={'pk': self.object.pk})
+        return reverse('user_detail')
     
 
 class ProfileTemplateUpdateView(LoginRequiredMixin, UpdateView):
@@ -185,7 +186,7 @@ class SkillCreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         # Redirigir al currículum detallado del perfil actual
-        return reverse_lazy('curriculum_detail', kwargs={'pk': self.object.profile.pk})
+        return reverse_lazy('user_detail')
 
 # Vista de actualización para Skills
 class SkillUpdateView(LoginRequiredMixin, UpdateView):
@@ -199,7 +200,7 @@ class SkillUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         # Redirigir al currículum detallado del perfil actual
-        return reverse_lazy('curriculum_detail', kwargs={'pk': self.object.profile.pk})
+        return reverse_lazy('user_detail')
 
 # Vista de eliminación para Skills
 class SkillDeleteView(LoginRequiredMixin, DeleteView):
@@ -208,7 +209,7 @@ class SkillDeleteView(LoginRequiredMixin, DeleteView):
 
     def get_success_url(self):
         # Redirigir al currículum detallado del perfil actual
-        return reverse_lazy('curriculum_detail', kwargs={'pk': self.object.profile.pk})
+        return reverse_lazy('user_detail')
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, 'Skill deleted successfully!')
@@ -216,215 +217,248 @@ class SkillDeleteView(LoginRequiredMixin, DeleteView):
     
 
 
-# Vista de lista para Languages
-class LanguageListView(LoginRequiredMixin, ListView):
-    model = Language
-    template_name = 'language_list.html'
-
-    def get_queryset(self):
-        profile = get_object_or_404(Profile, user=self.request.user)
-        return Language.objects.filter(profile=profile)
-
-# Vista de creación para Languages
 class LanguageCreateView(LoginRequiredMixin, CreateView):
     model = Language
-    fields = ['name', 'level']
+    form_class = LanguageForm
     template_name = 'language_form.html'
-    success_url = reverse_lazy('language_list')
 
     def form_valid(self, form):
+        # Asociar el nuevo idioma con el perfil del usuario actual
         form.instance.profile = get_object_or_404(Profile, user=self.request.user)
-        messages.success(self.request, 'Language added successfully!')
+        messages.success(self.request, 'Language created successfully!')
         return super().form_valid(form)
 
-# Vista de actualización para Languages
+    def get_success_url(self):
+        # Redirigir al currículum detallado del perfil actual
+        return reverse_lazy('user_detail')
+
+
 class LanguageUpdateView(LoginRequiredMixin, UpdateView):
     model = Language
-    fields = ['name', 'level']
+    form_class = LanguageForm
     template_name = 'language_form.html'
-    success_url = reverse_lazy('language_list')
 
     def form_valid(self, form):
         messages.success(self.request, 'Language updated successfully!')
         return super().form_valid(form)
 
-# Vista de eliminación para Languages
+    def get_success_url(self):
+        # Redirigir al currículum detallado del perfil actual
+        return reverse_lazy('user_detail')
+    
+
 class LanguageDeleteView(LoginRequiredMixin, DeleteView):
     model = Language
     template_name = 'language_confirm_delete.html'
-    success_url = reverse_lazy('language_list')
+
+    def get_success_url(self):
+        # Redirigir al currículum detallado del perfil actual
+        return reverse_lazy('user_detail')
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, 'Language deleted successfully!')
         return super().delete(request, *args, **kwargs)
     
-# Vista de lista para Interests
-class InterestListView(LoginRequiredMixin, ListView):
-    model = Interest
-    template_name = 'interest_list.html'
 
-    def get_queryset(self):
-        profile = get_object_or_404(Profile, user=self.request.user)
-        return Interest.objects.filter(profile=profile)
-
-# Vista de creación para Interests
+    
 class InterestCreateView(LoginRequiredMixin, CreateView):
     model = Interest
-    fields = ['name']
+    form_class = InterestForm
     template_name = 'interest_form.html'
-    success_url = reverse_lazy('interest_list')
 
     def form_valid(self, form):
+        # Asociar el nuevo interés con el perfil del usuario actual
         form.instance.profile = get_object_or_404(Profile, user=self.request.user)
-        messages.success(self.request, 'Interest added successfully!')
+        messages.success(self.request, 'Interest created successfully!')
         return super().form_valid(form)
 
-# Vista de actualización para Interests
+    def get_success_url(self):
+        # Redirigir al currículum detallado del perfil actual
+        return reverse_lazy('user_detail')
+    
+
 class InterestUpdateView(LoginRequiredMixin, UpdateView):
     model = Interest
-    fields = ['name']
+    form_class = InterestForm
     template_name = 'interest_form.html'
-    success_url = reverse_lazy('interest_list')
 
     def form_valid(self, form):
         messages.success(self.request, 'Interest updated successfully!')
         return super().form_valid(form)
 
-# Vista de eliminación para Interests
+    def get_success_url(self):
+        # Redirigir al currículum detallado del perfil actual
+        return reverse_lazy('user_detail')
+    
+
 class InterestDeleteView(LoginRequiredMixin, DeleteView):
     model = Interest
     template_name = 'interest_confirm_delete.html'
-    success_url = reverse_lazy('interest_list')
+
+    def get_success_url(self):
+        # Redirigir al currículum detallado del perfil actual
+        return reverse_lazy('user_detail')
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, 'Interest deleted successfully!')
         return super().delete(request, *args, **kwargs)
 
 
-# Vista de lista para Education
-class EducationListView(LoginRequiredMixin, ListView):
-    model = Education
-    template_name = 'education_list.html'
-
-    def get_queryset(self):
-        profile = get_object_or_404(Profile, user=self.request.user)
-        return Education.objects.filter(profile=profile)
-
-# Vista de creación para Education
 class EducationCreateView(LoginRequiredMixin, CreateView):
     model = Education
-    fields = ['institution', 'degree', 'start_date', 'end_date', 'description']
+    form_class = EducationForm
     template_name = 'education_form.html'
-    success_url = reverse_lazy('education_list')
 
     def form_valid(self, form):
+        # Asociar la nueva educación con el perfil del usuario actual
         form.instance.profile = get_object_or_404(Profile, user=self.request.user)
-        messages.success(self.request, 'Education added successfully!')
+        messages.success(self.request, 'Education created successfully!')
         return super().form_valid(form)
 
-# Vista de actualización para Education
+    def get_success_url(self):
+        # Redirigir al currículum detallado del perfil actual
+        return reverse_lazy('user_detail')
+    
+
 class EducationUpdateView(LoginRequiredMixin, UpdateView):
     model = Education
-    fields = ['institution', 'degree', 'start_date', 'end_date', 'description']
+    form_class = EducationForm
     template_name = 'education_form.html'
-    success_url = reverse_lazy('education_list')
 
     def form_valid(self, form):
         messages.success(self.request, 'Education updated successfully!')
         return super().form_valid(form)
 
-# Vista de eliminación para Education
+    def get_success_url(self):
+        # Redirigir al currículum detallado del perfil actual
+        return reverse_lazy('user_detail')
+    
+
 class EducationDeleteView(LoginRequiredMixin, DeleteView):
     model = Education
     template_name = 'education_confirm_delete.html'
-    success_url = reverse_lazy('education_list')
+
+    def get_success_url(self):
+        # Redirigir al currículum detallado del perfil actual
+        return reverse_lazy('user_detail')
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, 'Education deleted successfully!')
         return super().delete(request, *args, **kwargs)
     
 
-# Vista de lista para Experience
-class ExperienceListView(LoginRequiredMixin, ListView):
-    model = Experience
-    template_name = 'experience_list.html'
 
-    def get_queryset(self):
-        profile = get_object_or_404(Profile, user=self.request.user)
-        return Experience.objects.filter(profile=profile)
 
 # Vista de creación para Experience
 class ExperienceCreateView(LoginRequiredMixin, CreateView):
     model = Experience
-    fields = ['job_title', 'company', 'start_date', 'end_date', 'description']
+    form_class = ExperienceForm
     template_name = 'experience_form.html'
-    success_url = reverse_lazy('experience_list')
 
     def form_valid(self, form):
+        # Asociar la nueva experiencia con el perfil del usuario actual
         form.instance.profile = get_object_or_404(Profile, user=self.request.user)
-        messages.success(self.request, 'Experience added successfully!')
+        messages.success(self.request, 'Experience created successfully!')
         return super().form_valid(form)
+
+    def get_success_url(self):
+        # Redirigir a los detalles del usuario actual
+        return reverse_lazy('user_detail')
 
 # Vista de actualización para Experience
 class ExperienceUpdateView(LoginRequiredMixin, UpdateView):
     model = Experience
-    fields = ['job_title', 'company', 'start_date', 'end_date', 'description']
+    form_class = ExperienceForm
     template_name = 'experience_form.html'
-    success_url = reverse_lazy('experience_list')
 
     def form_valid(self, form):
         messages.success(self.request, 'Experience updated successfully!')
         return super().form_valid(form)
 
+    def get_success_url(self):
+        # Redirigir a los detalles del usuario actual
+        return reverse_lazy('user_detail')
+
 # Vista de eliminación para Experience
 class ExperienceDeleteView(LoginRequiredMixin, DeleteView):
     model = Experience
     template_name = 'experience_confirm_delete.html'
-    success_url = reverse_lazy('experience_list')
+
+    def get_success_url(self):
+        # Redirigir a los detalles del usuario actual
+        return reverse_lazy('user_detail')
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, 'Experience deleted successfully!')
         return super().delete(request, *args, **kwargs)
 
 
-# Vista de lista para Projects
-class ProjectListView(LoginRequiredMixin, ListView):
-    model = Project
-    template_name = 'project_list.html'
-
-    def get_queryset(self):
-        profile = get_object_or_404(Profile, user=self.request.user)
-        return Project.objects.filter(profile=profile)
-
-# Vista de creación para Projects
 class ProjectCreateView(LoginRequiredMixin, CreateView):
     model = Project
-    fields = ['name', 'description', 'start_date', 'end_date', 'url', 'image']
+    form_class = ProjectForm
     template_name = 'project_form.html'
-    success_url = reverse_lazy('project_list')
 
     def form_valid(self, form):
+        # Asociar el nuevo proyecto con el perfil del usuario actual
         form.instance.profile = get_object_or_404(Profile, user=self.request.user)
-        messages.success(self.request, 'Project added successfully!')
+        messages.success(self.request, 'Project created successfully!')
         return super().form_valid(form)
 
-# Vista de actualización para Projects
+    def get_success_url(self):
+        # Redirigir a los detalles del usuario actual
+        return reverse_lazy('user_detail')
+    
+
 class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     model = Project
-    fields = ['name', 'description', 'start_date', 'end_date', 'url', 'image']
+    form_class = ProjectForm
     template_name = 'project_form.html'
-    success_url = reverse_lazy('project_list')
 
     def form_valid(self, form):
         messages.success(self.request, 'Project updated successfully!')
         return super().form_valid(form)
 
-# Vista de eliminación para Projects
+    def get_success_url(self):
+        # Redirigir a los detalles del usuario actual
+        return reverse_lazy('user_detail')
+    
+
+
 class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     model = Project
     template_name = 'project_confirm_delete.html'
-    success_url = reverse_lazy('project_list')
+
+    def get_success_url(self):
+        # Redirigir a los detalles del usuario actual
+        return reverse_lazy('user_detail')
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, 'Project deleted successfully!')
         return super().delete(request, *args, **kwargs)
+    
+
+class TemplateSelectionView(TemplateView):
+    template_name = 'template_selection.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['templates'] = Template.objects.all()  
+        return context
+    
+
+def select_template(request, template_id):
+    # Obtener el template seleccionado por el usuario
+    template = get_object_or_404(Template, id=template_id)
+    
+    # Obtener el perfil del usuario autenticado
+    profile = get_object_or_404(Profile, user=request.user)
+    
+    # Asignar el template seleccionado al perfil del usuario y guardar
+    profile.template = template
+    profile.save()
+    
+    # Mensaje de éxito para la selección del template
+    messages.success(request, 'Template selected successfully!')
+    
+    # Redirigir al 'curriculum_detail' usando el pk del perfil
+    return redirect(reverse('curriculum_detail', kwargs={'pk': profile.pk}))

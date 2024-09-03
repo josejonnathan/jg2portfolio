@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% for template in templates %}
+<link href="{{ template.font.url }}" rel="stylesheet">
+{% endfor %}
+{% for template in templates %}
+<link href="{{ template.body_font.url }}" rel="stylesheet">
+{% endfor %}
+{% endblock %}
+
+
+{% block content %}
+<div class="container my-4">
+    <h2 class="text-center">Themes</h2>
+    <div class="row d-flex justify-content-center">
+        {% for template in templates %}
+        <div class="col-md-2 mb-4">
+            <div class="container">
+                <h5 class="text-center" style="font-family: {{ template.font }};">{{ template.name }}</h5>
+                <div class="text-center"style="font-family: {{ template.body_font }};">
+                    <div style="background-color: {{ template.colors.primary }};">Primary</div>
+                    <div style="background-color: {{ template.colors.secondary }};">Secondary</div>
+                    <div class="text-light" style="background-color: {{ template.colors.tertiary }};">Tertiary</div>
+                    <div class="text-light" style="background-color: {{ template.colors.dark }};">Dark</div>
+                    <div style="background-color: {{ template.colors.light }};">Light</div>
+                </div>
+                <form method="post" action="{% url 'select_theme' template.id %}">
+                    {% csrf_token %}
+                    <div class="text-center my-2">
+                        <button type="submit" class="general-button-orange">Set</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

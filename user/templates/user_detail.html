@@ -22,8 +22,7 @@
     <div class="row ">
         <h2 class="text-center">Welcome {{ user.username }}</h2>
         <div class="col-12 d-flex flex-wrap justify-content-around my-3">
-            <a href="{% url 'curriculum_detail' profile.pk %}" class="general-button-orange">Your CV</a>
-            <a href="{% url 'profile_template' %}" class="general-button-orange">Customize CV</a>
+            <a href="{% url 'curriculum_detail' profile.pk %}" class="general-button-orange">Your Public CV</a>
             <a href="{% url 'logout' %}" class="general-button-orange">Logout</a>
         </div>
     
@@ -52,8 +51,8 @@
 
         <div class="col-md-6 my-3">
             <h3>Details</h3>
-            <p>Title: {{ profile.title }}</p>
             <p>Name: {{ profile.name }}</p>
+            <p>Title: {{ profile.title }}</p>
             <p>Email: {{ profile.email }}</p>
             <p>Phone: {{ profile.phone }}</p>
             <p>Address: {{ profile.address }}</p>
@@ -78,43 +77,56 @@
             
             <ul>
                 {% for skill in skills %}
-                <li>{{ skill.name }} - {{ skill.level }}%</li>
+                <li><a class="action-icon" href="{% url 'skill_update' skill.pk %}"><img src="{% static 'images/edit.png' %}" alt="edit"></a> <a class="action-icon mx-2" href="{% url 'skill_delete' skill.pk %}"><img src="{% static 'images/delete.png' %}" alt="edit"></a>{{ skill.name }} - {{ skill.level }}%  </li>
                 {% endfor %}
             </ul>
         </div>
         <div class="col-md-4">
-            <h3>Languages</h3>
+            <div class="d-flex">
+                <h3>Languages</h3>
+                <a href="{% url 'language_create' %}" class="general-button-black mx-3">New</a>
+            </div>
             <ul>
                 {% for language in languages %}
-                <li>{{ language.name }} - {{ language.level }}</li>
+                <li><a class="action-icon" href="{% url 'language_update' language.pk %}"><img src="{% static 'images/edit.png' %}" alt="edit"></a> <a class="action-icon mx-2" href="{% url 'language_delete' language.pk %}"><img src="{% static 'images/delete.png' %}" alt="edit"></a>{{ language.name }} - {{ language.level }}</li>
                 {% endfor %}
             </ul>
         </div>
         <div class="col-md-4">
-            <h3>Interests</h3>
+            <div class="d-flex">
+                <h3>Interests</h3>
+                <a href="{% url 'interest_create' %}" class="general-button-black mx-3">New</a>
+            </div>
             <ul>
                 {% for interest in interests %}
-                <li>{{ interest.name }}</li>
+                <li><a class="action-icon" href="{% url 'interest_update' interest.pk %}"><img src="{% static 'images/edit.png' %}" alt="edit"></a> <a class="action-icon mx-2" href="{% url 'interest_delete' interest.pk %}"><img src="{% static 'images/delete.png' %}" alt="edit"></a>{{ interest.name }}</li>
                 {% endfor %}
             </ul>
         </div>
         <div class="col-12"><hr ></div>
         <div class="row">
             <div class="col-md-6">
-                <h3>Education</h3>
+                <div class="d-flex">
+                    <h3>Education</h3>
+                    <a href="{% url 'education_create' %}" class="general-button-black mx-3">New</a>
+                </div>
                 <ul>
                     {% for education in education %}
-                    <h5>{{ education.degree }} -{{ education.institution }}</h5>
+                    
+                    <h5><a class="action-icon" href="{% url 'education_update' education.pk %}"><img src="{% static 'images/edit.png' %}" alt="edit"></a> <a class="action-icon mx-2" href="{% url 'education_delete' education.pk %}"><img src="{% static 'images/delete.png' %}" alt="edit"></a>{{ education.degree }} -{{ education.institution }}</h5>
                     <p>{{ education.start_date }} - {{ education.end_date }}</p> 
                     <p>{{ education.description }}</p>
                     {% endfor %}
                 </ul>
             </div>
             <div class="col-md-6">
-                <h3>Experience</h3>
+                <div class="d-flex">
+                    <h3>Experience</h3>
+                    <a href="{% url 'experience_create' %}" class="general-button-black mx-3">New</a>
+                </div>
                 <ul>
                     {% for job in experience %}
-                    <h5>{{ job.job_title }} - {{ job.company }}</h5>
+                    <h5><a class="action-icon" href="{% url 'experience_update' job.pk %}"><img src="{% static 'images/edit.png' %}" alt="edit"></a> <a class="action-icon mx-2" href="{% url 'experience_delete' job.pk %}"><img src="{% static 'images/delete.png' %}" alt="edit"></a>{{ job.job_title }} - {{ job.company }}</h5>
                     <p>{{ job.start_date }} - {{ job.end_date }}</p>
                     <p>{{ job.description }}</p>
                     {% endfor %}
@@ -125,17 +137,22 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <h3>Projects</h3>
+            <div class="d-flex">
+                <h3>Projects</h3>
+                <a href="{% url 'project_create' %}" class="general-button-black mx-3">New</a>
+            </div>
             <ul>
                 
                 {% for project in projects %}
                 <div class="row d-flex flex-wrap justify-content-center">
                     <div class="col-7">
-                        <a class="text-link-black" href="{{ project.url }}"><h5>{{ project.name }}</h5></a>
+                        <a class="action-icon" href="{% url 'project_update' project.pk %}"><img src="{% static 'images/edit.png' %}" alt="edit"></a> <a class="action-icon mx-2" href="{% url 'project_delete' project.pk %}"><img src="{% static 'images/delete.png' %}" alt="edit"></a><a class="text-link-black" href="{{ project.url }}"><h5>{{ project.name }}</h5></a>
                         <p>{{ project.description }}</p>
                     </div>
                     <div class="col-3">
+                        {% if project.image %}
                         <a class="text-link-black" href="{{ project.url }}"><img src="{{ project.image.url }}" alt="{{ project.name }}" class="img-fluid"></a>
+                        {% endif %}
                     </div>
                 </div>
                 
