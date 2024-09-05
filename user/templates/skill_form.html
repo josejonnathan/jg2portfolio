@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 <div class="row my-4">
@@ -7,7 +8,7 @@
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="general-button-orange my-3">Save Skill</button>
+            <button type="submit" class="general-button-orange my-3">{% trans "Save Skill" %}</button>
         </form>
     </div>
 </div>

@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import UpdateView
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import login, authenticate, logout, get_user_model
 from django.contrib.auth.views import PasswordResetView
 from django.core.mail import EmailMultiAlternatives
 from django.utils.html import strip_tags
@@ -68,6 +68,11 @@ def register_view(request):
 
     return render(request, 'register.html', {'form': form})
 
+
+User = get_user_model()
+
+
+
 def registration_complete_view(request):
     """Vista para mostrar la página de confirmación de registro."""
     return render(request, 'registration_complete.html')
@@ -80,10 +85,10 @@ def activate_view(request, uidb64, token):
         user = None
 
     if user is not None and default_token_generator.check_token(user, token):
-        user.is_active = True
-        user.save()
+        user.is_active = True  
+        user.save()  
         messages.success(request, 'Your account has been activated successfully!')
-        return redirect('activation_complete')  # Redirigir a la nueva página de confirmación de activación
+        return redirect('activation_complete') 
     else:
         messages.error(request, 'Activation link is invalid!')
         return redirect('home')

@@ -1,13 +1,14 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 <div class="row my-4">
     <div class="col-md-5 offset-md-3">
-        <h2>Template Selection</h2>
+        <h2>{% trans "Template Selection" %}</h2>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.as_p }} <!-- Renderiza el formulario usando el método as_p para etiquetas <p> -->
-            <button type="submit" class="general-button-orange my-3">Update</button>
+            {{ form.as_p }}
+            <button type="submit" class="general-button-orange my-3">{% trans "Update" %}</button>
         </form>
     </div>
 </div>

@@ -3,6 +3,8 @@
 from django.db import models
 from django.conf import settings
 from api.models import Template
+from PIL import Image 
+import os
 
 
 class HTMLTemplate(models.Model):
@@ -34,6 +36,36 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):
+        try:
+            this = Profile.objects.get(id=self.id)
+            if this.picture != self.picture and this.picture.name:
+                this.picture.delete(save=False)
+        except Profile.DoesNotExist:
+            pass 
+
+        super().save(*args, **kwargs)
+        
+        if self.picture:
+            img = Image.open(self.picture.path)
+            max_size = (800, 800)
+
+            if img.height > max_size[0] or img.width > max_size[1]:
+                img.thumbnail(max_size)
+
+            dpi = (72, 72)
+            img.info['dpi'] = dpi
+
+            if img.format != 'JPEG':
+                img = img.convert('RGB')  
+
+            img.save(self.picture.path, format='JPEG', dpi=dpi, quality=85)  
+
+    def delete(self, *args, **kwargs):
+        if self.picture:
+            self.picture.delete(save=False)
+        super().delete(*args, **kwargs)
     
 class Skill(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='skills')
@@ -74,6 +106,41 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):
+        # Eliminar la imagen anterior si existe y es diferente de la nueva
+        try:
+            this = Project.objects.get(id=self.id)
+            if this.image != self.image and this.image.name:
+                this.image.delete(save=False)
+        except Project.DoesNotExist:
+            pass  # Esto es la primera vez que se guarda el objeto, por lo que no hay imagen antigua
+
+        super().save(*args, **kwargs)
+        
+        if self.image:
+            img = Image.open(self.image.path)
+            max_size = (500, 500)
+
+            # Redimensionar la imagen si es más grande que el tamaño máximo
+            if img.height > max_size[0] or img.width > max_size[1]:
+                img.thumbnail(max_size)
+
+            # Cambiar DPI a 72
+            dpi = (72, 72)
+            img.info['dpi'] = dpi
+
+            # Convertir la imagen a JPEG para optimización
+            if img.format != 'JPEG':
+                img = img.convert('RGB')  # Convertir a RGB si la imagen es PNG o cualquier otro formato
+
+            img.save(self.image.path, format='JPEG', dpi=dpi, quality=85)  # Guardar como JPEG con resolución de 72 DPI y calidad de 85
+
+    def delete(self, *args, **kwargs):
+        # Eliminar la imagen cuando se elimina el objeto
+        if self.image:
+            self.image.delete(save=False)
+        super().delete(*args, **kwargs)
 
 class Education(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='education')

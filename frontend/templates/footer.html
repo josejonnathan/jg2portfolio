@@ -1,0 +1,30 @@
+{% load static %}
+{% load i18n %}
+
+<footer class="container-fluid text-center text-light py-3" style="background-color: black;">
+    <div class="row flex-wrap justify-content-center align-items-center">
+      <div class="col-3">
+        <p>&copy; 2024 Jonnathan Gonzalez</p>
+      </div>
+      <div class="col-3">
+        <p><a class="text-light" href="mailto:pro.cur.vit@gmail.com" style="text-decoration: none;">{% trans "Contact" %}</a></p>
+      </div>
+      <div class="col-4 d-flex flex-wrap">
+        <form id="language-form" action="{% url 'set_language' %}" method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <input name="next" type="hidden" value="{{ request.path }}">
+            <select class="form-control bg-black text-white border-0" name="language" onchange="this.form.submit()">
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% for lang in LANGUAGES %}
+                <option class="bg-black text-white" value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected{% endif %}>
+                  {{ lang.1 }}
+                </option>
+              {% endfor %}
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+</footer>

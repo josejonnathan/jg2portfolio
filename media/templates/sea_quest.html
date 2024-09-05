@@ -1,13 +1,12 @@
 {% extends "CV_base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block head %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="{{ profile.template.font.url }}" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
-
 {% endblock %}
 
 {% block content %}
@@ -29,40 +28,38 @@
                 <!-- socials -->
                 <div class="d-flex flex-wrap justify-content-center social-icon p-2">
                     {% if profile.website %}
-                    <a href="{{ profile.website }}"><img class=" p-2" src="{% static 'images/website.png' %}" alt=""></a>
+                    <a href="{{ profile.website }}"><img class=" p-2" src="{% static 'images/website.png' %}" alt="{% trans 'Website' %}"></a>
                     {% endif %}
                     {% if profile.linkedin %}
-                    <a href="{{ profile.linkedin }}"><img class=" p-2" src="{% static 'images/linkedin.png' %}" alt=""></a>
+                    <a href="{{ profile.linkedin }}"><img class=" p-2" src="{% static 'images/linkedin.png' %}" alt="{% trans 'LinkedIn' %}"></a>
                     {% endif %}
                     {% if profile.github %}
-                    <a href="{{ profile.github }}"><img class=" p-2"  src="{% static 'images/git.png' %}" alt=""></a>
+                    <a href="{{ profile.github }}"><img class=" p-2" src="{% static 'images/git.png' %}" alt="{% trans 'GitHub' %}"></a>
                     {% endif %}
                     {% if profile.twitter %}
-                    <a href="{{ profile.twitter }}"><img class=" p-2"  src="{% static 'images/x.png' %}" alt=""></a>
+                    <a href="{{ profile.twitter }}"><img class=" p-2" src="{% static 'images/x.png' %}" alt="{% trans 'Twitter' %}"></a>
                     {% endif %}
                     {% if profile.facebook %}
-                    <a href="{{ profile.facebook }}"><img class=" p-2"  src="{% static 'images/facebook.png' %}" alt=""></a>
+                    <a href="{{ profile.facebook }}"><img class=" p-2" src="{% static 'images/facebook.png' %}" alt="{% trans 'Facebook' %}"></a>
                     {% endif %}
                     {% if profile.instagram %}
-                    <a href="{{ profile.instagram }}"><img class=" p-2"  src="{% static 'images/instagram.png' %}" alt=""></a>
+                    <a href="{{ profile.instagram }}"><img class=" p-2" src="{% static 'images/instagram.png' %}" alt="{% trans 'Instagram' %}"></a>
                     {% endif %}
                 </div>
                 
-
-                <p><img class="bullet-icon" src="{% static 'images/mail.png' %}" alt=""> <a href="mailto:"{{ profile.email }}" class="text-link-black"> {{ profile.email }}</a></p>
+                <p><img class="bullet-icon" src="{% static 'images/mail.png' %}" alt="{% trans 'Email' %}"> <a href="mailto:"{{ profile.email }}" class="text-link-black"> {{ profile.email }}</a></p>
                 {% if profile.phone %}
-                <p><img class="bullet-icon" src="{% static 'images/phone.png' %}" alt=""> {{ profile.phone }}</p>
+                <p><img class="bullet-icon" src="{% static 'images/phone.png' %}" alt="{% trans 'Phone' %}"> {{ profile.phone }}</p>
                 {% endif %}
                 {% if profile.address %}
-                <p><img class="bullet-icon" src="{% static 'images/location.png' %}" alt=""> {{ profile.address }}</p>
+                <p><img class="bullet-icon" src="{% static 'images/location.png' %}" alt="{% trans 'Address' %}"> {{ profile.address }}</p>
                 {% endif %}
                 
-
-                <h5 style="font-family: {{ profile.template.font }};"> <img class="bullet-icon" src="{% static 'images/profile.png' %}" alt=""> Profile</h5>
+                <h5 style="font-family: {{ profile.template.font }};"> <img class="bullet-icon" src="{% static 'images/profile.png' %}" alt="{% trans 'Profile' %}"> {% trans "Profile" %}</h5>
                 <p>{{ profile.bio }}</p>
                 
                 {% if skills %}
-                <h5 style="font-family: {{ profile.template.font }};"><img class="bullet-icon" src="{% static 'images/skills.png' %}" alt=""> Skills</h5>
+                <h5 style="font-family: {{ profile.template.font }};"><img class="bullet-icon" src="{% static 'images/skills.png' %}" alt="{% trans 'Skills' %}"> {% trans "Skills" %}</h5>
                 <div class="d-flex flex-wrap mb-3">
                     {% for skill in skills %}
                     <div class="container">
@@ -75,15 +72,15 @@
                 </div>
                 {% endif %}
                 {% if languages %}
-                <h5 style="font-family: {{ profile.template.font }};"><img class="bullet-icon" src="{% static 'images/languages.png' %}" alt=""> Languages</h5>
+                <h5 style="font-family: {{ profile.template.font }};"><img class="bullet-icon" src="{% static 'images/languages.png' %}" alt="{% trans 'Languages' %}"> {% trans "Languages" %}</h5>
                 <div class="d-flex flex-wrap">
                     {% for language in languages %}
-                    <span class="badge badge-secondary m-1 text-dark">{{ language.name }} - {{ language.level}}</span>
+                    <span class="badge badge-secondary m-1 text-dark">{{ language.name }} - {{ language.level }}</span>
                     {% endfor %}
                 </div>
                 {% endif %}
                 {% if interests %}
-                <h5 style="font-family: {{ profile.template.font }};"><img class="bullet-icon" src="{% static 'images/interest2.png' %}" alt=""> Interests</h5>
+                <h5 style="font-family: {{ profile.template.font }};"><img class="bullet-icon" src="{% static 'images/interest2.png' %}" alt="{% trans 'Interests' %}"> {% trans "Interests" %}</h5>
                 <div class="d-flex flex-wrap">
                     {% for interest in interests %}
                     <span class="badge badge-secondary m-1 text-dark">{{ interest.name }}</span>
@@ -101,24 +98,24 @@
             style="background-color: {{ profile.template.colors.secondary }}; 
             padding: 15px; 
             color:  black;">
-                <img class="bullet-icon" src="{% static 'images/edu.png' %}" alt="">
-                <h2 class="my-3" style="font-family: {{ profile.template.font }};"> Education</h2>
+                <img class="bullet-icon" src="{% static 'images/edu.png' %}" alt="{% trans 'Education' %}">
+                <h2 class="my-3" style="font-family: {{ profile.template.font }};">{% trans "Education" %}</h2>
                 {% for education in education %}
                 <div class="row mb-2">
                     <div class="col-12">
                         <h5 class="text-end" style="font-family: {{ profile.template.font }};">{{ education.degree }}, {{ education.institution }} - {{ education.start_date }} - {{ education.end_date }}</h5>
-                        <p class="text-start" >{{ education.description }}</p>
+                        <p class="text-start">{{ education.description }}</p>
                     </div>
                 </div>
                 {% endfor %}
             </div>
-            <!-- expierence -->
+            <!-- experience -->
             <div class="about-info text-center mb-4 p-4" 
             style="background-color: {{ profile.template.colors.secondary }}; 
             padding: 15px; 
             color: black ;">
-                <img class="bullet-icon" src="{% static 'images/job.png' %}" alt="">
-                <h2 class="my-3" style="font-family: {{ profile.template.font }};"> Experience</h2>
+                <img class="bullet-icon" src="{% static 'images/job.png' %}" alt="{% trans 'Experience' %}">
+                <h2 class="my-3" style="font-family: {{ profile.template.font }};">{% trans "Experience" %}</h2>
                 {% for job in experience %}
                 <div class="row mb-2">
                     <div class="col-12">
@@ -132,8 +129,8 @@
             <!-- Tercera Columna (Tarjetas de Proyectos) -->
             {% if projects %} 
             <div class="about-info text-center mb-4" style="background-image: url('{{ selected_template.hero_background_image.image.url }}'); background-size: cover; background-position: center; background-attachment: fixed; background-color: {{ profile.template.colors.tertiary }};">
-                <img class="bullet-icon" src="{% static 'images/projects_w.png' %}" alt="">
-                <h2 class="text-center my-3 text-light" style="font-family: {{ profile.template.font }};">Some of my projects</h2>
+                <img class="bullet-icon" src="{% static 'images/projects_w.png' %}" alt="{% trans 'Projects' %}">
+                <h2 class="text-center my-3 text-light" style="font-family: {{ profile.template.font }};">{% trans "Some of my projects" %}</h2>
                 <div class="row">
                     {% for project in projects %}
                     <div class="col-md-6 col-12 my-4 px-2">
@@ -163,27 +160,26 @@
             {% endif %}
 
             <div class="about-info text-center" style="background-color: {{ profile.template.colors.primary }};">
-                <h2 class="text-center my-3 text-dark" style="font-family: {{ profile.template.font }};">Share this CV:</h2>
+                <h2 class="text-center my-3 text-dark" style="font-family: {{ profile.template.font }};">{% trans "Share this CV:" %}</h2>
                 <div class="d-flex flex-wrap justify-content-center social-icon p-2">
                     <a href="{{ share_facebook }}" target="_blank" class="social-icon m-1">
-                        <img class=" p-2" src="{% static 'images/facebook.png' %}" alt="Facebook">
+                        <img class=" p-2" src="{% static 'images/facebook.png' %}" alt="{% trans 'Facebook' %}">
                     </a>
                     <a href="{{ share_twitter }}" target="_blank" class="social-icon m-1">
-                        <img class=" p-2" src="{% static 'images/x.png' %}" alt="X">
+                        <img class=" p-2" src="{% static 'images/x.png' %}" alt="{% trans 'Twitter' %}">
                     </a>
                     <a href="{{ share_linkedin }}" target="_blank" class="social-icon m-1">
-                        <img class=" p-2" src="{% static 'images/linkedin.png' %}" alt="Linkedin">
+                        <img class=" p-2" src="{% static 'images/linkedin.png' %}" alt="{% trans 'LinkedIn' %}">
                     </a>
                     <a href="{{ share_whatsapp }}" target="_blank" class="social-icon m-1">
-                        <img class=" p-2" src="{% static 'images/whatsapp.png' %}" alt="Whatsapp">
+                        <img class=" p-2" src="{% static 'images/whatsapp.png' %}" alt="{% trans 'WhatsApp' %}">
                     </a>
                     <a href="{{ share_telegram }}" target="_blank" class="social-icon m-1">
-                        <img class=" p-2" src="{% static 'images/telegram.png' %}" alt="Telegram">
+                        <img class=" p-2" src="{% static 'images/telegram.png' %}" alt="{% trans 'Telegram' %}">
                     </a>
-                    </div>
-                    <div class="text-center">
-                        <img class="img-fluid qr-code" src="data:image/png;base64,{{ qr_code|safe }}" alt="QR Code">
-                    </div>
+                </div>
+                <div class="text-center">
+                    <img class="img-fluid qr-code" src="data:image/png;base64,{{ qr_code|safe }}" alt="{% trans 'QR Code' %}">
                 </div>
             </div>
         </div>

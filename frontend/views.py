@@ -88,3 +88,7 @@ class CurriculumDetailView(DetailView):
         context['experience'] = profile.experience.all()
 
         return context
+
+
+def TermsAndConditionsView(request):
+    return render(request, 'terms_and_conditions.html')

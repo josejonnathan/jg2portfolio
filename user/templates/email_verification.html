@@ -1,11 +1,11 @@
+{% load i18n %}
 {% autoescape off %}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Activate Your Account</title>
+    <title>{% trans "Activate Your Account" %}</title>
     <style>
-        /* Estilos básicos para correos electrónicos */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -54,24 +54,21 @@
 </head>
 <body>
     <div class="container">
-        <!-- Encabezado del correo -->
         <div class="header">
-            <h1>Activate Your Account</h1>
+            <h1>{% trans "Activate Your Account" %}</h1>
         </div>
-        <!-- Contenido del correo -->
         <div class="content">
-            <p>Hi {{ user.username }},</p>
-            <p>Thank you for registering with us. To complete your registration, please verify your email address by clicking the button below:</p>
+            <p>{% blocktrans %}Hi {{ user.username }},{% endblocktrans %}</p>
+            <p>{% trans "Thank you for registering with us. To complete your registration, please verify your email address by clicking the button below:" %}</p>
             <div class="button-container">
-                <a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}" class="button">Activate Account</a>
+                <a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}" class="button">{% trans "Activate Account" %}</a>
             </div>
-            <p>If the button above does not work, you can also click on the link below or copy and paste it into your browser:</p>
+            <p>{% trans "If the button above does not work, you can also click on the link below or copy and paste it into your browser:" %}</p>
             <p><a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">http://{{ domain }}{% url 'activate' uidb64=uid token=token %}</a></p>
-            <p>If you did not create an account with us, please ignore this email.</p>
+            <p>{% trans "If you did not create an account with us, please ignore this email." %}</p>
         </div>
-        <!-- Pie de página del correo -->
         <div class="footer">
-            <p>&copy; {{ domain }} | All rights reserved.</p>
+            <p>&copy; {{ domain }} | {% trans "All rights reserved." %}</p>
         </div>
     </div>
 </body>

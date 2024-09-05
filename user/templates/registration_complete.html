@@ -1,12 +1,13 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 <div class="row my-4">
     <div class="col-md-5 offset-md-3">
-        <h2>Verify your email</h2>
-        <p>We have sent you an email with a link to verify your email address. Please check your inbox.</p>
-        <p>If you do not receive the email within a few minutes, please check your spam folder.</p>
-        <a class="text-link-black" href="{% url 'login' %}">Login</a>
+        <h2>{% trans "Verify your email" %}</h2>
+        <p>{% trans "We have sent you an email with a link to verify your email address. Please check your inbox." %}</p>
+        <p>{% trans "If you do not receive the email within a few minutes, please check your spam folder." %}</p>
+        <a class="text-link-black" href="{% url 'login' %}">{% trans "Login" %}</a>
     </div>
 </div>
 {% endblock %}

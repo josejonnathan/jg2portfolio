@@ -1,23 +1,24 @@
 {% extends "base.html" %}
 {% load form_extras %}
+{% load i18n %}
 
 {% block content %}
 <div class="row my-4">
     <div class="col-md-5 offset-md-3">
-        <h2>Register</h2>
+        <h2>{% trans "Register" %}</h2>
         <form method="post">
             {% csrf_token %}
-            <div class="form-group">  <!-- Clase Bootstrap para contenedor de formulario -->
-                <label for="{{ form.username.id_for_label }}">Username:</label>
-                {{ form.username|add_class:"form-control" }}  <!-- Añade clase 'form-control' -->
-                {% if form.username.errors %}  <!-- Verifica errores -->
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}">{% trans "Username:" %}</label>
+                {{ form.username|add_class:"form-control" }}
+                {% if form.username.errors %}
                     <div class="text-danger">
                         {{ form.username.errors }}
                     </div>
                 {% endif %}
             </div>
             <div class="form-group">
-                <label for="{{ form.email.id_for_label }}">Email:</label>
+                <label for="{{ form.email.id_for_label }}">{% trans "Email:" %}</label>
                 {{ form.email|add_class:"form-control" }}
                 {% if form.email.errors %}
                     <div class="text-danger">
@@ -26,7 +27,7 @@
                 {% endif %}
             </div>
             <div class="form-group">
-                <label for="{{ form.password1.id_for_label }}">Password:</label>
+                <label for="{{ form.password1.id_for_label }}">{% trans "Password:" %}</label>
                 {{ form.password1|add_class:"form-control" }}
                 {% if form.password1.errors %}
                     <div class="text-danger">
@@ -35,7 +36,7 @@
                 {% endif %}
             </div>
             <div class="form-group">
-                <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
+                <label for="{{ form.password2.id_for_label }}">{% trans "Confirm Password:" %}</label>
                 {{ form.password2|add_class:"form-control" }}
                 {% if form.password2.errors %}
                     <div class="text-danger">
@@ -43,12 +44,25 @@
                     </div>
                 {% endif %}
             </div>
+            <!-- Nuevo campo para Términos y Condiciones -->
+            <div class="form-group form-check">
+                {{ form.terms }}
+                <label class="form-check-label" for="{{ form.terms.id_for_label }}">
+                    
+                    {% trans "I accept the " %}<a href="{% url 'terms' %}">{% trans "terms and conditions" %}</a>
+                </label>
+                {% if form.terms.errors %}
+                    <div class="text-danger">
+                        {{ form.terms.errors }}
+                    </div>
+                {% endif %}
+            </div>
             <div class="text-center">
-                <button type="submit" class="general-button-orange mt-3">Register</button>
+                <button type="submit" class="general-button-orange mt-3">{% trans "Register" %}</button>
             </div>
         </form>
         <div class="d-flex justify-content-around my-3">
-            <a class="text-link-black" href="{% url 'login' %}">Already have an account? Login</a>
+            <a class="text-link-black" href="{% url 'login' %}">{% trans "Already have an account? Login" %}</a>
         </div>
     </div>
 </div>

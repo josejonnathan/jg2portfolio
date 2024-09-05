@@ -1,14 +1,15 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-5">
-            <h2>{% if object %}Edit Language{% else %}Add Language{% endif %}</h2>
+            <h2>{% if object %}{% trans "Edit Language" %}{% else %}{% trans "Add Language" %}{% endif %}</h2>
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="general-button-orange my-3">Save Language</button>
+                <button type="submit" class="general-button-orange my-3">{% trans "Save Language" %}</button>
             </form>
         </div>
     </div>

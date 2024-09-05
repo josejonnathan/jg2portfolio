@@ -1,170 +1,218 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block head %}
-
 <style>
-    /* Aplica la fuente 'Roboto' a todos los elementos de encabezado (h1, h2, h3, h4, h5, h6) */
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Righteous';
     }
 </style>
-
 {% endblock %}
 
-
-
-
 {% block content %}
-
-
 <div class="container my-5">
-    <div class="row ">
-        <h2 class="text-center">Welcome {{ user.username }}</h2>
+    <div class="row">
+        <h2 class="text-center">{% trans "Welcome" %} {{ user.username }}</h2>
         <div class="col-12 d-flex flex-wrap justify-content-around my-3">
-            <a href="{% url 'curriculum_detail' profile.pk %}" class="general-button-orange">Your Public CV</a>
-            <a href="{% url 'logout' %}" class="general-button-orange">Logout</a>
+            <a href="{% url 'curriculum_detail' profile.pk %}" class="general-button-orange">{% trans "Your Public CV" %}</a>
+            <a href="{% url 'logout' %}" class="general-button-orange">{% trans "Logout" %}</a>
         </div>
-    
-
-        
-    <div class="col-12"><hr ></div>
+        <div class="col-12">
+            <hr>
+        </div>
     </div>
-    
+
     <div class="row">
         <div class="col-12 text-center my-3">
-            <h3>Your Profile</h3>
-            <a href="{% url 'profile_update' %}" class="general-button-black my-3">Edit</a>
+            <h3>{% trans "Your Profile" %}</h3>
+            <a href="{% url 'profile_update' %}" class="general-button-black my-3">{% trans "Edit" %}</a>
         </div>
-        <div class="col-md-6">
-            
-            <div class="text-center">
-                {% if profile.picture %}
-                <img class="img-fluid profile-image-square" src="{{ profile.picture.url }}" alt="{{ profile.name }}">
-                {% endif %}
-
-            </div>
-            
-
+        <div class="col-md-6 text-center">
+            {% if profile.picture %}
+            <img class="img-fluid profile-image-square" src="{{ profile.picture.url }}" alt="{{ profile.name }}">
+            {% endif %}
             <p class="my-3">{{ profile.bio }}</p>
         </div>
-
         <div class="col-md-6 my-3">
-            <h3>Details</h3>
-            <p>Name: {{ profile.name }}</p>
-            <p>Title: {{ profile.title }}</p>
-            <p>Email: {{ profile.email }}</p>
-            <p>Phone: {{ profile.phone }}</p>
-            <p>Address: {{ profile.address }}</p>
+            <h3>{% trans "Details" %}</h3>
+            <p>{% trans "Name" %}: {{ profile.name }}</p>
+            <p>{% trans "Title" %}: {{ profile.title }}</p>
+            <p>{% trans "Email" %}: {{ profile.email }}</p>
+            <p>{% trans "Phone" %}: {{ profile.phone }}</p>
+            <p>{% trans "Address" %}: {{ profile.address }}</p>
 
-            <h3>Links</h3>
-            <p>Website: <a class="text-link-black" href="{{ profile.website }}">{{ profile.website }}</a> </p>
-            <p>LinkedIn: <a class="text-link-black" href="{{ profile.linkedin }}">{{ profile.linkedin }}</a> </p>
-            <p>GitHub: <a class="text-link-black" href="{{ profile.github }}" target="_blank">{{ profile.github }}</a></p>
-            <p>Twitter: <a class="text-link-black" href="{{ profile.twitter }}" target="_blank">{{ profile.twitter }}</a></p>
-            <p>Facebook: <a class="text-link-black" href="{{ profile.facebook }}" target="_blank">{{ profile.facebook }}</a></p>
-            <p>Instagram: <a class="text-link-black" href="{{ profile.instagram }}" target="_blank">{{ profile.instagram }}</a> </p>
+            <h3>{% trans "Links" %}</h3>
+            <p>{% trans "Website" %}: <a class="text-link-black" href="{{ profile.website }}">{{ profile.website }}</a></p>
+            <p>{% trans "LinkedIn" %}: <a class="text-link-black" href="{{ profile.linkedin }}">{{ profile.linkedin }}</a></p>
+            <p>{% trans "GitHub" %}: <a class="text-link-black" href="{{ profile.github }}" target="_blank">{{ profile.github }}</a></p>
+            <p>{% trans "Twitter" %}: <a class="text-link-black" href="{{ profile.twitter }}" target="_blank">{{ profile.twitter }}</a></p>
+            <p>{% trans "Facebook" %}: <a class="text-link-black" href="{{ profile.facebook }}" target="_blank">{{ profile.facebook }}</a></p>
+            <p>{% trans "Instagram" %}: <a class="text-link-black" href="{{ profile.instagram }}" target="_blank">{{ profile.instagram }}</a></p>
         </div>
-        <div class="col-12"><hr ></div>
+        <div class="col-12">
+            <hr>
+        </div>
     </div>
 
     <div class="row">
         <div class="col-md-4">
             <div class="d-flex">
-                <h3>Skills</h3>
-                <a href="{% url 'skill_create' %}" class="general-button-black mx-3">New</a>
+                <h3>{% trans "Skills" %}</h3>
+                <a href="{% url 'skill_create' %}" class="general-button-black mx-3">{% trans "New" %}</a>
             </div>
-            
-            <ul>
+            <div>
                 {% for skill in skills %}
-                <li><a class="action-icon" href="{% url 'skill_update' skill.pk %}"><img src="{% static 'images/edit.png' %}" alt="edit"></a> <a class="action-icon mx-2" href="{% url 'skill_delete' skill.pk %}"><img src="{% static 'images/delete.png' %}" alt="edit"></a>{{ skill.name }} - {{ skill.level }}%  </li>
+                <div >
+                    <a class="action-icon text-link-black" href="{% url 'skill_update' skill.pk %}">
+                        <img src="{% static 'images/edit.png' %}" alt="{% trans 'edit' %}">
+                    </a>
+                    <a class="action-icon text-link-black mx-2" href="{% url 'skill_delete' skill.pk %}">
+                        <img src="{% static 'images/delete.png' %}" alt="{% trans 'delete' %}">
+                    </a>
+                    {{ skill.name }} - {{ skill.level }}%
+                </div>
                 {% endfor %}
-            </ul>
+            </div>
         </div>
+
         <div class="col-md-4">
             <div class="d-flex">
-                <h3>Languages</h3>
-                <a href="{% url 'language_create' %}" class="general-button-black mx-3">New</a>
+                <h3>{% trans "Languages" %}</h3>
+                <a href="{% url 'language_create' %}" class="general-button-black mx-3">{% trans "New" %}</a>
             </div>
-            <ul>
+            <div>
                 {% for language in languages %}
-                <li><a class="action-icon" href="{% url 'language_update' language.pk %}"><img src="{% static 'images/edit.png' %}" alt="edit"></a> <a class="action-icon mx-2" href="{% url 'language_delete' language.pk %}"><img src="{% static 'images/delete.png' %}" alt="edit"></a>{{ language.name }} - {{ language.level }}</li>
+                <div>
+                    <a class="action-icon text-link-black" href="{% url 'language_update' language.pk %}">
+                        <img src="{% static 'images/edit.png' %}" alt="{% trans 'edit' %}">
+                    </a>
+                    <a class="action-icon text-link-black mx-2" href="{% url 'language_delete' language.pk %}">
+                        <img src="{% static 'images/delete.png' %}" alt="{% trans 'delete' %}">
+                    </a>
+                    {{ language.name }} - {{ language.level }}
+                </div>
                 {% endfor %}
-            </ul>
+            </div>
         </div>
+
         <div class="col-md-4">
             <div class="d-flex">
-                <h3>Interests</h3>
-                <a href="{% url 'interest_create' %}" class="general-button-black mx-3">New</a>
+                <h3>{% trans "Interests" %}</h3>
+                <a href="{% url 'interest_create' %}" class="general-button-black mx-3">{% trans "New" %}</a>
             </div>
-            <ul>
+            <div>
                 {% for interest in interests %}
-                <li><a class="action-icon" href="{% url 'interest_update' interest.pk %}"><img src="{% static 'images/edit.png' %}" alt="edit"></a> <a class="action-icon mx-2" href="{% url 'interest_delete' interest.pk %}"><img src="{% static 'images/delete.png' %}" alt="edit"></a>{{ interest.name }}</li>
+                <div>
+                    <a class="action-icon text-link-black" href="{% url 'interest_update' interest.pk %}">
+                        <img src="{% static 'images/edit.png' %}" alt="{% trans 'edit' %}">
+                    </a>
+                    <a class="action-icon text-link-black mx-2" href="{% url 'interest_delete' interest.pk %}">
+                        <img src="{% static 'images/delete.png' %}" alt="{% trans 'delete' %}">
+                    </a>
+                    {{ interest.name }}
+                </div>
                 {% endfor %}
-            </ul>
+            </div>
         </div>
-        <div class="col-12"><hr ></div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="d-flex">
-                    <h3>Education</h3>
-                    <a href="{% url 'education_create' %}" class="general-button-black mx-3">New</a>
-                </div>
-                <ul>
-                    {% for education in education %}
-                    
-                    <h5><a class="action-icon" href="{% url 'education_update' education.pk %}"><img src="{% static 'images/edit.png' %}" alt="edit"></a> <a class="action-icon mx-2" href="{% url 'education_delete' education.pk %}"><img src="{% static 'images/delete.png' %}" alt="edit"></a>{{ education.degree }} -{{ education.institution }}</h5>
-                    <p>{{ education.start_date }} - {{ education.end_date }}</p> 
-                    <p>{{ education.description }}</p>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <div class="d-flex">
-                    <h3>Experience</h3>
-                    <a href="{% url 'experience_create' %}" class="general-button-black mx-3">New</a>
-                </div>
-                <ul>
-                    {% for job in experience %}
-                    <h5><a class="action-icon" href="{% url 'experience_update' job.pk %}"><img src="{% static 'images/edit.png' %}" alt="edit"></a> <a class="action-icon mx-2" href="{% url 'experience_delete' job.pk %}"><img src="{% static 'images/delete.png' %}" alt="edit"></a>{{ job.job_title }} - {{ job.company }}</h5>
-                    <p>{{ job.start_date }} - {{ job.end_date }}</p>
-                    <p>{{ job.description }}</p>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="col-12"><hr ></div>
+
+        <div class="col-12">
+            <hr>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="d-flex">
+                <h3>{% trans "Education" %}</h3>
+                <a href="{% url 'education_create' %}" class="general-button-black mx-3">{% trans "New" %}</a>
+            </div>
+            <div>
+                {% for education in education %}
+                <div>
+                    <h5>
+                        <a class="action-icon text-link-black" href="{% url 'education_update' education.pk %}">
+                            <img src="{% static 'images/edit.png' %}" alt="{% trans 'edit' %}">
+                        </a>
+                        <a class="action-icon text-link-black mx-2" href="{% url 'education_delete' education.pk %}">
+                            <img src="{% static 'images/delete.png' %}" alt="{% trans 'delete' %}">
+                        </a>
+                        {{ education.degree }} - {{ education.institution }}
+                    </h5>
+                    <p>{{ education.start_date }} - {{ education.end_date }}</p>
+                    <p>{{ education.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="d-flex">
+                <h3>{% trans "Experience" %}</h3>
+                <a href="{% url 'experience_create' %}" class="general-button-black mx-3">{% trans "New" %}</a>
+            </div>
+            <div>
+                {% for job in experience %}
+                <div>
+                    <h5>
+                        <a class="action-icon text-link-black" href="{% url 'experience_update' job.pk %}">
+                            <img src="{% static 'images/edit.png' %}" alt="{% trans 'edit' %}">
+                        </a>
+                        <a class="action-icon text-link-black mx-2" href="{% url 'experience_delete' job.pk %}">
+                            <img src="{% static 'images/delete.png' %}" alt="{% trans 'delete' %}">
+                        </a>
+                        {{ job.job_title }} - {{ job.company }}
+                    </h5>
+                    <p>{{ job.start_date }} - {{ job.end_date }}</p>
+                    <p>{{ job.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-12">
+            <hr>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-12">
             <div class="d-flex">
-                <h3>Projects</h3>
-                <a href="{% url 'project_create' %}" class="general-button-black mx-3">New</a>
+                <h3>{% trans "Projects" %}</h3>
+                <a href="{% url 'project_create' %}" class="general-button-black mx-3">{% trans "New" %}</a>
             </div>
-            <ul>
-                
+            <div>
                 {% for project in projects %}
-                <div class="row d-flex flex-wrap justify-content-center">
-                    <div class="col-7">
-                        <a class="action-icon" href="{% url 'project_update' project.pk %}"><img src="{% static 'images/edit.png' %}" alt="edit"></a> <a class="action-icon mx-2" href="{% url 'project_delete' project.pk %}"><img src="{% static 'images/delete.png' %}" alt="edit"></a><a class="text-link-black" href="{{ project.url }}"><h5>{{ project.name }}</h5></a>
-                        <p>{{ project.description }}</p>
-                    </div>
-                    <div class="col-3">
-                        {% if project.image %}
-                        <a class="text-link-black" href="{{ project.url }}"><img src="{{ project.image.url }}" alt="{{ project.name }}" class="img-fluid"></a>
-                        {% endif %}
+                <div>
+                    <div class="row d-flex flex-wrap justify-content-center">
+                        <div class="col-7">
+                            <a class="action-icon text-link-black" href="{% url 'project_update' project.pk %}">
+                                <img src="{% static 'images/edit.png' %}" alt="{% trans 'edit' %}">
+                            </a>
+                            <a class="action-icon text-link-black mx-2" href="{% url 'project_delete' project.pk %}">
+                                <img src="{% static 'images/delete.png' %}" alt="{% trans 'delete' %}">
+                            </a>
+                            <a class="text-link-black" href="{{ project.url }}">
+                                <h5>{{ project.name }}</h5>
+                            </a>
+                            <p>{{ project.description }}</p>
+                        </div>
+                        <div class="col-3">
+                            {% if project.image %}
+                            <a class="text-link-black" href="{{ project.url }}">
+                                <img src="{{ project.image.url }}" alt="{{ project.name }}" class="img-fluid">
+                            </a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
-                
                 {% endfor %}
-            </ul>
+            </div>
         </div>
-        
-        <div class="col-12"><hr ></div>
-    </div>
 
-    
-        
-    
+        <div class="col-12">
+            <hr>
+        </div>
+    </div>
 </div>
 {% endblock %}

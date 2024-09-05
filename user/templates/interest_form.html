@@ -1,14 +1,15 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-5">
-            <h2>{% if object %}Edit Interest{% else %}Add Interest{% endif %}</h2>
+            <h2>{% if object %}{% trans "Edit Interest" %}{% else %}{% trans "Add Interest" %}{% endif %}</h2>
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="general-button-orange my-3">Save Interest</button>
+                <button type="submit" class="general-button-orange my-3">{% trans "Save Interest" %}</button>
             </form>
         </div>
     </div>

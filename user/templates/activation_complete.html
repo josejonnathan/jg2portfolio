@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 <div class="row my-4">
     <div class="col-md-5 offset-md-3">
-        <h2>Activation Complete</h2>
-        <p>Your account has been activated successfully. You can now login to your account.</p>
-        <a href="{% url 'login' %}" class="general-button-orange my-3">Login</a>
+        <h2>{% trans "Activation Complete" %}</h2>
+        <p>{% trans "Your account has been activated successfully. You can now login to your account." %}</p>
+        <a href="{% url 'login' %}" class="general-button-orange my-3">{% trans "Login" %}</a>
     </div>
 </div>
 {% endblock %}

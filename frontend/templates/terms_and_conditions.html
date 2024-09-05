@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 col-12">
+            <a class="text-link-black" href="{% url 'register' %}">{% trans "Home" %}</a>
+            <h1>{% trans "Terms and Conditions of Use" %}</h1>
+            <p>{% trans "Last updated: [05.09.2024]" %}</p>
+            <br>
+            <p>{% trans "These Terms and Conditions govern the use of the website pro.cur.vit (hereinafter, 'the Site') and the services offered through it. By accessing or using the Site, you agree to comply with and be bound by these Terms and Conditions. If you do not agree with these terms, please do not use the Site." %}</p>
+            <br>
+            <h3>{% trans "1. Description of Service" %}</h3>
+            <p>{% trans "pro.cur.vit provides users with the ability to create and manage their Curriculum Vitae (CV) for free. Users can register, create, modify, and store their CV using the tools provided on the Site." %}</p>
+            <br>
+
+            <h3>{% trans "2. User Registration" %}</h3>
+            <p>{% trans "To use the services offered on the Site, you must register and create an account. By registering, you agree to provide accurate and complete information and to keep your password confidential. You are responsible for all activities that occur under your account." %}</p>
+            <br>
+            <h3>{% trans "3. Acceptable Use" %}</h3>
+            <p>{% trans "You agree to use the Site only for purposes that are permitted by these Terms and Conditions and any applicable laws, regulations, or generally accepted practices or guidelines in the relevant jurisdiction. Prohibited activities include but are not limited to:" %}</p>
+            <br>
+            <ul>
+                <li>{% trans "Using the Site for any unlawful or unauthorized purpose." %}</li>
+                <li>{% trans "Accessing, tampering with, or using non-public areas of the Site." %}</li>
+                <li>{% trans "Attempting to probe, scan, or test the vulnerability of any system or network related to the Site." %}</li>
+                <li>{% trans "Interfering with or disrupting the access of any user, host, or network, including sending a virus, overloading, flooding, spamming, or mail-bombing the Site." %}</li>
+            </ul>
+            <br>
+            <h3>{% trans "4. Privacy and Data Protection" %}</h3>
+            <p>{% trans "The processing of users' personal data is governed by our Privacy Policy. By using the Site, you agree to the collection and use of information in accordance with our Privacy Policy." %}</p>
+            <br>
+            <h3>{% trans "5. User Content" %}</h3>
+            <p>{% trans "You are solely responsible for the content you upload, publish, or display on or through the Site ('User Content'). You grant pro.cur.vit a non-exclusive, transferable, sublicensable, royalty-free, worldwide license to use, store, display, reproduce, save, modify, create derivative works, perform, and distribute your User Content in connection with the Site." %}</p>
+            <br>
+            <h3>{% trans "6. Intellectual Property Rights" %}</h3>
+            <p>{% trans "All content, trademarks, logos, and other materials available on the Site are the property of pro.cur.vit or its licensors. You may not copy, modify, distribute, sell, or lease any part of our services or software, nor may you reverse engineer or attempt to extract the source code of that software unless laws prohibit these restrictions or you have our written permission." %}</p>
+            <br>
+            <h3>{% trans "7. Limitation of Liability" %}</h3>
+            <p>{% trans "pro.cur.vit shall not be liable for any direct, indirect, incidental, special, consequential, or exemplary damages resulting from the use or inability to use the Site, including but not limited to damages for loss of profits, goodwill, use, data, or other intangible losses." %}</p>
+            <br>
+            <h3>{% trans "8. Changes to the Terms" %}</h3>
+            <p>{% trans "We reserve the right to modify these Terms and Conditions at any time. Changes will become effective immediately upon posting on the Site. It is your responsibility to review the Terms and Conditions periodically. Your continued use of the Site after any modifications signifies your acceptance of the new Terms and Conditions." %}</p>
+            <br>
+            <h3>{% trans "9. Termination" %}</h3>
+            <p>{% trans "We may suspend or terminate your access to the Site if you violate any of these Terms and Conditions or if we suspect that you have been involved in any fraudulent, abusive, or illegal activity." %}</p>
+            <br>
+            <h3>{% trans "10. Governing Law and Jurisdiction" %}</h3>
+            <p>{% trans "These Terms and Conditions shall be governed by and construed in accordance with the laws of the country in which pro.cur.vit is registered, without regard to its conflict of law principles. Any dispute arising from or relating to these Terms and Conditions shall be subject to the exclusive jurisdiction of the courts of that jurisdiction." %}</p>
+            <br>
+            <h3>{% trans "11. Contact Information" %}</h3>
+            <p>{% trans "If you have any questions or concerns about these Terms and Conditions, please contact us at pro.cur.vit@gmail.com." %}</p>
+            <br>
+        </div>
+    </div>
+</div>
+{% endblock %}
