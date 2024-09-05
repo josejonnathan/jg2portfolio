@@ -5,6 +5,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import UpdateView
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.views import PasswordResetView
+from django.core.mail import EmailMultiAlternatives
+from django.utils.html import strip_tags
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
@@ -48,7 +51,14 @@ def register_view(request):
                 'uid': uid,
                 'token': token,
             })
-            email = EmailMessage(mail_subject, message, to=[form.cleaned_data.get('email')])
+            
+            email = EmailMessage(
+                mail_subject,
+                message,
+                to=[form.cleaned_data.get('email')]
+            )
+            
+            email.content_subtype = "html"  # Cambia a contenido HTML
             email.send()
 
             messages.success(request, 'Please confirm your email address to complete the registration.')
@@ -104,6 +114,29 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('home')
+
+
+class CustomPasswordResetView(PasswordResetView):
+    email_template_name = 'registration/password_reset_email.html'
+    subject_template_name = 'registration/password_reset_subject.txt'
+    template_name = 'registration/password_reset_form.html'
+    
+    def send_mail(self, subject_template_name, email_template_name,
+                  context, from_email, to_email, html_email_template_name=None):
+        """
+        Envía un correo electrónico HTML personalizado para el restablecimiento de contraseña.
+        """
+        # Renderiza el asunto y el mensaje HTML
+        subject = render_to_string(subject_template_name, context)
+        subject = ''.join(subject.splitlines())  # Elimina los saltos de línea del asunto
+        
+        html_message = render_to_string(email_template_name, context)  # Renderiza el mensaje HTML
+        plain_message = strip_tags(html_message)  # Convierte a texto plano para la versión alternativa
+
+        # Configura el email para enviar HTML
+        email = EmailMessage(subject, html_message, from_email, [to_email])
+        email.content_subtype = "html"  # Asegura que el contenido se envíe como HTML
+        email.send()
 
 
 #------------------------------------------------------------------------------------------------------------------------#

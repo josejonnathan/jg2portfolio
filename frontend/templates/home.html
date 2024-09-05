@@ -1,19 +1,45 @@
 {% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="{{ selected_template.font.url }}" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    {% if user.is_authenticated %}
-        <h1>Bienvenido, {{ user.username }}!</h1>
-        <p>Gracias por regresar. ¡Esperamos que disfrutes tu tiempo aquí!</p>
-        <a href="{% url 'logout' %}" class="btn btn-danger">Cerrar Sesión</a>
-    {% else %}
-        <h1>Bienvenido a Nuestra Aplicación</h1>
-        <p>Este es el contenido de la página de inicio. Aquí puedes encontrar enlaces para iniciar sesión o registrarte.</p>
-        
-        <div class="d-flex justify-content-center mt-4">
-            <a href="{% url 'login' %}" class="btn btn-primary mr-2">Iniciar Sesión</a>
-            <a href="{% url 'register' %}" class="btn btn-success">Registrarse</a>
+
+<div class="container-fluid" style="background-color: {{ selected_template.colors.primary }}; overflow: hidden; position: relative;">
+    <div class="d-flex flex-wrap justify-content-end align-items-center" style="background-image: url('{% static 'images/hero_1.png' %}'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <div  class="row d-flex justify-content-end align-items-center" 
+             style="height: 100vh; position: relative; z-index: 2;">
+            <div class="col-md-6 d-flex col-12 text-center text-black align-items-center px-4" style="height: 100vh; background-color: rgba(255, 255, 255, 0.83);">
+                <div>
+                    <h2 class="my-5" style="font-family: {{ selected_template.font }};">{% trans "Simplified CV Creation" %}</h2>
+                    <p style="line-height: 2;">{% trans "Create a stunning CV effortlessly with our customizable templates. Showcase your skills, experience, and personality with just a few clicks." %}</p>
+                    <a href="{% url 'register' %}" class="general-button-orange">{% trans "Start Here" %}</a>
+                </div>
+            </div>
         </div>
-    {% endif %}
+    </div>
 </div>
+
+<div class="container-fluid" style="background-color: {{ selected_template.colors.secondary }};">
+    <div class="row d-flex flex-wrap justify-content-center align-items-center">
+        <div class="col-8 text-center text-black my-5 px-5">
+            <h2 class="my-5" style="font-family: {{ selected_template.font }};">{% trans "Professional and Easy!" %}</h2>
+            <p>{% trans "Designed for professionals, students, and job seekers who want to make a great impression. We offer a range of beautiful, modern templates that you can customize to reflect your personal style and career aspirations. With our easy-to-use editor, you can update your CV anytime, anywhere, and ensure it always looks its best." %}</p>
+            <a href="{% url 'register' %}" class="general-button-orange">{% trans "Start Here" %}</a>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <!-- Aquí podrías agregar contenido adicional si es necesario -->
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

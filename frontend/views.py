@@ -6,10 +6,28 @@ from io import BytesIO
 from django.views.generic import DetailView
 from curriculum.models import Profile
 from django.shortcuts import render
+from api.models import Template
+import random
 
 
 def home_view(request):
-    return render(request, 'old_home.html')
+    # Obtén todos los templates disponibles
+    templates = Template.objects.all()
+
+    if templates.exists():
+        # Selecciona un template aleatorio
+        selected_template = random.choice(templates)
+    else:
+        # Usa valores por defecto si no hay templates disponibles
+        selected_template = None
+
+    # Prepara el contexto para el template
+    context = {
+        'selected_template': selected_template,
+    }
+
+    # Renderiza la página de inicio usando un template genérico
+    return render(request, 'home.html', context)
 
 
 class CurriculumDetailView(DetailView):
