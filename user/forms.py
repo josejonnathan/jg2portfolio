@@ -42,7 +42,7 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         fields = [
             'name', 'title', 'bio', 'email', 'phone', 'address', 'website', 'linkedin',
-            'github', 'twitter', 'instagram', 'facebook', 'picture'
+            'github', 'twitter', 'instagram', 'facebook', 'picture', 'password_protected', 'password'
         ]
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
@@ -58,6 +58,8 @@ class ProfileForm(forms.ModelForm):
             'instagram': forms.URLInput(attrs={'class': 'form-control'}),
             'facebook': forms.URLInput(attrs={'class': 'form-control'}),
             'picture': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'password_protected': forms.CheckboxInput(attrs={'class': 'form-check-input'}),  # Checkbox para habilitar protección por contraseña
+            'password': forms.PasswordInput(attrs={'class': 'form-control'}),  # Campo de contraseña
         }
         labels = {
             'name': _('Name'),
@@ -73,6 +75,8 @@ class ProfileForm(forms.ModelForm):
             'instagram': _('Instagram'),
             'facebook': _('Facebook'),
             'picture': _('Profile Picture'),
+            'password_protected': _('Protect curriculum with password'),
+            'password': _('Password'),
         }
 
     def clean_picture(self):
@@ -90,6 +94,16 @@ class ProfileForm(forms.ModelForm):
                 raise ValidationError(_(f"Image Resolution is too high (maximum size is {max_width}x{max_height} pixels)."))
 
         return picture
+
+    def clean(self):
+        cleaned_data = super().clean()
+        password_protected = cleaned_data.get("password_protected")
+        password = cleaned_data.get("password")
+
+        if password_protected and not password:
+            raise ValidationError(_("You must provide a password if password protection is enabled."))
+
+        return cleaned_data
 
 class ProfileTemplateForm(forms.ModelForm):
     class Meta:
@@ -148,8 +162,8 @@ class EducationForm(forms.ModelForm):
         widgets = {
             'institution': forms.TextInput(attrs={'class': 'form-control'}),
             'degree': forms.TextInput(attrs={'class': 'form-control'}),
-            'start_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-            'end_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'start_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}, format='%Y-%m-%d'),
+            'end_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}, format='%Y-%m-%d'),
             'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
         }
         labels = {
@@ -160,6 +174,12 @@ class EducationForm(forms.ModelForm):
             'description': _('Description'),  # Etiqueta de traducción añadida
         }
 
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            if self.instance and self.instance.pk:
+                self.fields['start_date'].initial = self.instance.start_date.strftime('%Y-%m-%d') if self.instance.start_date else ''
+                self.fields['end_date'].initial = self.instance.end_date.strftime('%Y-%m-%d') if self.instance.end_date else ''
+
 class ExperienceForm(forms.ModelForm):
     class Meta:
         model = Experience
@@ -167,8 +187,8 @@ class ExperienceForm(forms.ModelForm):
         widgets = {
             'job_title': forms.TextInput(attrs={'class': 'form-control'}),
             'company': forms.TextInput(attrs={'class': 'form-control'}),
-            'start_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-            'end_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'start_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}, format='%Y-%m-%d'),
+            'end_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}, format='%Y-%m-%d'),
             'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
         }
         labels = {
@@ -179,6 +199,12 @@ class ExperienceForm(forms.ModelForm):
             'description': _('Description'),  # Etiqueta de traducción añadida
         }
 
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            if self.instance and self.instance.pk:
+                self.fields['start_date'].initial = self.instance.start_date.strftime('%Y-%m-%d') if self.instance.start_date else ''
+                self.fields['end_date'].initial = self.instance.end_date.strftime('%Y-%m-%d') if self.instance.end_date else ''
+
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
@@ -186,8 +212,8 @@ class ProjectForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
-            'start_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-            'end_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'start_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}, format='%Y-%m-%d'),
+            'end_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}, format='%Y-%m-%d'),
             'url': forms.URLInput(attrs={'class': 'form-control'}),
             'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
         }
@@ -199,6 +225,12 @@ class ProjectForm(forms.ModelForm):
             'url': _('Project URL'),
             'image': _('Project Image'),
         }
+
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            if self.instance and self.instance.pk:
+                self.fields['start_date'].initial = self.instance.start_date.strftime('%Y-%m-%d') if self.instance.start_date else ''
+                self.fields['end_date'].initial = self.instance.end_date.strftime('%Y-%m-%d') if self.instance.end_date else ''
 
     def clean_image(self):
         image = self.cleaned_data.get('image', False)

@@ -3,15 +3,16 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{% get_current_language as LANGUAGE_CODE %}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro.Cur.Vit</title>
+    <title>{% trans 'Professional CV Builder | Customizable Templates' %}</title>
+
 
     <link
       rel="icon"
-      href="{% static 'images/favicon.png' %}"
+      href="{% static 'images/logo.png' %}"
       type="image/x-icon"
     />
 
@@ -19,6 +20,31 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 
     <link href="{{ profile.template.body_font.url }}" rel="stylesheet">
+
+
+    <!-- SEO -->
+    <!-- Meta tags for SEO -->
+    
+    <!-- Translatable meta description -->
+    <meta name="description" content="{% trans 'Create your professional CV for free with customizable templates. Designed for professionals and students who want to impress.' %}">
+    
+    <!-- Translatable keywords -->
+    <meta name="keywords" content="{% trans 'CV, resume, free, create CV, CV template, CV creator, curriculum, vitae, create resume, resume template' %}">
+    
+    <!-- Open Graph meta tags with translations -->
+    <meta property="og:title" content="{% trans 'Free Professional CV Builder' %}">
+    <meta property="og:description" content="{% trans 'Create your professional CV for free with customizable templates. Designed for professionals and students who want to impress.' %}">
+    <meta property="og:image" content="{% static 'images/hero_1.png' %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card meta tags with translations -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% trans 'Free Professional CV Builder' %}">
+    <meta name="twitter:description" content="{% trans 'Create your professional CV for free with customizable templates.' %}">
+    <meta name="twitter:image" content="{% static 'images/hero_1.png' %}">
+
+
 
     {% block head %}
     {% endblock %}

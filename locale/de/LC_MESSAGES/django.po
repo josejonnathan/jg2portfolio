@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-05 22:43+0200\n"
-"PO-Revision-Date: 2024-09-05 22:43+0200\n"
+"POT-Creation-Date: 2024-09-06 23:36+0200\n"
+"PO-Revision-Date: 2024-09-06 23:37+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -19,89 +19,137 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.5\n"
 
-#: curriculum/models.py:155 curriculum/models.py:171
+#: curriculum/models.py:157 curriculum/models.py:173
 msgid "End date cannot be earlier than start date."
 msgstr "Das Enddatum darf nicht vor dem Startdatum liegen."
 
-#: frontend/templates/CV_base.html:32
+#: frontend/templates/CV_base.html:10 frontend/templates/base.html:9
+msgid "Professional CV Builder | Customizable Templates"
+msgstr "Professioneller Lebenslauf-Generator | Anpassbare Vorlagen"
+
+#: frontend/templates/CV_base.html:29 frontend/templates/CV_base.html:36
+#: frontend/templates/base.html:26 frontend/templates/base.html:40
+msgid ""
+"Create your professional CV for free with customizable templates. Designed "
+"for professionals and students who want to impress."
+msgstr ""
+"Erstellen Sie Ihren professionellen Lebenslauf kostenlos mit anpassbaren "
+"Vorlagen. Entworfen für Profis und Studenten, die beeindrucken wollen."
+
+#: frontend/templates/CV_base.html:32 frontend/templates/base.html:29
+msgid ""
+"CV, resume, free, create CV, CV template, CV creator, curriculum, vitae, "
+"create resume, resume template"
+msgstr ""
+"Lebenslauf, Bewerbung, kostenlos, Lebenslauf erstellen, Lebenslaufvorlage, "
+"Lebenslauf-Generator, Curriculum Vitae, Bewerbung erstellen, "
+"Bewerbungsvorlage"
+
+#: frontend/templates/CV_base.html:35 frontend/templates/CV_base.html:43
+#: frontend/templates/base.html:39 frontend/templates/base.html:47
+msgid "Free Professional CV Builder"
+msgstr "Kostenloser professioneller Lebenslauf-Generator"
+
+#: frontend/templates/CV_base.html:44 frontend/templates/base.html:48
+msgid "Create your professional CV for free with customizable templates."
+msgstr ""
+"Erstellen Sie Ihren professionellen Lebenslauf kostenlos mit anpassbaren "
+"Vorlagen."
+
+#: frontend/templates/CV_base.html:58
 msgid "Back to editor"
 msgstr "Zurück zum Editor"
 
-#: frontend/templates/CV_base.html:33
+#: frontend/templates/CV_base.html:59
 #: user/templates/profile_template_update.html:7
 msgid "Template Selection"
 msgstr "Vorlagenauswahl"
 
-#: frontend/templates/CV_base.html:34
+#: frontend/templates/CV_base.html:60
 msgid "Theme Selection"
 msgstr "Themenauswahl"
 
-#: frontend/templates/curriculum_detail.html:34 media/templates/cube.html:33
-#: media/templates/hip_to_be_square.html:95 media/templates/sea_quest.html:31
-#: media/templates/the_two_towers.html:41 user/forms.py:69
-#: user/templates/user_detail.html:46
+#: frontend/templates/curriculum_detail.html:34
+#: frontend/templates/curriculum_detail_pdf.html:202
+#: media/templates/cube.html:33 media/templates/hip_to_be_square.html:95
+#: media/templates/sea_quest.html:31 media/templates/the_two_towers.html:43
+#: user/forms.py:71 user/templates/user_detail.html:48
 msgid "Website"
 msgstr "Webseite"
 
 #: frontend/templates/curriculum_detail.html:37
-#: frontend/templates/curriculum_detail.html:96 media/templates/cube.html:36
-#: media/templates/cube.html:95 media/templates/hip_to_be_square.html:98
+#: frontend/templates/curriculum_detail.html:96
+#: frontend/templates/curriculum_detail_pdf.html:211
+#: media/templates/cube.html:36 media/templates/cube.html:95
+#: media/templates/hip_to_be_square.html:98
 #: media/templates/hip_to_be_square.html:157 media/templates/sea_quest.html:34
-#: media/templates/sea_quest.html:172 media/templates/the_two_towers.html:44
-#: media/templates/the_two_towers.html:154 user/forms.py:70
-#: user/templates/user_detail.html:47
+#: media/templates/sea_quest.html:172 media/templates/the_two_towers.html:46
+#: media/templates/the_two_towers.html:156 user/forms.py:72
+#: user/templates/user_detail.html:49
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: frontend/templates/curriculum_detail.html:40 media/templates/cube.html:39
-#: media/templates/hip_to_be_square.html:101 media/templates/sea_quest.html:37
-#: media/templates/the_two_towers.html:47 user/forms.py:71
-#: user/templates/user_detail.html:48
+#: frontend/templates/curriculum_detail.html:40
+#: frontend/templates/curriculum_detail_pdf.html:214
+#: media/templates/cube.html:39 media/templates/hip_to_be_square.html:101
+#: media/templates/sea_quest.html:37 media/templates/the_two_towers.html:49
+#: user/forms.py:73 user/templates/user_detail.html:50
 msgid "GitHub"
 msgstr "GitHub"
 
 #: frontend/templates/curriculum_detail.html:43
-#: frontend/templates/curriculum_detail.html:93 media/templates/cube.html:42
-#: media/templates/cube.html:92 media/templates/hip_to_be_square.html:104
+#: frontend/templates/curriculum_detail.html:93
+#: frontend/templates/curriculum_detail_pdf.html:217
+#: media/templates/cube.html:42 media/templates/cube.html:92
+#: media/templates/hip_to_be_square.html:104
 #: media/templates/hip_to_be_square.html:154 media/templates/sea_quest.html:40
-#: media/templates/sea_quest.html:169 media/templates/the_two_towers.html:50
-#: media/templates/the_two_towers.html:151 user/forms.py:72
-#: user/templates/user_detail.html:49
+#: media/templates/sea_quest.html:169 media/templates/the_two_towers.html:52
+#: media/templates/the_two_towers.html:153 user/forms.py:74
+#: user/templates/user_detail.html:51
 msgid "Twitter"
 msgstr "Twitter"
 
 #: frontend/templates/curriculum_detail.html:46
-#: frontend/templates/curriculum_detail.html:90 media/templates/cube.html:45
-#: media/templates/cube.html:89 media/templates/hip_to_be_square.html:107
+#: frontend/templates/curriculum_detail.html:90
+#: frontend/templates/curriculum_detail_pdf.html:208
+#: media/templates/cube.html:45 media/templates/cube.html:89
+#: media/templates/hip_to_be_square.html:107
 #: media/templates/hip_to_be_square.html:151 media/templates/sea_quest.html:43
-#: media/templates/sea_quest.html:166 media/templates/the_two_towers.html:53
-#: media/templates/the_two_towers.html:148 user/forms.py:74
-#: user/templates/user_detail.html:50
+#: media/templates/sea_quest.html:166 media/templates/the_two_towers.html:55
+#: media/templates/the_two_towers.html:150 user/forms.py:76
+#: user/templates/user_detail.html:52
 msgid "Facebook"
 msgstr "Facebook"
 
-#: frontend/templates/curriculum_detail.html:49 media/templates/cube.html:48
-#: media/templates/hip_to_be_square.html:110 media/templates/sea_quest.html:46
-#: media/templates/the_two_towers.html:56 user/forms.py:73
-#: user/templates/user_detail.html:51
+#: frontend/templates/curriculum_detail.html:49
+#: frontend/templates/curriculum_detail_pdf.html:205
+#: media/templates/cube.html:48 media/templates/hip_to_be_square.html:110
+#: media/templates/sea_quest.html:46 media/templates/the_two_towers.html:58
+#: user/forms.py:75 user/templates/user_detail.html:53
 msgid "Instagram"
 msgstr "Instagram"
 
-#: frontend/templates/curriculum_detail.html:56 media/templates/cube.html:55
-#: media/templates/hip_to_be_square.html:117 media/templates/sea_quest.html:62
-#: media/templates/the_two_towers.html:65 user/templates/user_detail.html:61
+#: frontend/templates/curriculum_detail.html:56
+#: frontend/templates/curriculum_detail_pdf.html:131
+#: media/templates/cube.html:55 media/templates/hip_to_be_square.html:117
+#: media/templates/sea_quest.html:62 media/templates/the_two_towers.html:67
+#: user/templates/user_detail.html:63
 msgid "Skills"
 msgstr "Fähigkeiten"
 
-#: frontend/templates/curriculum_detail.html:66 media/templates/cube.html:65
-#: media/templates/hip_to_be_square.html:127 media/templates/sea_quest.html:75
-#: media/templates/the_two_towers.html:75 user/templates/user_detail.html:81
+#: frontend/templates/curriculum_detail.html:66
+#: frontend/templates/curriculum_detail_pdf.html:139
+#: media/templates/cube.html:65 media/templates/hip_to_be_square.html:127
+#: media/templates/sea_quest.html:75 media/templates/the_two_towers.html:77
+#: user/templates/user_detail.html:83
 msgid "Languages"
 msgstr "Sprachen"
 
-#: frontend/templates/curriculum_detail.html:77 media/templates/cube.html:76
-#: media/templates/hip_to_be_square.html:138 media/templates/sea_quest.html:83
-#: media/templates/the_two_towers.html:85 user/templates/user_detail.html:101
+#: frontend/templates/curriculum_detail.html:77
+#: frontend/templates/curriculum_detail_pdf.html:148
+#: media/templates/cube.html:76 media/templates/hip_to_be_square.html:138
+#: media/templates/sea_quest.html:83 media/templates/the_two_towers.html:87
+#: user/templates/user_detail.html:103
 msgid "Interests"
 msgstr "Interessen"
 
@@ -112,32 +160,35 @@ msgstr "Teilen"
 
 #: frontend/templates/curriculum_detail.html:99 media/templates/cube.html:98
 #: media/templates/hip_to_be_square.html:160 media/templates/sea_quest.html:175
-#: media/templates/the_two_towers.html:157
+#: media/templates/the_two_towers.html:159
 msgid "WhatsApp"
 msgstr "WhatsApp"
 
 #: frontend/templates/curriculum_detail.html:102 media/templates/cube.html:101
 #: media/templates/hip_to_be_square.html:163 media/templates/sea_quest.html:178
-#: media/templates/the_two_towers.html:160
+#: media/templates/the_two_towers.html:162
 msgid "Telegram"
 msgstr "Telegram"
 
-#: frontend/templates/curriculum_detail.html:106 media/templates/cube.html:105
-#: media/templates/hip_to_be_square.html:167 media/templates/sea_quest.html:182
-#: media/templates/the_two_towers.html:164
+#: frontend/templates/curriculum_detail.html:106
+#: frontend/templates/curriculum_detail_pdf.html:221
+#: media/templates/cube.html:105 media/templates/hip_to_be_square.html:167
+#: media/templates/sea_quest.html:182 media/templates/the_two_towers.html:166
 msgid "QR Code"
 msgstr "QR-Code"
 
-#: frontend/templates/curriculum_detail.html:114 media/templates/cube.html:113
-#: media/templates/hip_to_be_square.html:18 media/templates/sea_quest.html:58
-#: media/templates/the_two_towers.html:35
+#: frontend/templates/curriculum_detail.html:114
+#: frontend/templates/curriculum_detail_pdf.html:124
+#: media/templates/cube.html:113 media/templates/hip_to_be_square.html:18
+#: media/templates/sea_quest.html:58 media/templates/the_two_towers.html:37
 msgid "Profile"
 msgstr "Profil"
 
-#: frontend/templates/curriculum_detail.html:120 media/templates/cube.html:119
-#: media/templates/hip_to_be_square.html:24 media/templates/sea_quest.html:101
-#: media/templates/sea_quest.html:102 media/templates/the_two_towers.html:98
-#: user/templates/user_detail.html:127
+#: frontend/templates/curriculum_detail.html:120
+#: frontend/templates/curriculum_detail_pdf.html:159
+#: media/templates/cube.html:119 media/templates/hip_to_be_square.html:24
+#: media/templates/sea_quest.html:101 media/templates/sea_quest.html:102
+#: media/templates/the_two_towers.html:100 user/templates/user_detail.html:129
 msgid "Education"
 msgstr "Ausbildung"
 
@@ -146,15 +197,59 @@ msgstr "Ausbildung"
 msgid "Work Experience"
 msgstr "Erfahrung"
 
-#: frontend/templates/curriculum_detail.html:150 media/templates/cube.html:149
-#: media/templates/hip_to_be_square.html:53 media/templates/sea_quest.html:132
-#: media/templates/the_two_towers.html:124 user/templates/user_detail.html:181
+#: frontend/templates/curriculum_detail.html:150
+#: frontend/templates/curriculum_detail_pdf.html:185
+#: media/templates/cube.html:149 media/templates/hip_to_be_square.html:53
+#: media/templates/sea_quest.html:132 media/templates/the_two_towers.html:126
+#: user/templates/user_detail.html:183
 msgid "Projects"
 msgstr "Projekte"
+
+#: frontend/templates/curriculum_detail_pdf.html:8
+msgid "Curriculum PDF"
+msgstr "Lebenslauf PDF"
+
+#: frontend/templates/curriculum_detail_pdf.html:117
+#: media/templates/the_two_towers.html:28 user/templates/user_detail.html:40
+msgid "Details"
+msgstr "Details"
+
+#: frontend/templates/curriculum_detail_pdf.html:118
+#: media/templates/sea_quest.html:50 media/templates/the_two_towers.html:33
+#: user/forms.py:30 user/forms.py:68 user/templates/user_detail.html:43
+msgid "Email"
+msgstr "E-Mail"
+
+#: frontend/templates/curriculum_detail_pdf.html:119
+#: media/templates/sea_quest.html:52 media/templates/the_two_towers.html:34
+#: user/forms.py:69 user/templates/user_detail.html:44
+msgid "Phone"
+msgstr "Telefon"
+
+#: frontend/templates/curriculum_detail_pdf.html:120
+#: media/templates/sea_quest.html:55 media/templates/the_two_towers.html:35
+#: user/forms.py:70 user/templates/user_detail.html:45
+msgid "Address"
+msgstr "Adresse"
+
+#: frontend/templates/curriculum_detail_pdf.html:172
+#: media/templates/sea_quest.html:117 media/templates/sea_quest.html:118
+#: media/templates/the_two_towers.html:112 user/templates/user_detail.html:153
+msgid "Experience"
+msgstr "Erfahrung"
+
+#: frontend/templates/curriculum_detail_pdf.html:199
+#: media/templates/the_two_towers.html:40 user/templates/user_detail.html:47
+msgid "Links"
+msgstr "Links"
 
 #: frontend/templates/footer.html:10
 msgid "Contact"
 msgstr "Kontakt"
+
+#: frontend/templates/footer.html:13
+msgid "Terms and Conditions"
+msgstr "Allgemeinen Geschäftsbedingungen"
 
 #: frontend/templates/home.html:21
 msgid "Simplified CV Creation"
@@ -193,19 +288,28 @@ msgstr ""
 "überall aktualisieren und sicherstellen, dass er stets professionell "
 "aussieht."
 
-#: frontend/templates/terms_and_conditions.html:12
-msgid "Home"
-msgstr "Startseite"
+#: frontend/templates/password_prompt.html:8
+msgid "Enter the password to view this CV"
+msgstr "Geben Sie das Passwort ein, um diesen Lebenslauf anzuzeigen"
 
-#: frontend/templates/terms_and_conditions.html:13
+#: frontend/templates/password_prompt.html:12 user/templates/login.html:15
+#: user/templates/register.html:30
+msgid "Password:"
+msgstr "Passwort:"
+
+#: frontend/templates/password_prompt.html:16
+msgid "Watch CV"
+msgstr "Lebenslauf anzeigen"
+
+#: frontend/templates/terms_and_conditions.html:12
 msgid "Terms and Conditions of Use"
 msgstr "Nutzungsbedingungen"
 
-#: frontend/templates/terms_and_conditions.html:14
+#: frontend/templates/terms_and_conditions.html:13
 msgid "Last updated: [05.09.2024]"
 msgstr "Zuletzt aktualisiert: [05.09.2024]"
 
-#: frontend/templates/terms_and_conditions.html:16
+#: frontend/templates/terms_and_conditions.html:15
 msgid ""
 "These Terms and Conditions govern the use of the website pro.cur.vit "
 "(hereinafter, 'the Site') and the services offered through it. By accessing "
@@ -218,11 +322,11 @@ msgstr ""
 "Nutzungsbedingungen einverstanden. Wenn Sie diesen Bedingungen nicht "
 "zustimmen, verwenden Sie die Seite bitte nicht."
 
-#: frontend/templates/terms_and_conditions.html:18
+#: frontend/templates/terms_and_conditions.html:17
 msgid "1. Description of Service"
 msgstr "1. Beschreibung des Dienstes"
 
-#: frontend/templates/terms_and_conditions.html:19
+#: frontend/templates/terms_and_conditions.html:18
 msgid ""
 "pro.cur.vit provides users with the ability to create and manage their "
 "Curriculum Vitae (CV) for free. Users can register, create, modify, and "
@@ -233,11 +337,11 @@ msgstr ""
 "ihren Lebenslauf erstellen, bearbeiten und mit den auf der Seite "
 "bereitgestellten Tools speichern."
 
-#: frontend/templates/terms_and_conditions.html:22
+#: frontend/templates/terms_and_conditions.html:21
 msgid "2. User Registration"
 msgstr "2. Benutzerregistrierung"
 
-#: frontend/templates/terms_and_conditions.html:23
+#: frontend/templates/terms_and_conditions.html:22
 msgid ""
 "To use the services offered on the Site, you must register and create an "
 "account. By registering, you agree to provide accurate and complete "
@@ -250,11 +354,11 @@ msgstr ""
 "Passwort vertraulich zu behandeln. Sie sind für alle Aktivitäten "
 "verantwortlich, die unter Ihrem Konto erfolgen."
 
-#: frontend/templates/terms_and_conditions.html:25
+#: frontend/templates/terms_and_conditions.html:24
 msgid "3. Acceptable Use"
 msgstr "3. Zulässige Nutzung"
 
-#: frontend/templates/terms_and_conditions.html:26
+#: frontend/templates/terms_and_conditions.html:25
 msgid ""
 "You agree to use the Site only for purposes that are permitted by these "
 "Terms and Conditions and any applicable laws, regulations, or generally "
@@ -267,18 +371,18 @@ msgstr ""
 "Gerichtsbarkeit zulässig sind. Verbotene Aktivitäten umfassen, sind aber "
 "nicht beschränkt auf:"
 
-#: frontend/templates/terms_and_conditions.html:29
+#: frontend/templates/terms_and_conditions.html:28
 msgid "Using the Site for any unlawful or unauthorized purpose."
 msgstr ""
 "Die Nutzung der Seite für unrechtmäßige oder nicht autorisierte Zwecke."
 
-#: frontend/templates/terms_and_conditions.html:30
+#: frontend/templates/terms_and_conditions.html:29
 msgid "Accessing, tampering with, or using non-public areas of the Site."
 msgstr ""
 "Zugriff auf, Manipulation von oder Nutzung nicht öffentlicher Bereiche der "
 "Seite."
 
-#: frontend/templates/terms_and_conditions.html:31
+#: frontend/templates/terms_and_conditions.html:30
 msgid ""
 "Attempting to probe, scan, or test the vulnerability of any system or "
 "network related to the Site."
@@ -286,7 +390,7 @@ msgstr ""
 "Versuche, die Verwundbarkeit eines mit der Seite verbundenen Systems oder "
 "Netzwerks zu überprüfen, zu scannen oder zu testen."
 
-#: frontend/templates/terms_and_conditions.html:32
+#: frontend/templates/terms_and_conditions.html:31
 msgid ""
 "Interfering with or disrupting the access of any user, host, or network, "
 "including sending a virus, overloading, flooding, spamming, or mail-bombing "
@@ -296,11 +400,11 @@ msgstr ""
 "Netzwerks, einschließlich des Sendens eines Virus, Überlastung, Flooding, "
 "Spamming oder Mail-Bombing der Seite."
 
-#: frontend/templates/terms_and_conditions.html:35
+#: frontend/templates/terms_and_conditions.html:34
 msgid "4. Privacy and Data Protection"
 msgstr "4. Datenschutz und Datensicherheit"
 
-#: frontend/templates/terms_and_conditions.html:36
+#: frontend/templates/terms_and_conditions.html:35
 msgid ""
 "The processing of users' personal data is governed by our Privacy Policy. By "
 "using the Site, you agree to the collection and use of information in "
@@ -311,11 +415,11 @@ msgstr ""
 "Erfassung und Nutzung von Informationen gemäß unserer Datenschutzrichtlinie "
 "zu."
 
-#: frontend/templates/terms_and_conditions.html:38
+#: frontend/templates/terms_and_conditions.html:37
 msgid "5. User Content"
 msgstr "5. Benutzerinhalte"
 
-#: frontend/templates/terms_and_conditions.html:39
+#: frontend/templates/terms_and_conditions.html:38
 msgid ""
 "You are solely responsible for the content you upload, publish, or display "
 "on or through the Site ('User Content'). You grant pro.cur.vit a non-"
@@ -331,11 +435,11 @@ msgstr ""
 "Aufführung und Verbreitung Ihrer Benutzerinhalte im Zusammenhang mit der "
 "Seite."
 
-#: frontend/templates/terms_and_conditions.html:41
+#: frontend/templates/terms_and_conditions.html:40
 msgid "6. Intellectual Property Rights"
 msgstr "6. Geistige Eigentumsrechte"
 
-#: frontend/templates/terms_and_conditions.html:42
+#: frontend/templates/terms_and_conditions.html:41
 msgid ""
 "All content, trademarks, logos, and other materials available on the Site "
 "are the property of pro.cur.vit or its licensors. You may not copy, modify, "
@@ -351,11 +455,11 @@ msgstr ""
 "sei denn, Gesetze verbieten diese Einschränkungen oder Sie haben unsere "
 "schriftliche Erlaubnis."
 
-#: frontend/templates/terms_and_conditions.html:44
+#: frontend/templates/terms_and_conditions.html:43
 msgid "7. Limitation of Liability"
 msgstr "7. Haftungsbeschränkung"
 
-#: frontend/templates/terms_and_conditions.html:45
+#: frontend/templates/terms_and_conditions.html:44
 msgid ""
 "pro.cur.vit shall not be liable for any direct, indirect, incidental, "
 "special, consequential, or exemplary damages resulting from the use or "
@@ -368,11 +472,11 @@ msgstr ""
 "beschränkt auf Schäden durch entgangenen Gewinn, Goodwill, Nutzung, Daten "
 "oder andere immaterielle Verluste."
 
-#: frontend/templates/terms_and_conditions.html:47
+#: frontend/templates/terms_and_conditions.html:46
 msgid "8. Changes to the Terms"
 msgstr "8. Änderungen der Bedingungen"
 
-#: frontend/templates/terms_and_conditions.html:48
+#: frontend/templates/terms_and_conditions.html:47
 msgid ""
 "We reserve the right to modify these Terms and Conditions at any time. "
 "Changes will become effective immediately upon posting on the Site. It is "
@@ -386,11 +490,11 @@ msgstr ""
 "zu überprüfen. Ihre fortgesetzte Nutzung der Seite nach Änderungen bedeutet, "
 "dass Sie die neuen Nutzungsbedingungen akzeptieren."
 
-#: frontend/templates/terms_and_conditions.html:50
+#: frontend/templates/terms_and_conditions.html:49
 msgid "9. Termination"
 msgstr "9. Beendigung"
 
-#: frontend/templates/terms_and_conditions.html:51
+#: frontend/templates/terms_and_conditions.html:50
 msgid ""
 "We may suspend or terminate your access to the Site if you violate any of "
 "these Terms and Conditions or if we suspect that you have been involved in "
@@ -401,11 +505,11 @@ msgstr ""
 "Sie an betrügerischen, missbräuchlichen oder illegalen Aktivitäten beteiligt "
 "waren."
 
-#: frontend/templates/terms_and_conditions.html:53
+#: frontend/templates/terms_and_conditions.html:52
 msgid "10. Governing Law and Jurisdiction"
 msgstr "10. Anwendbares Recht und Gerichtsstand"
 
-#: frontend/templates/terms_and_conditions.html:54
+#: frontend/templates/terms_and_conditions.html:53
 msgid ""
 "These Terms and Conditions shall be governed by and construed in accordance "
 "with the laws of the country in which pro.cur.vit is registered, without "
@@ -419,11 +523,11 @@ msgstr ""
 "sich aus oder im Zusammenhang mit diesen Nutzungsbedingungen ergeben, "
 "unterliegen der ausschließlichen Gerichtsbarkeit der Gerichte dieses Landes."
 
-#: frontend/templates/terms_and_conditions.html:56
+#: frontend/templates/terms_and_conditions.html:55
 msgid "11. Contact Information"
 msgstr "11. Kontaktinformationen"
 
-#: frontend/templates/terms_and_conditions.html:57
+#: frontend/templates/terms_and_conditions.html:56
 msgid ""
 "If you have any questions or concerns about these Terms and Conditions, "
 "please contact us at pro.cur.vit@gmail.com."
@@ -431,67 +535,63 @@ msgstr ""
 "Wenn Sie Fragen oder Bedenken zu diesen Nutzungsbedingungen haben, "
 "kontaktieren Sie uns bitte unter pro.cur.vit@gmail.com."
 
-#: jg2portfolio/settings.py:116
+#: frontend/templates/terms_and_conditions.html:59
+msgid "Home"
+msgstr "Startseite"
+
+#: frontend/templates/wrong_password.html:7
+msgid "Wrong password"
+msgstr "Falsches Passwort"
+
+#: frontend/templates/wrong_password.html:8
+msgid "The password you entered is incorrect. Please try again."
+msgstr "Das eingegebene Passwort ist falsch. Bitte versuchen Sie es erneut."
+
+#: frontend/templates/wrong_password.html:10
+msgid "Back"
+msgstr "Zurück"
+
+#: jg2portfolio/settings.py:117
 msgid "English"
 msgstr "Englisch"
 
-#: jg2portfolio/settings.py:117
+#: jg2portfolio/settings.py:118
 msgid "French"
 msgstr "Französisch"
 
-#: jg2portfolio/settings.py:118
+#: jg2portfolio/settings.py:119
 msgid "Spanish"
 msgstr "Spanisch"
 
-#: jg2portfolio/settings.py:119
+#: jg2portfolio/settings.py:120
 msgid "German"
 msgstr "Deutsch"
 
-#: media/templates/sea_quest.html:50 media/templates/the_two_towers.html:31
-#: user/forms.py:30 user/forms.py:66 user/templates/user_detail.html:41
-msgid "Email"
-msgstr "E-Mail"
+#: jg2portfolio/settings.py:121
+msgid "Italian"
+msgstr "Italienisch"
 
-#: media/templates/sea_quest.html:52 media/templates/the_two_towers.html:32
-#: user/forms.py:67 user/templates/user_detail.html:42
-msgid "Phone"
-msgstr "Telefon"
-
-#: media/templates/sea_quest.html:55 media/templates/the_two_towers.html:33
-#: user/forms.py:68 user/templates/user_detail.html:43
-msgid "Address"
-msgstr "Adresse"
-
-#: media/templates/sea_quest.html:117 media/templates/sea_quest.html:118
-#: media/templates/the_two_towers.html:110 user/templates/user_detail.html:151
-msgid "Experience"
-msgstr "Erfahrung"
+#: jg2portfolio/settings.py:122
+msgid "Portuguese"
+msgstr "Portugiesisch"
 
 #: media/templates/sea_quest.html:133
 msgid "Some of my projects"
 msgstr "Einige meiner Projekte"
 
-#: media/templates/sea_quest.html:163 media/templates/the_two_towers.html:145
+#: media/templates/sea_quest.html:163 media/templates/the_two_towers.html:147
 msgid "Share this CV:"
 msgstr "Diesen Lebenslauf teilen:"
 
-#: media/templates/the_two_towers.html:26 user/templates/user_detail.html:38
-msgid "Details"
-msgstr "Details"
-
-#: media/templates/the_two_towers.html:27 user/forms.py:63
-#: user/templates/user_detail.html:39
+#: media/templates/the_two_towers.html:29 user/forms.py:65
+#: user/templates/user_detail.html:41
 msgid "Name"
 msgstr "Name"
 
-#: media/templates/the_two_towers.html:29 user/forms.py:64
-#: user/templates/user_detail.html:40
+#: media/templates/the_two_towers.html:31 user/forms.py:66
+#: user/templates/user_detail.html:42
 msgid "Title"
 msgstr "Titel"
-
-#: media/templates/the_two_towers.html:38 user/templates/user_detail.html:45
-msgid "Links"
-msgstr "Links"
 
 #: user/forms.py:13
 msgid "Required. Enter a valid email address."
@@ -505,7 +605,7 @@ msgstr "Ich akzeptiere die Allgemeinen Geschäftsbedingungen"
 msgid "Username"
 msgstr "Benutzername"
 
-#: user/forms.py:31
+#: user/forms.py:31 user/forms.py:79
 msgid "Password"
 msgstr "Passwort"
 
@@ -513,19 +613,23 @@ msgstr "Passwort"
 msgid "Confirm Password"
 msgstr "Passwort bestätigen"
 
-#: user/forms.py:65
+#: user/forms.py:67
 msgid "Bio"
 msgstr "Biografie"
 
-#: user/forms.py:75
+#: user/forms.py:77
 msgid "Profile Picture"
 msgstr "Profilbild"
 
-#: user/forms.py:84 user/forms.py:209
+#: user/forms.py:78
+msgid "Protect curriculum with password"
+msgstr "Lebenslauf mit Passwort schützen"
+
+#: user/forms.py:88 user/forms.py:241
 msgid "The image is too large (maximum size is 5 MB)."
 msgstr "Das Bild ist zu groß (maximale Größe beträgt 5 MB)."
 
-#: user/forms.py:90 user/forms.py:215
+#: user/forms.py:94 user/forms.py:247
 #, python-brace-format
 msgid ""
 "Image Resolution is too high (maximum size is {max_width}x{max_height} "
@@ -534,71 +638,79 @@ msgstr ""
 "Die Bildauflösung ist zu hoch (maximale Größe ist {max_width}x{max_height} "
 "Pixel)."
 
-#: user/forms.py:103
+#: user/forms.py:104
+msgid "You must provide a password if password protection is enabled."
+msgstr ""
+"Sie müssen ein Passwort angeben, wenn der Passwortschutz aktiviert ist."
+
+#: user/forms.py:117
 msgid "Dark Background"
 msgstr "Dunkler Hintergrund"
 
-#: user/forms.py:104
+#: user/forms.py:118
 msgid "Template"
 msgstr "Vorlage"
 
-#: user/forms.py:116
+#: user/forms.py:130
 msgid "Skill Name"
 msgstr "Fähigkeitsname"
 
-#: user/forms.py:117
+#: user/forms.py:131
 msgid "Skill Level"
 msgstr "Fähigkeitsniveau"
 
-#: user/forms.py:129
+#: user/forms.py:143
 msgid "Language Name"
 msgstr "Sprache"
 
-#: user/forms.py:130
+#: user/forms.py:144
 msgid "Proficiency Level"
 msgstr "Kenntnisstand"
 
-#: user/forms.py:141
+#: user/forms.py:155
 msgid "Interest"
 msgstr "Interesse"
 
-#: user/forms.py:156
+#: user/forms.py:170 user/templates/education_form.html:12
 msgid "Institution"
 msgstr "Institution"
 
-#: user/forms.py:157
+#: user/forms.py:171 user/templates/education_form.html:16
 msgid "Degree"
 msgstr "Abschluss"
 
-#: user/forms.py:158 user/forms.py:177 user/forms.py:197
+#: user/forms.py:172 user/forms.py:197 user/forms.py:223
+#: user/templates/education_form.html:20
 msgid "Start Date"
 msgstr "Startdatum"
 
-#: user/forms.py:159 user/forms.py:178 user/forms.py:198
+#: user/forms.py:173 user/forms.py:198 user/forms.py:224
+#: user/templates/education_form.html:24
 msgid "End Date"
 msgstr "Enddatum"
 
-#: user/forms.py:160 user/forms.py:179 user/forms.py:196
+#: user/forms.py:174 user/forms.py:199 user/forms.py:222
+#: user/templates/education_form.html:28
 msgid "Description"
 msgstr "Beschreibung"
 
-#: user/forms.py:175
+#: user/forms.py:195
 msgid "Job Title"
 msgstr "Berufsbezeichnung"
 
-#: user/forms.py:176
+#: user/forms.py:196
 msgid "Company"
 msgstr "Unternehmen"
 
-#: user/forms.py:195
+#: user/forms.py:221
 msgid "Project Name"
 msgstr "Projektname"
 
-#: user/forms.py:199
+#: user/forms.py:225
 msgid "Project URL"
 msgstr "Projekt-URL"
 
-#: user/forms.py:200
+#: user/forms.py:226
 msgid "Project Image"
 msgstr "Projektbild"
 
@@ -616,7 +728,7 @@ msgstr ""
 
 #: user/templates/activation_complete.html:9 user/templates/login.html:7
 #: user/templates/login.html:19
-#: user/templates/registration/password_reset_complete.html:10
+#: user/templates/registration/password_reset_complete.html:11
 #: user/templates/registration/password_reset_done.html:10
 #: user/templates/registration_complete.html:10
 msgid "Login"
@@ -640,11 +752,17 @@ msgid "Delete"
 msgstr "Löschen"
 
 #: user/templates/education_confirm_delete.html:12
+#: user/templates/education_form.html:33
 #: user/templates/experience_confirm_delete.html:12
+#: user/templates/experience_form.html:14
 #: user/templates/interest_confirm_delete.html:12
+#: user/templates/interest_form.html:14
 #: user/templates/language_confirm_delete.html:12
+#: user/templates/language_form.html:14 user/templates/profile_update.html:104
 #: user/templates/project_confirm_delete.html:12
+#: user/templates/project_form.html:14
 #: user/templates/skill_confirm_delete.html:12
+#: user/templates/skill_form.html:13
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -656,7 +774,7 @@ msgstr "Ausbildung bearbeiten"
 msgid "Add Education"
 msgstr "Ausbildung hinzufügen"
 
-#: user/templates/education_form.html:12
+#: user/templates/education_form.html:32
 msgid "Save Education"
 msgstr "Ausbildung speichern"
 
@@ -698,7 +816,7 @@ msgstr ""
 "Mail."
 
 #: user/templates/email_verification.html:71
-#: user/templates/registration/password_reset_email.html:68
+#: user/templates/registration/password_reset_email.html:69
 msgid "All rights reserved."
 msgstr "Alle Rechte vorbehalten."
 
@@ -718,7 +836,7 @@ msgstr "Erfahrung bearbeiten"
 msgid "Add Experience"
 msgstr "Erfahrung hinzufügen"
 
-#: user/templates/experience_form.html:12
+#: user/templates/experience_form.html:13
 msgid "Save Experience"
 msgstr "Erfahrung speichern"
 
@@ -738,7 +856,7 @@ msgstr "Interesse bearbeiten"
 msgid "Add Interest"
 msgstr "Interesse hinzufügen"
 
-#: user/templates/interest_form.html:12
+#: user/templates/interest_form.html:13
 msgid "Save Interest"
 msgstr "Interesse speichern"
 
@@ -758,17 +876,13 @@ msgstr "Sprache bearbeiten"
 msgid "Add Language"
 msgstr "Sprache hinzufügen"
 
-#: user/templates/language_form.html:12
+#: user/templates/language_form.html:13
 msgid "Save Language"
 msgstr "Sprache speichern"
 
 #: user/templates/login.html:11 user/templates/register.html:12
 msgid "Username:"
 msgstr "Benutzername:"
-
-#: user/templates/login.html:15 user/templates/register.html:30
-msgid "Password:"
-msgstr "Passwort:"
 
 #: user/templates/login.html:24
 msgid "Forgot your Password?"
@@ -786,7 +900,7 @@ msgstr "Aktualisieren"
 msgid "Profile Update"
 msgstr "Profilaktualisierung"
 
-#: user/templates/profile_update.html:92
+#: user/templates/profile_update.html:103
 msgid "Save"
 msgstr "Speichern"
 
@@ -806,7 +920,7 @@ msgstr "Projekt bearbeiten"
 msgid "Add Project"
 msgstr "Projekt hinzufügen"
 
-#: user/templates/project_form.html:12
+#: user/templates/project_form.html:13
 msgid "Save Project"
 msgstr "Projekt speichern"
 
@@ -835,11 +949,11 @@ msgstr "Allgemeinen Geschäftsbedingungen"
 msgid "Already have an account? Login"
 msgstr "Haben Sie bereits ein Konto? Anmelden"
 
-#: user/templates/registration/password_reset_complete.html:7
+#: user/templates/registration/password_reset_complete.html:8
 msgid "Password Reset Complete"
 msgstr "Passwortzurücksetzung abgeschlossen"
 
-#: user/templates/registration/password_reset_complete.html:8
+#: user/templates/registration/password_reset_complete.html:9
 msgid ""
 "Your password has been set successfully. You can now log in with your new "
 "password."
@@ -875,20 +989,20 @@ msgstr ""
 "Falls ein Konto mit der von Ihnen eingegebenen E-Mail existiert, erhalten "
 "Sie eine E-Mail mit Anweisungen zur Zurücksetzung Ihres Passworts."
 
-#: user/templates/registration/password_reset_email.html:6
+#: user/templates/registration/password_reset_email.html:7
 msgid "Password Reset"
 msgstr "Passwortzurücksetzung"
 
-#: user/templates/registration/password_reset_email.html:57
+#: user/templates/registration/password_reset_email.html:58
 msgid "Password Reset Request"
 msgstr "Anfrage zur Passwortzurücksetzung"
 
-#: user/templates/registration/password_reset_email.html:60
+#: user/templates/registration/password_reset_email.html:61
 #, python-format
 msgid "Hi %(user.get_username)s,"
 msgstr "Hallo %(user.get_username)s,"
 
-#: user/templates/registration/password_reset_email.html:61
+#: user/templates/registration/password_reset_email.html:62
 msgid ""
 "We received a request to reset your password. Click the button below to "
 "reset it:"
@@ -896,11 +1010,11 @@ msgstr ""
 "Wir haben eine Anfrage zur Zurücksetzung Ihres Passworts erhalten. Klicken "
 "Sie auf die Schaltfläche unten, um es zurückzusetzen:"
 
-#: user/templates/registration/password_reset_email.html:63
+#: user/templates/registration/password_reset_email.html:64
 msgid "Reset Password"
 msgstr "Passwort zurücksetzen"
 
-#: user/templates/registration/password_reset_email.html:65
+#: user/templates/registration/password_reset_email.html:66
 msgid ""
 "If you did not request a password reset, please ignore this email or reply "
 "to let us know. This password reset link is valid for the next 24 hours."
@@ -945,7 +1059,7 @@ msgstr "Löschung der Fähigkeit bestätigen"
 msgid "Are you sure you want to delete this skill?"
 msgstr "Möchten Sie diese Fähigkeit wirklich löschen?"
 
-#: user/templates/skill_form.html:11
+#: user/templates/skill_form.html:12
 msgid "Save Skill"
 msgstr "Fähigkeit speichern"
 
@@ -986,31 +1100,35 @@ msgid "Your Public CV"
 msgstr "Ihr öffentlicher Lebenslauf"
 
 #: user/templates/user_detail.html:19
+msgid "Download as PDF"
+msgstr "Als PDF herunterladen"
+
+#: user/templates/user_detail.html:20
 msgid "Logout"
 msgstr "Abmelden"
 
-#: user/templates/user_detail.html:28
+#: user/templates/user_detail.html:30
 msgid "Your Profile"
 msgstr "Ihr Profil"
 
-#: user/templates/user_detail.html:29
+#: user/templates/user_detail.html:31
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: user/templates/user_detail.html:62 user/templates/user_detail.html:82
-#: user/templates/user_detail.html:102 user/templates/user_detail.html:128
-#: user/templates/user_detail.html:152 user/templates/user_detail.html:182
+#: user/templates/user_detail.html:64 user/templates/user_detail.html:84
+#: user/templates/user_detail.html:104 user/templates/user_detail.html:130
+#: user/templates/user_detail.html:154 user/templates/user_detail.html:184
 msgid "New"
 msgstr "Neu"
 
-#: user/templates/user_detail.html:68 user/templates/user_detail.html:88
-#: user/templates/user_detail.html:108 user/templates/user_detail.html:135
-#: user/templates/user_detail.html:159 user/templates/user_detail.html:190
+#: user/templates/user_detail.html:70 user/templates/user_detail.html:90
+#: user/templates/user_detail.html:110 user/templates/user_detail.html:137
+#: user/templates/user_detail.html:161 user/templates/user_detail.html:192
 msgid "edit"
 msgstr "bearbeiten"
 
-#: user/templates/user_detail.html:71 user/templates/user_detail.html:91
-#: user/templates/user_detail.html:111 user/templates/user_detail.html:138
-#: user/templates/user_detail.html:162 user/templates/user_detail.html:193
+#: user/templates/user_detail.html:73 user/templates/user_detail.html:93
+#: user/templates/user_detail.html:113 user/templates/user_detail.html:140
+#: user/templates/user_detail.html:164 user/templates/user_detail.html:195
 msgid "delete"
 msgstr "löschen"

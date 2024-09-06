@@ -16,7 +16,9 @@
         <h2 class="text-center">{% trans "Welcome" %} {{ user.username }}</h2>
         <div class="col-12 d-flex flex-wrap justify-content-around my-3">
             <a href="{% url 'curriculum_detail' profile.pk %}" class="general-button-orange">{% trans "Your Public CV" %}</a>
+            <a href="{% url 'download' profile.pk %}" class="general-button-orange">{% trans "Download as PDF" %}</a>
             <a href="{% url 'logout' %}" class="general-button-orange">{% trans "Logout" %}</a>
+
         </div>
         <div class="col-12">
             <hr>

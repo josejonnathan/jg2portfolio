@@ -5,7 +5,9 @@ from django.http import HttpResponse
 from io import BytesIO
 from django.views.generic import DetailView
 from curriculum.models import Profile
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.http import HttpResponseForbidden
 from api.models import Template
 import random
 
@@ -43,6 +45,29 @@ class CurriculumDetailView(DetailView):
         else:
             # Devuelve el template por defecto si no se seleccionó HTMLTemplate
             return ['curriculum_detail.html']
+
+    def get(self, request, *args, **kwargs):
+        profile = self.get_object()
+
+        # Verificar si el usuario autenticado es el propietario del currículum
+        if request.user.is_authenticated and profile.user == request.user:
+            # El usuario es el propietario, continuar sin comprobar la contraseña
+            return super().get(request, *args, **kwargs)
+
+        # Verificar si el currículum está protegido por contraseña
+        if profile.password_protected:
+            password = request.GET.get('password')
+            
+            if not password:
+                # Si no se ha proporcionado la contraseña, mostrar un formulario de contraseña
+                return render(request, 'password_prompt.html', {'profile': profile})
+
+            if password != profile.password:
+                # Si la contraseña es incorrecta, redirigir a la página 'wrong-password' con el pk del perfil
+                return redirect('wrong_password', pk=profile.pk)
+        
+        # Si no hay contraseña o si la contraseña es correcta, continuar mostrando el currículum
+        return super().get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -90,5 +115,18 @@ class CurriculumDetailView(DetailView):
         return context
 
 
+def wrong_password(request, pk):
+    return render(request, 'wrong_password.html', {'pk': pk})
+
 def TermsAndConditionsView(request):
     return render(request, 'terms_and_conditions.html')
+
+# SEO
+
+def robots_txt(request):
+    lines = [
+        "User-Agent: *",
+        "Disallow: /admin/",
+        "Allow: /",
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")

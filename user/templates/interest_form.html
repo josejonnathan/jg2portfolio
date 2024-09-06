@@ -9,7 +9,10 @@
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="general-button-orange my-3">{% trans "Save Interest" %}</button>
+                <div class="text-center">
+                    <button type="submit" class="general-button-orange my-3">{% trans "Save Interest" %}</button>
+                    <a class="general-button-black" href="{% url 'user_detail' %}">{% trans "Cancel" %}</a>
+                </div>
             </form>
         </div>
     </div>

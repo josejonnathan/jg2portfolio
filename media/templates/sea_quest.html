@@ -103,7 +103,7 @@
                 {% for education in education %}
                 <div class="row mb-2">
                     <div class="col-12">
-                        <h5 class="text-end" style="font-family: {{ profile.template.font }};">{{ education.degree }}, {{ education.institution }} - {{ education.start_date }} - {{ education.end_date }}</h5>
+                        <h5 class="text-end" style="font-family: {{ profile.template.font }};">{{ education.degree }}, {{ education.institution }} - {{ education.start_date|date:"F Y" }} - {{ education.end_date|date:"F Y" }}</h5>
                         <p class="text-start">{{ education.description }}</p>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                 {% for job in experience %}
                 <div class="row mb-2">
                     <div class="col-12">
-                        <h5 class="text-end" style="font-family: {{ profile.template.font }};">{{ job.job_title }}, {{ job.company }} - {{ job.start_date }} - {{ job.end_date }}</h5>
+                        <h5 class="text-end" style="font-family: {{ profile.template.font }};">{{ job.job_title }}, {{ job.company }} - {{ job.start_date|date:"F Y" }} - {{ job.end_date|date:"F Y" }}</h5>
                         <p class="text-start">{{ job.description }}</p>
                     </div>
                 </div>

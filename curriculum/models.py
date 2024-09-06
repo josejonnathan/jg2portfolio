@@ -33,6 +33,8 @@ class Profile(models.Model):
     template = models.ForeignKey(Template, on_delete=models.SET_NULL, blank=True, null=True)
     background_dark = models.BooleanField(default=False)
     htmltemplate = models.ForeignKey(HTMLTemplate, on_delete=models.SET_NULL, blank=True, null=True)
+    password_protected = models.BooleanField(default=False)
+    password = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return self.name

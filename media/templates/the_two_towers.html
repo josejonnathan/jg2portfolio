@@ -14,7 +14,8 @@
 
 <div class="container-fluid px-0">
 
-    <div class="row no-gutters" style="background-color: {{ profile.template.colors.primary }}">
+    <div class="row no-gutters d-flex justify-content-center" style="background-color: {{ profile.template.colors.primary }}">
+        {% if profile.picture %}
         <div class="col-md-6 px-5">
             <div class="text-center my-5">
                 {% if profile.picture %}
@@ -22,7 +23,8 @@
                 {% endif %}
             </div>
         </div>
-        <div class="col-md-6 my-3 px-5">
+        {% endif %}
+        <div class="{% if profile.picture %} col-md-6 {% else %} col-8 {% endif %} my-3 px-5">
             <h3 style="font-family: {{ profile.template.font }};">{% trans "Details" %}</h3>
             <p>{% trans "Name" %}: {{ profile.name }}</p>
             {% if profile.title %}
@@ -100,7 +102,7 @@
             <ul>
                 {% for education in education %}
                 <h5>{{ education.degree }} -{{ education.institution }}</h5>
-                <p>{{ education.start_date }} - {{ education.end_date }}</p> 
+                <p>{{ education.start_date|date:"F Y" }} - {{ education.end_date|date:"F Y" }}</p> 
                 <p>{{ education.description }}</p>
                 {% endfor %}
             </ul>
@@ -112,7 +114,7 @@
             <ul>
                 {% for job in experience %}
                 <h5>{{ job.job_title }} - {{ job.company }}</h5>
-                <p>{{ job.start_date }} - {{ job.end_date }}</p>
+                <p>{{ job.start_date|date:"F Y" }} - {{ job.end_date|date:"F Y" }}</p>
                 <p>{{ job.description }}</p>
                 {% endfor %}
             </ul>

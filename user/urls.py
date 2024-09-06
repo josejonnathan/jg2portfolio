@@ -55,6 +55,7 @@ urlpatterns = [
     path('select-theme/', user_views.TemplateSelectionView.as_view(), name='theme_selection'),
     path('select-theme/<int:template_id>/', user_views.select_template, name='select_theme'),
 
+    path('download-cv/<int:pk>/', user_views.download_pdf, name='download')
 
 ]
 

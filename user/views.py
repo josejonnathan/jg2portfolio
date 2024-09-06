@@ -1,5 +1,8 @@
 # user/views.py
 
+import qrcode
+import base64
+from io import BytesIO
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.detail import DetailView
@@ -23,6 +26,11 @@ from curriculum.models import Profile
 from curriculum.models import Skill, Language, Interest, Education, Experience, Project
 from django.views.generic import CreateView, UpdateView, DeleteView, TemplateView
 from api.models import Template
+from weasyprint import HTML
+from django.templatetags.static import static
+
+
+
 
 
 
@@ -125,22 +133,23 @@ class CustomPasswordResetView(PasswordResetView):
     email_template_name = 'registration/password_reset_email.html'
     subject_template_name = 'registration/password_reset_subject.txt'
     template_name = 'registration/password_reset_form.html'
+    html_email_template_name = 'registration/password_reset_email.html'  # Define la plantilla HTML
     
-    def send_mail(self, subject_template_name, email_template_name,
-                  context, from_email, to_email, html_email_template_name=None):
+    def send_mail(self, subject_template_name, email_template_name, context, from_email, to_email, html_email_template_name=None):
         """
-        Envía un correo electrónico HTML personalizado para el restablecimiento de contraseña.
+        Envía un correo electrónico con alternativas de texto plano y HTML.
         """
-        # Renderiza el asunto y el mensaje HTML
+        # Renderiza el asunto y el cuerpo del mensaje
         subject = render_to_string(subject_template_name, context)
         subject = ''.join(subject.splitlines())  # Elimina los saltos de línea del asunto
-        
-        html_message = render_to_string(email_template_name, context)  # Renderiza el mensaje HTML
-        plain_message = strip_tags(html_message)  # Convierte a texto plano para la versión alternativa
 
-        # Configura el email para enviar HTML
-        email = EmailMessage(subject, html_message, from_email, [to_email])
-        email.content_subtype = "html"  # Asegura que el contenido se envíe como HTML
+        # Renderiza el mensaje en HTML y en texto plano
+        html_message = render_to_string(html_email_template_name or email_template_name, context)
+        plain_message = strip_tags(html_message)  # Extrae el contenido de texto plano
+        
+        # Configura el correo con ambas versiones
+        email = EmailMultiAlternatives(subject, plain_message, from_email, [to_email])
+        email.attach_alternative(html_message, "text/html")  # Adjunta la versión HTML
         email.send()
 
 
@@ -500,3 +509,57 @@ def select_template(request, template_id):
     
     # Redirigir al 'curriculum_detail' usando el pk del perfil
     return redirect(reverse('curriculum_detail', kwargs={'pk': profile.pk}))
+
+
+# PDF
+def download_pdf(request, pk):
+    # Obtener el perfil del currículum a partir del ID (pk)
+    profile = get_object_or_404(Profile, pk=pk)
+    
+    # Recopilar los mismos datos de contexto que en `CurriculumDetailView`
+    skills = profile.skills.all()
+    languages = profile.languages.all()
+    interests = profile.interests.all()
+    projects = profile.projects.all()
+    education = profile.education.all()
+    experience = profile.experience.all()
+
+    # Generar el código QR en base64
+    page_url = request.build_absolute_uri()  # URL actual de la página
+    qr_code_img = qrcode.make(page_url)
+    qr_code_io = BytesIO()
+    qr_code_img.save(qr_code_io, format='PNG')
+    qr_code_base64 = base64.b64encode(qr_code_io.getvalue()).decode()
+
+    # Generar URLs absolutas para las imágenes estáticas
+    profile_picture_url = request.build_absolute_uri(profile.picture.url) if profile.picture else None
+    static_images = {
+        'web': request.build_absolute_uri(static('images/website.png')),
+        'instagram': request.build_absolute_uri(static('images/instagram.png')),
+        'facebook': request.build_absolute_uri(static('images/facebook.png')),
+        'linkedin': request.build_absolute_uri(static('images/linkedin.png')),
+        'git': request.build_absolute_uri(static('images/git.png')),
+        'twitter': request.build_absolute_uri(static('images/x.png')),
+    }
+
+    # Renderizar la plantilla 'curriculum_detail_pdf.html'
+    html_string = render_to_string('curriculum_detail_pdf.html', {
+        'profile': profile,
+        'profile_picture_url': profile_picture_url,
+        'static_images': static_images,
+        'qr_code': qr_code_base64,  # Pasar el código QR en base64
+        'skills': skills,
+        'languages': languages,
+        'interests': interests,
+        'projects': projects,
+        'education': education,
+        'experience': experience,
+    })
+
+    # Convertir el HTML a PDF usando WeasyPrint
+    pdf_file = HTML(string=html_string).write_pdf()
+
+    # Devolver el PDF como respuesta
+    response = HttpResponse(pdf_file, content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="cv_usuario.pdf"'
+    return response

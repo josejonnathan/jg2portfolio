@@ -1,0 +1,229 @@
+{% load i18n %}  <!-- Cargar el sistema de traducción -->
+{% load static %}
+{% block head %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "Curriculum PDF" %}</title>  <!-- Traducción del título -->
+    <style>
+        @page {
+            margin: 0mm; 
+        }
+        /* Estilos básicos */
+        body {
+            font-family: '{{ profile.template.font }}', sans-serif;
+            background-color: {{ profile.template.colors.primary }};
+            color: black;
+            margin: 0;
+            padding: 0px;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+        }
+        .header, .footer {
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .profile {
+            background-color: {{ profile.template.colors.primary }};
+            padding: 20px;
+        }
+
+        .section {
+            page-break-inside: avoid;
+            background-color: {{ profile.template.colors.secondary }};
+            padding: 20px;
+        }
+
+        .section-projects {
+            page-break-inside: avoid;
+            background-color: {{ profile.template.colors.tertiary }};
+            padding: 20px;
+            color: white;
+        }
+        .section-projects h3 {
+            color: white;
+        }
+
+        .profile-image {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+        .social-icons img {
+            width: 30px;
+            margin: 5px;
+        }
+        .qr-code {
+            margin-top: 20px;
+            width: 100px;
+        }
+        .qr-code img {
+            width: 100px;
+        }
+        .skills, .languages, .interests {
+            margin-bottom: 20px;
+            flex: 1; /* Distribuir equitativamente */
+            padding: 10px;
+        }
+        .skills, .languages, .interests h3 {
+            color: black;
+            text-align: center;
+        }
+        
+        .row {
+            display: flex;
+            justify-content: space-between; /* Asegurar que las columnas se distribuyen bien */
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: black;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+{% endblock %}
+
+{% block content %}
+<body>
+
+<div class="container">
+    <div class="header">
+        {% if profile.picture %}
+            <img class="profile-image" src="{{ profile_picture_url }}" alt="{{ profile.name }}">
+        {% endif %}
+        <h1>{{ profile.name }}</h1>
+        {% if profile.title %}
+            <h2>{{ profile.title }}</h2>
+        {% endif %}
+    </div>
+
+    <div class="profile">
+        <h3>{% trans "Details" %}</h3>  <!-- Traducción para "Details" -->
+        <p>{% trans "Email" %}: {{ profile.email }}</p>
+        <p>{% trans "Phone" %}: {{ profile.phone }}</p>
+        <p>{% trans "Address" %}: {{ profile.address }}</p>
+    </div>
+
+    <div class="profile">
+        <h3>{% trans "Profile" %}</h3>  <!-- Traducción para "Profile" -->
+        <p>{{ profile.bio }}</p>
+    </div>
+
+    <!-- Fila para Skills, Languages, y Interests -->
+    <div class="row">
+        <div class="skills">
+            <h3>{% trans "Skills" %}</h3>  <!-- Traducción para "Skills" -->
+            <ul>
+                {% for skill in skills %}
+                    <li>{{ skill.name }} - {{ skill.level }}%</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="languages">
+            <h3>{% trans "Languages" %}</h3>  <!-- Traducción para "Languages" -->
+            <ul>
+                {% for language in languages %}
+                    <li>{{ language.name }} - {{ language.level }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% if interests %}
+        <div class="skills">
+            <h3>{% trans "Interests" %}</h3>  <!-- Traducción para "Interests" -->
+            <ul>
+                {% for interest in interests %}
+                    <li>{{ interest.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="section education page-break">
+        <h3>{% trans "Education" %}</h3>  <!-- Traducción para "Education" -->
+        <ul>
+            {% for edu in education %}
+                <li>
+                    <strong>{{ edu.degree }}</strong> - {{ edu.institution }}<br>
+                    {{ edu.start_date|date:"F Y" }} - {{ edu.end_date|date:"F Y" }}<br>
+                    {{ edu.description }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section experience">
+        <h3>{% trans "Experience" %}</h3>  <!-- Traducción para "Experience" -->
+        <ul>
+            {% for job in experience %}
+                <li>
+                    <strong>{{ job.job_title }}</strong> - {{ job.company }}<br>
+                    {{ job.start_date|date:"F Y" }} - {{ job.end_date|date:"F Y" }}<br>
+                    {{ job.description }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% if projects %}
+    <div class="section-projects">
+        <h3>{% trans "Projects" %}</h3>  <!-- Traducción para "Projects" -->
+        <ul>
+            {% for project in projects %}
+                <li>
+                    <strong>{{ project.name }}</strong><br>
+                    <a href="{{ project.url }}">{{ project.url }}</a><br>
+                    {{ project.description }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        <h4>{% trans "Links" %}</h4>  <!-- Traducción para "Follow Me" -->
+        <div class="social-icons">
+            {% if profile.website %}
+                <a href="{{ profile.website }}"><img src="{{ static_images.web }}" alt="{% trans 'Website' %}"></a>
+            {% endif %}
+            {% if profile.instagram %}
+                <a href="{{ profile.instagram }}"><img src="{{ static_images.instagram }}" alt="{% trans 'Instagram' %}"></a>
+            {% endif %}
+            {% if profile.facebook %}
+                <a href="{{ profile.facebook }}"><img src="{{ static_images.facebook }}" alt="{% trans 'Facebook' %}"></a>
+            {% endif %}
+            {% if profile.linkedin %}
+                <a href="{{ profile.linkedin }}"><img src="{{ static_images.linkedin }}" alt="{% trans 'LinkedIn' %}"></a>
+            {% endif %}
+            {% if profile.github %}
+                <a href="{{ profile.github }}"><img src="{{ static_images.git }}" alt="{% trans 'GitHub' %}"></a>
+            {% endif %}
+            {% if profile.twitter %}
+                <a href="{{ profile.twitter }}"><img src="{{ static_images.twitter }}" alt="{% trans 'Twitter' %}"></a>
+            {% endif %}
+        </div>
+        <div>
+            <img class="qr-code" src="data:image/png;base64,{{ qr_code }}" alt="{% trans 'QR Code' %}">
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
+{% endblock %}

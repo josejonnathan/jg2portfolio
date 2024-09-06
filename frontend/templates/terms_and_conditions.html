@@ -7,9 +7,8 @@
 
 {% block content %}
 <div class="container">
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         <div class="col-md-9 col-12">
-            <a class="text-link-black" href="{% url 'register' %}">{% trans "Home" %}</a>
             <h1>{% trans "Terms and Conditions of Use" %}</h1>
             <p>{% trans "Last updated: [05.09.2024]" %}</p>
             <br>
@@ -56,6 +55,10 @@
             <h3>{% trans "11. Contact Information" %}</h3>
             <p>{% trans "If you have any questions or concerns about these Terms and Conditions, please contact us at pro.cur.vit@gmail.com." %}</p>
             <br>
+            <div class="text-center">
+                <a class="general-button-orange my-4" href="{% url 'register' %}">{% trans "Home" %}</a>
+
+            </div>
         </div>
     </div>
 </div>

@@ -12,12 +12,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^htlz#q8fi_#o*w!drdltgls563(p)9zs9ylj=(%cr+(ux6ug5'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['192.168.178.95', '192.168.178.29', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
 
 
 # Application definition
@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'api.apps.ApiConfig',
     'rest_framework',
     'drf_yasg',
@@ -117,6 +118,8 @@ LANGUAGES = [
     ('fr', _('French')),
     ('es', _('Spanish')),
     ('de', _('German')),
+    ('it', _('Italian')),
+    ('pt', _('Portuguese')),
 ]
 
 TIME_ZONE = 'UTC'
@@ -163,3 +166,13 @@ EMAIL_USE_SSL = False
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER')
+
+
+# # Security
+
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
+
+SECURE_HSTS_SECONDS = 0  # Asegúrate de que esté desactivado
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_HSTS_PRELOAD = False
