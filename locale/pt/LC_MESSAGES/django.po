@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-06 23:36+0200\n"
-"PO-Revision-Date: 2024-09-06 23:37+0200\n"
+"POT-Creation-Date: 2024-09-07 13:45+0200\n"
+"PO-Revision-Date: 2024-09-07 14:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.5\n"
 
-#: curriculum/models.py:157 curriculum/models.py:173
+#: curriculum/models.py:158 curriculum/models.py:174
 msgid "End date cannot be earlier than start date."
 msgstr "A data de término não pode ser anterior à data de início."
 
@@ -55,15 +55,27 @@ msgstr ""
 "Crie seu currículo profissional gratuitamente com modelos personalizáveis."
 
 #: frontend/templates/CV_base.html:58
+msgid "Public CV"
+msgstr "CV Público"
+
+#: frontend/templates/CV_base.html:59
+msgid ""
+"This is a preview of your public CV. Only you can see or access these "
+"buttons."
+msgstr ""
+"Esta é uma pré-visualização do seu CV público. Só você pode ver ou acessar "
+"esses botões."
+
+#: frontend/templates/CV_base.html:63
 msgid "Back to editor"
 msgstr "Voltar ao editor"
 
-#: frontend/templates/CV_base.html:59
-#: user/templates/profile_template_update.html:7
+#: frontend/templates/CV_base.html:64
+#: user/templates/profile_template_update.html:9
 msgid "Template Selection"
 msgstr "Seleção de Modelo"
 
-#: frontend/templates/CV_base.html:60
+#: frontend/templates/CV_base.html:65
 msgid "Theme Selection"
 msgstr "Seleção de Tema"
 
@@ -71,7 +83,7 @@ msgstr "Seleção de Tema"
 #: frontend/templates/curriculum_detail_pdf.html:202
 #: media/templates/cube.html:33 media/templates/hip_to_be_square.html:95
 #: media/templates/sea_quest.html:31 media/templates/the_two_towers.html:43
-#: user/forms.py:71 user/templates/user_detail.html:48
+#: user/forms.py:71 user/templates/user_detail.html:51
 msgid "Website"
 msgstr "Site"
 
@@ -83,7 +95,7 @@ msgstr "Site"
 #: media/templates/hip_to_be_square.html:157 media/templates/sea_quest.html:34
 #: media/templates/sea_quest.html:172 media/templates/the_two_towers.html:46
 #: media/templates/the_two_towers.html:156 user/forms.py:72
-#: user/templates/user_detail.html:49
+#: user/templates/user_detail.html:52
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
@@ -91,7 +103,7 @@ msgstr "LinkedIn"
 #: frontend/templates/curriculum_detail_pdf.html:214
 #: media/templates/cube.html:39 media/templates/hip_to_be_square.html:101
 #: media/templates/sea_quest.html:37 media/templates/the_two_towers.html:49
-#: user/forms.py:73 user/templates/user_detail.html:50
+#: user/forms.py:73 user/templates/user_detail.html:53
 msgid "GitHub"
 msgstr "GitHub"
 
@@ -103,7 +115,7 @@ msgstr "GitHub"
 #: media/templates/hip_to_be_square.html:154 media/templates/sea_quest.html:40
 #: media/templates/sea_quest.html:169 media/templates/the_two_towers.html:52
 #: media/templates/the_two_towers.html:153 user/forms.py:74
-#: user/templates/user_detail.html:51
+#: user/templates/user_detail.html:54
 msgid "Twitter"
 msgstr "Twitter"
 
@@ -115,7 +127,7 @@ msgstr "Twitter"
 #: media/templates/hip_to_be_square.html:151 media/templates/sea_quest.html:43
 #: media/templates/sea_quest.html:166 media/templates/the_two_towers.html:55
 #: media/templates/the_two_towers.html:150 user/forms.py:76
-#: user/templates/user_detail.html:52
+#: user/templates/user_detail.html:55
 msgid "Facebook"
 msgstr "Facebook"
 
@@ -123,7 +135,7 @@ msgstr "Facebook"
 #: frontend/templates/curriculum_detail_pdf.html:205
 #: media/templates/cube.html:48 media/templates/hip_to_be_square.html:110
 #: media/templates/sea_quest.html:46 media/templates/the_two_towers.html:58
-#: user/forms.py:75 user/templates/user_detail.html:53
+#: user/forms.py:75 user/templates/user_detail.html:56
 msgid "Instagram"
 msgstr "Instagram"
 
@@ -131,7 +143,7 @@ msgstr "Instagram"
 #: frontend/templates/curriculum_detail_pdf.html:131
 #: media/templates/cube.html:55 media/templates/hip_to_be_square.html:117
 #: media/templates/sea_quest.html:62 media/templates/the_two_towers.html:67
-#: user/templates/user_detail.html:63
+#: user/templates/skill_form.html:10 user/templates/user_detail.html:66
 msgid "Skills"
 msgstr "Competências"
 
@@ -139,7 +151,7 @@ msgstr "Competências"
 #: frontend/templates/curriculum_detail_pdf.html:139
 #: media/templates/cube.html:65 media/templates/hip_to_be_square.html:127
 #: media/templates/sea_quest.html:75 media/templates/the_two_towers.html:77
-#: user/templates/user_detail.html:83
+#: user/templates/user_detail.html:86
 msgid "Languages"
 msgstr "Idiomas"
 
@@ -147,7 +159,7 @@ msgstr "Idiomas"
 #: frontend/templates/curriculum_detail_pdf.html:148
 #: media/templates/cube.html:76 media/templates/hip_to_be_square.html:138
 #: media/templates/sea_quest.html:83 media/templates/the_two_towers.html:87
-#: user/templates/user_detail.html:103
+#: user/templates/user_detail.html:106
 msgid "Interests"
 msgstr "Interesses"
 
@@ -179,6 +191,7 @@ msgstr "Código QR"
 #: frontend/templates/curriculum_detail_pdf.html:124
 #: media/templates/cube.html:113 media/templates/hip_to_be_square.html:18
 #: media/templates/sea_quest.html:58 media/templates/the_two_towers.html:37
+#: user/templates/profile_update.html:79
 msgid "Profile"
 msgstr "Perfil"
 
@@ -186,7 +199,7 @@ msgstr "Perfil"
 #: frontend/templates/curriculum_detail_pdf.html:159
 #: media/templates/cube.html:119 media/templates/hip_to_be_square.html:24
 #: media/templates/sea_quest.html:101 media/templates/sea_quest.html:102
-#: media/templates/the_two_towers.html:100 user/templates/user_detail.html:129
+#: media/templates/the_two_towers.html:100 user/templates/user_detail.html:132
 msgid "Education"
 msgstr "Educação"
 
@@ -199,7 +212,7 @@ msgstr "Experiência Profissional"
 #: frontend/templates/curriculum_detail_pdf.html:185
 #: media/templates/cube.html:149 media/templates/hip_to_be_square.html:53
 #: media/templates/sea_quest.html:132 media/templates/the_two_towers.html:126
-#: user/templates/user_detail.html:183
+#: user/templates/user_detail.html:186
 msgid "Projects"
 msgstr "Projetos"
 
@@ -208,36 +221,37 @@ msgid "Curriculum PDF"
 msgstr "PDF do Currículo"
 
 #: frontend/templates/curriculum_detail_pdf.html:117
-#: media/templates/the_two_towers.html:28 user/templates/user_detail.html:40
+#: media/templates/the_two_towers.html:28 user/templates/user_detail.html:43
 msgid "Details"
 msgstr "Detalhes"
 
 #: frontend/templates/curriculum_detail_pdf.html:118
 #: media/templates/sea_quest.html:50 media/templates/the_two_towers.html:33
-#: user/forms.py:30 user/forms.py:68 user/templates/user_detail.html:43
+#: user/forms.py:30 user/forms.py:68 user/templates/user_detail.html:46
 msgid "Email"
 msgstr "E-mail"
 
 #: frontend/templates/curriculum_detail_pdf.html:119
 #: media/templates/sea_quest.html:52 media/templates/the_two_towers.html:34
-#: user/forms.py:69 user/templates/user_detail.html:44
+#: user/forms.py:69 user/templates/user_detail.html:47
 msgid "Phone"
 msgstr "Telefone"
 
 #: frontend/templates/curriculum_detail_pdf.html:120
 #: media/templates/sea_quest.html:55 media/templates/the_two_towers.html:35
-#: user/forms.py:70 user/templates/user_detail.html:45
+#: user/forms.py:70 user/templates/user_detail.html:48
 msgid "Address"
 msgstr "Endereço"
 
 #: frontend/templates/curriculum_detail_pdf.html:172
 #: media/templates/sea_quest.html:117 media/templates/sea_quest.html:118
-#: media/templates/the_two_towers.html:112 user/templates/user_detail.html:153
+#: media/templates/the_two_towers.html:112 user/templates/user_detail.html:156
 msgid "Experience"
 msgstr "Experiência"
 
 #: frontend/templates/curriculum_detail_pdf.html:199
-#: media/templates/the_two_towers.html:40 user/templates/user_detail.html:47
+#: media/templates/the_two_towers.html:40 user/templates/profile_update.html:90
+#: user/templates/user_detail.html:50
 msgid "Links"
 msgstr "Links"
 
@@ -568,12 +582,12 @@ msgid "Share this CV:"
 msgstr "Compartilhar este CV:"
 
 #: media/templates/the_two_towers.html:29 user/forms.py:65
-#: user/templates/user_detail.html:41
+#: user/templates/user_detail.html:44
 msgid "Name"
 msgstr "Nome"
 
 #: media/templates/the_two_towers.html:31 user/forms.py:66
-#: user/templates/user_detail.html:42
+#: user/templates/user_detail.html:45
 msgid "Title"
 msgstr "Título"
 
@@ -589,7 +603,7 @@ msgstr "Aceito os termos e condições"
 msgid "Username"
 msgstr "Nome de usuário"
 
-#: user/forms.py:31 user/forms.py:79
+#: user/forms.py:31 user/forms.py:79 user/templates/profile_update.html:127
 msgid "Password"
 msgstr "Senha"
 
@@ -609,11 +623,11 @@ msgstr "Foto de Perfil"
 msgid "Protect curriculum with password"
 msgstr "Proteger currículo com senha"
 
-#: user/forms.py:88 user/forms.py:241
+#: user/forms.py:88 user/forms.py:242
 msgid "The image is too large (maximum size is 5 MB)."
 msgstr "A imagem é muito grande (o tamanho máximo é de 5 MB)."
 
-#: user/forms.py:94 user/forms.py:247
+#: user/forms.py:94 user/forms.py:248
 #, python-brace-format
 msgid ""
 "Image Resolution is too high (maximum size is {max_width}x{max_height} "
@@ -626,74 +640,74 @@ msgstr ""
 msgid "You must provide a password if password protection is enabled."
 msgstr "Você deve fornecer uma senha se a proteção por senha estiver ativada."
 
-#: user/forms.py:117
+#: user/forms.py:118
 msgid "Dark Background"
 msgstr "Fundo Escuro"
 
-#: user/forms.py:118
+#: user/forms.py:119
 msgid "Template"
 msgstr "Modelo"
 
-#: user/forms.py:130
+#: user/forms.py:131
 msgid "Skill Name"
 msgstr "Nome da Habilidade"
 
-#: user/forms.py:131
+#: user/forms.py:132
 msgid "Skill Level"
 msgstr "Nível de Habilidade"
 
-#: user/forms.py:143
+#: user/forms.py:144
 msgid "Language Name"
 msgstr "Nome do Idioma"
 
-#: user/forms.py:144
+#: user/forms.py:145
 msgid "Proficiency Level"
 msgstr "Nível de Proficiência"
 
-#: user/forms.py:155
+#: user/forms.py:156
 msgid "Interest"
 msgstr "Interesse"
 
-#: user/forms.py:170 user/templates/education_form.html:12
+#: user/forms.py:171 user/templates/education_form.html:16
 msgid "Institution"
 msgstr "Instituição"
 
-#: user/forms.py:171 user/templates/education_form.html:16
+#: user/forms.py:172 user/templates/education_form.html:20
 msgid "Degree"
 msgstr "Grau Acadêmico"
 
-#: user/forms.py:172 user/forms.py:197 user/forms.py:223
-#: user/templates/education_form.html:20
+#: user/forms.py:173 user/forms.py:198 user/forms.py:224
+#: user/templates/education_form.html:24
 msgid "Start Date"
 msgstr "Data de Início"
 
-#: user/forms.py:173 user/forms.py:198 user/forms.py:224
-#: user/templates/education_form.html:24
+#: user/forms.py:174 user/forms.py:199 user/forms.py:225
+#: user/templates/education_form.html:28
 msgid "End Date"
 msgstr "Data de Término"
 
-#: user/forms.py:174 user/forms.py:199 user/forms.py:222
-#: user/templates/education_form.html:28
+#: user/forms.py:175 user/forms.py:200 user/forms.py:223
+#: user/templates/education_form.html:32
 msgid "Description"
 msgstr "Descrição"
 
-#: user/forms.py:195
+#: user/forms.py:196
 msgid "Job Title"
 msgstr "Cargo"
 
-#: user/forms.py:196
+#: user/forms.py:197
 msgid "Company"
 msgstr "Empresa"
 
-#: user/forms.py:221
+#: user/forms.py:222
 msgid "Project Name"
 msgstr "Nome do Projeto"
 
-#: user/forms.py:225
+#: user/forms.py:226
 msgid "Project URL"
 msgstr "URL do Projeto"
 
-#: user/forms.py:226
+#: user/forms.py:227
 msgid "Project Image"
 msgstr "Imagem do Projeto"
 
@@ -734,29 +748,41 @@ msgid "Delete"
 msgstr "Excluir"
 
 #: user/templates/education_confirm_delete.html:12
-#: user/templates/education_form.html:33
+#: user/templates/education_form.html:37
 #: user/templates/experience_confirm_delete.html:12
-#: user/templates/experience_form.html:14
+#: user/templates/experience_form.html:18
 #: user/templates/interest_confirm_delete.html:12
-#: user/templates/interest_form.html:14
+#: user/templates/interest_form.html:18
 #: user/templates/language_confirm_delete.html:12
-#: user/templates/language_form.html:14 user/templates/profile_update.html:104
+#: user/templates/language_form.html:18
+#: user/templates/profile_template_update.html:17
+#: user/templates/profile_update.html:149
 #: user/templates/project_confirm_delete.html:12
-#: user/templates/project_form.html:14
+#: user/templates/project_form.html:18
 #: user/templates/skill_confirm_delete.html:12
-#: user/templates/skill_form.html:13
+#: user/templates/skill_form.html:19
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: user/templates/education_form.html:8
+#: user/templates/education_form.html:10
 msgid "Edit Education"
 msgstr "Editar Educação"
 
-#: user/templates/education_form.html:8
+#: user/templates/education_form.html:10
 msgid "Add Education"
 msgstr "Adicionar Educação"
 
-#: user/templates/education_form.html:32
+#: user/templates/education_form.html:11
+msgid ""
+"Make sure to provide accurate information about your education, including "
+"the degree obtained and a brief summary. This will be presented starting "
+"with the most recent."
+msgstr ""
+"Certifique-se de fornecer informações precisas sobre sua educação, incluindo "
+"o diploma obtido e um breve resumo. Isso será apresentado começando pelo "
+"mais recente."
+
+#: user/templates/education_form.html:36
 msgid "Save Education"
 msgstr "Salvar Educação"
 
@@ -807,15 +833,26 @@ msgstr "Confirmar Exclusão de Experiência"
 msgid "Are you sure you want to delete this experience?"
 msgstr "Tem certeza de que deseja excluir esta experiência?"
 
-#: user/templates/experience_form.html:8
+#: user/templates/experience_form.html:10
 msgid "Edit Experience"
 msgstr "Editar Experiência"
 
-#: user/templates/experience_form.html:8
+#: user/templates/experience_form.html:10
 msgid "Add Experience"
 msgstr "Adicionar Experiência"
 
-#: user/templates/experience_form.html:13
+#: user/templates/experience_form.html:11
+msgid ""
+"List your recent work experience. Keep in mind that every role, regardless "
+"of title, contributes to your development as a professional. Highlight your "
+"achievements and use action verbs like create, analyze, or design."
+msgstr ""
+"Liste sua experiência de trabalho recente. Tenha em mente que cada função, "
+"independentemente do título, contribui para o seu desenvolvimento como "
+"profissional. Destaque suas realizações e use verbos de ação como criar, "
+"analisar ou projetar."
+
+#: user/templates/experience_form.html:17
 msgid "Save Experience"
 msgstr "Salvar Experiência"
 
@@ -827,15 +864,25 @@ msgstr "Confirmar Exclusão de Interesse"
 msgid "Are you sure you want to delete this interest?"
 msgstr "Tem certeza de que deseja excluir este interesse?"
 
-#: user/templates/interest_form.html:8
+#: user/templates/interest_form.html:10
 msgid "Edit Interest"
 msgstr "Editar Interesse"
 
-#: user/templates/interest_form.html:8
+#: user/templates/interest_form.html:10
 msgid "Add Interest"
 msgstr "Adicionar Interesse"
 
-#: user/templates/interest_form.html:13
+#: user/templates/interest_form.html:11
+msgid ""
+"Interests are not mandatory, but they help humanize your profile. Many of "
+"them also support your skills, but be sure to present those that positively "
+"contribute to your CV."
+msgstr ""
+"Os interesses não são obrigatórios, mas ajudam a humanizar seu perfil. "
+"Muitos deles também apoiam suas habilidades, mas certifique-se de apresentar "
+"aqueles que contribuem positivamente para seu CV."
+
+#: user/templates/interest_form.html:17
 msgid "Save Interest"
 msgstr "Salvar Interesse"
 
@@ -847,15 +894,19 @@ msgstr "Confirmar Exclusão de Idioma"
 msgid "Are you sure you want to delete this language?"
 msgstr "Tem certeza de que deseja excluir este idioma?"
 
-#: user/templates/language_form.html:8
+#: user/templates/language_form.html:10
 msgid "Edit Language"
 msgstr "Editar Idioma"
 
-#: user/templates/language_form.html:8
+#: user/templates/language_form.html:10
 msgid "Add Language"
 msgstr "Adicionar Idioma"
 
-#: user/templates/language_form.html:13
+#: user/templates/language_form.html:11
+msgid "Add a language and your proficiency level in it."
+msgstr "Adicione um idioma e o seu nível de proficiência nele."
+
+#: user/templates/language_form.html:17
 msgid "Save Language"
 msgstr "Salvar Idioma"
 
@@ -871,15 +922,76 @@ msgstr "Esqueceu sua senha?"
 msgid "New User?"
 msgstr "Novo Usuário?"
 
-#: user/templates/profile_template_update.html:11
+#: user/templates/profile_template_update.html:10
+msgid ""
+"Here you can select a template for your public CV. Additionally, for block-"
+"based templates, you can choose the background color."
+msgstr ""
+"Aqui você pode selecionar um modelo para seu CV público. Além disso, para "
+"modelos baseados em blocos, você pode escolher a cor de fundo."
+
+#: user/templates/profile_template_update.html:16
 msgid "Update"
 msgstr "Atualizar"
 
-#: user/templates/profile_update.html:8
+#: user/templates/profile_update.html:10
 msgid "Profile Update"
 msgstr "Atualização de Perfil"
 
-#: user/templates/profile_update.html:103
+#: user/templates/profile_update.html:26
+msgid "Photo"
+msgstr "Foto"
+
+#: user/templates/profile_update.html:28
+msgid ""
+"Modern CVs don’t require a photo, but if you think it will help, use a "
+"professional-looking one. Avoid ID-style photos, as they are generally "
+"outdated."
+msgstr ""
+"CVs modernos não exigem foto, mas se você acha que ajudará, use uma que "
+"tenha aparência profissional. Evite fotos no estilo de documento de "
+"identidade, pois geralmente estão desatualizadas."
+
+#: user/templates/profile_update.html:43
+msgid "Personal"
+msgstr "Pessoal"
+
+#: user/templates/profile_update.html:45
+msgid ""
+"Your personal information should be clear. Recruiters often use it to search "
+"for you online and may discard your profile if the information is inaccurate "
+"or inconsistent."
+msgstr ""
+"Suas informações pessoais devem ser claras. Os recrutadores costumam usá-las "
+"para procurá-lo online e podem descartar seu perfil se as informações forem "
+"imprecisas ou inconsistentes."
+
+#: user/templates/profile_update.html:81
+msgid ""
+"Describe your profile in a short paragraph. Highlight your skills and fit—"
+"ideal for those with little experience. A CV summary showcases your "
+"achievements, best for seasoned professionals."
+msgstr ""
+"Descreva seu perfil em um parágrafo curto. Destaque suas habilidades e "
+"adequação – ideal para quem tem pouca experiência. Um resumo de CV mostra "
+"suas conquistas, melhor para profissionais experientes."
+
+#: user/templates/profile_update.html:92
+msgid ""
+"Only share links to your social networks where you post work-related content."
+msgstr ""
+"Compartilhe apenas links para suas redes sociais onde você posta conteúdo "
+"relacionado ao trabalho."
+
+#: user/templates/profile_update.html:129
+msgid ""
+"Protecting your personal data is important. Using a password on your CV "
+"prevents scammers from accessing your information."
+msgstr ""
+"Proteger seus dados pessoais é importante. Usar uma senha no seu CV impede "
+"que golpistas acessem suas informações."
+
+#: user/templates/profile_update.html:148
 msgid "Save"
 msgstr "Salvar"
 
@@ -891,15 +1003,25 @@ msgstr "Confirmar Exclusão de Projeto"
 msgid "Are you sure you want to delete this project?"
 msgstr "Tem certeza de que deseja excluir este projeto?"
 
-#: user/templates/project_form.html:8
+#: user/templates/project_form.html:10
 msgid "Edit Project"
 msgstr "Editar Projeto"
 
-#: user/templates/project_form.html:8
+#: user/templates/project_form.html:10
 msgid "Add Project"
 msgstr "Adicionar Projeto"
 
-#: user/templates/project_form.html:13
+#: user/templates/project_form.html:11
+msgid ""
+"Showcasing your projects is a great idea, though not mandatory. Highlight "
+"your role, the challenges, and the achievements in the project. Be direct "
+"and concise."
+msgstr ""
+"Mostrar seus projetos é uma ótima ideia, embora não seja obrigatório. "
+"Destaque seu papel, os desafios e as realizações no projeto. Seja direto e "
+"conciso."
+
+#: user/templates/project_form.html:17
 msgid "Save Project"
 msgstr "Salvar Projeto"
 
@@ -1039,75 +1161,100 @@ msgid "Are you sure you want to delete this skill?"
 msgstr "Tem certeza de que deseja excluir esta habilidade?"
 
 #: user/templates/skill_form.html:12
+#, python-format
+msgid ""
+"Highlight your skills here. Not just your technical abilities (hard skills), "
+"but also your social abilities (soft skills), which are highly valued by "
+"recruiters. Rate your skills from 0 to 100%%."
+msgstr ""
+"Destaque suas habilidades aqui. Não apenas suas habilidades técnicas (hard "
+"skills), mas também suas habilidades sociais (soft skills), que são muito "
+"valorizadas pelos recrutadores. Avalie suas habilidades de 0 a 100%%."
+
+#: user/templates/skill_form.html:18
 msgid "Save Skill"
 msgstr "Salvar Habilidade"
 
-#: user/templates/template_selection.html:19
+#: user/templates/template_selection.html:20
 msgid "Themes"
 msgstr "Temas"
 
-#: user/templates/template_selection.html:26
+#: user/templates/template_selection.html:21
+msgid ""
+"Here you can select the theme for your public CV, including the color "
+"palette and fonts."
+msgstr ""
+"Aqui você pode selecionar o tema para seu CV público, incluindo a paleta de "
+"cores e as fontes."
+
+#: user/templates/template_selection.html:29
 msgid "Primary"
 msgstr "Primário"
 
-#: user/templates/template_selection.html:27
+#: user/templates/template_selection.html:30
 msgid "Secondary"
 msgstr "Secundário"
 
-#: user/templates/template_selection.html:28
+#: user/templates/template_selection.html:31
 msgid "Tertiary"
 msgstr "Terciário"
 
-#: user/templates/template_selection.html:29
+#: user/templates/template_selection.html:32
 msgid "Dark"
 msgstr "Escuro"
 
-#: user/templates/template_selection.html:30
+#: user/templates/template_selection.html:33
 msgid "Light"
 msgstr "Claro"
 
-#: user/templates/template_selection.html:35
+#: user/templates/template_selection.html:38
 msgid "Set"
 msgstr "Definir"
 
-#: user/templates/user_detail.html:16
+#: user/templates/user_detail.html:17
 msgid "Welcome"
 msgstr "Bem-vindo"
 
 #: user/templates/user_detail.html:18
+msgid ""
+"In this editor, you can create and edit all the information in your profile."
+msgstr ""
+"Neste editor, você pode criar e editar todas as informações em seu perfil."
+
+#: user/templates/user_detail.html:21
 msgid "Your Public CV"
 msgstr "Seu CV Público"
 
-#: user/templates/user_detail.html:19
+#: user/templates/user_detail.html:22
 msgid "Download as PDF"
 msgstr "Baixar como PDF"
 
-#: user/templates/user_detail.html:20
+#: user/templates/user_detail.html:23
 msgid "Logout"
 msgstr "Sair"
 
-#: user/templates/user_detail.html:30
+#: user/templates/user_detail.html:33
 msgid "Your Profile"
 msgstr "Seu Perfil"
 
-#: user/templates/user_detail.html:31
+#: user/templates/user_detail.html:34
 msgid "Edit"
 msgstr "Editar"
 
-#: user/templates/user_detail.html:64 user/templates/user_detail.html:84
-#: user/templates/user_detail.html:104 user/templates/user_detail.html:130
-#: user/templates/user_detail.html:154 user/templates/user_detail.html:184
+#: user/templates/user_detail.html:67 user/templates/user_detail.html:87
+#: user/templates/user_detail.html:107 user/templates/user_detail.html:133
+#: user/templates/user_detail.html:157 user/templates/user_detail.html:187
 msgid "New"
 msgstr "Novo"
-
-#: user/templates/user_detail.html:70 user/templates/user_detail.html:90
-#: user/templates/user_detail.html:110 user/templates/user_detail.html:137
-#: user/templates/user_detail.html:161 user/templates/user_detail.html:192
-msgid "edit"
-msgstr "editar"
 
 #: user/templates/user_detail.html:73 user/templates/user_detail.html:93
 #: user/templates/user_detail.html:113 user/templates/user_detail.html:140
 #: user/templates/user_detail.html:164 user/templates/user_detail.html:195
+msgid "edit"
+msgstr "editar"
+
+#: user/templates/user_detail.html:76 user/templates/user_detail.html:96
+#: user/templates/user_detail.html:116 user/templates/user_detail.html:143
+#: user/templates/user_detail.html:167 user/templates/user_detail.html:198
 msgid "delete"
 msgstr "excluir"

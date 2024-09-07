@@ -48,12 +48,12 @@
             <p>{% trans "Address" %}: {{ profile.address }}</p>
 
             <h3>{% trans "Links" %}</h3>
-            <p>{% trans "Website" %}: <a class="text-link-black" href="{{ profile.website }}">{{ profile.website }}</a></p>
-            <p>{% trans "LinkedIn" %}: <a class="text-link-black" href="{{ profile.linkedin }}">{{ profile.linkedin }}</a></p>
-            <p>{% trans "GitHub" %}: <a class="text-link-black" href="{{ profile.github }}" target="_blank">{{ profile.github }}</a></p>
-            <p>{% trans "Twitter" %}: <a class="text-link-black" href="{{ profile.twitter }}" target="_blank">{{ profile.twitter }}</a></p>
-            <p>{% trans "Facebook" %}: <a class="text-link-black" href="{{ profile.facebook }}" target="_blank">{{ profile.facebook }}</a></p>
-            <p>{% trans "Instagram" %}: <a class="text-link-black" href="{{ profile.instagram }}" target="_blank">{{ profile.instagram }}</a></p>
+            <p>{% trans "Website" %}: <a class="text-link-black" href="{{ profile.website }}">{{ profile.website|slice:":35" }}{% if profile.website|length > 35 %}...{% endif %}</a></p>
+            <p>{% trans "LinkedIn" %}: <a class="text-link-black" href="{{ profile.linkedin }}">{{ profile.linkedin|slice:":35" }}{% if profile.linkedin|length > 35 %}...{% endif %}</a></p>
+            <p>{% trans "GitHub" %}: <a class="text-link-black" href="{{ profile.github }}" target="_blank">{{ profile.github|slice:":35" }}{% if profile.github|length > 35 %}...{% endif %}</a></p>
+            <p>{% trans "Twitter" %}: <a class="text-link-black" href="{{ profile.twitter }}" target="_blank">{{ profile.twitter|slice:":35" }}{% if profile.twitter|length > 35 %}...{% endif %}</a></p>
+            <p>{% trans "Facebook" %}: <a class="text-link-black" href="{{ profile.facebook }}" target="_blank">{{ profile.facebook|slice:":35" }}{% if profile.facebook|length > 35 %}...{% endif %}</a></p>
+            <p>{% trans "Instagram" %}: <a class="text-link-black" href="{{ profile.instagram }}" target="_blank">{{ profile.instagram|slice:":35" }}{% if profile.instagram|length > 35 %}...{% endif %}</a></p>
         </div>
         <div class="col-12">
             <hr>

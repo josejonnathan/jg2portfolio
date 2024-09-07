@@ -124,12 +124,22 @@ class SkillForm(forms.ModelForm):
         model = Skill
         fields = ['name', 'level']
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'level': forms.NumberInput(attrs={'class': 'form-control'}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'required': 'required'}),
+            'level': forms.NumberInput(attrs={'class': 'form-control', 'required': 'required', 'min': 1, 'max': 100}),
         }
         labels = {
-            'name': _('Skill Name'),  # Etiqueta de traducción añadida
-            'level': _('Skill Level'),  # Etiqueta de traducción añadida
+            'name': _('Skill Name'),
+            'level': _('Skill Level'),
+        }
+        error_messages = {
+            'name': {
+                'required': _('Please enter the skill name'),
+            },
+            'level': {
+                'required': _('Please enter the skill level'),
+                'min_value': _('Minimum level is 1'),
+                'max_value': _('Maximum level is 100'),
+            },
         }
 
 class LanguageForm(forms.ModelForm):

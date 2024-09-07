@@ -8,8 +8,11 @@
         <p>{% trans "Are you sure you want to delete this interest?" %}</p>
         <form method="post">
             {% csrf_token %}
-            <button type="submit" class="general-button-black">{% trans "Delete" %}</button>
-            <a href="{% url 'user_detail' %}" class="general-button-orange">{% trans "Cancel" %}</a>
+            <div class="text-center">
+
+                <button type="submit" class="general-button-black">{% trans "Delete" %}</button>
+                <a href="{% url 'user_detail' %}" class="general-button-orange">{% trans "Cancel" %}</a>
+            </div>
         </form>
     </div>
 </div>
