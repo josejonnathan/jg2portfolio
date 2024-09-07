@@ -175,9 +175,9 @@ class UserDetailView(LoginRequiredMixin, DetailView):
         context['skills'] = profile.skills.all()
         context['languages'] = profile.languages.all()
         context['interests'] = profile.interests.all()
-        context['projects'] = profile.projects.all()
-        context['education'] = profile.education.all()
-        context['experience'] = profile.experience.all()
+        context['projects'] = profile.projects.all().order_by('-end_date')
+        context['education'] = profile.education.all().order_by('-end_date')
+        context['experience'] = profile.experience.all().order_by('-end_date')
 
         return context
     

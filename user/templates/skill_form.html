@@ -1,10 +1,16 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 
 {% block content %}
 <div class="row my-4">
     <div class="col-md-5 offset-md-3">
-        <h2>{{ view.title }}</h2>
+        <div class="d-flex my-3">
+            <h4>
+                {% trans "Skills" %}
+            </h4>
+            <img class="hint-icon mx-4" src="{% static 'images/hint.png' %}" alt="" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans "Highlight your skills here. Not just your technical abilities (hard skills), but also your social abilities (soft skills), which are highly valued by recruiters. Rate your skills from 0 to 100%." %}">
+        </div>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}

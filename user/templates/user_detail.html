@@ -13,7 +13,10 @@
 {% block content %}
 <div class="container my-5">
     <div class="row">
-        <h2 class="text-center">{% trans "Welcome" %} {{ user.username }}</h2>
+        <div class="d-flex justify-content-center my-3">
+            <h2 class="text-center">{% trans "Welcome" %} {{ user.username }}</h2>
+            <img class="hint-icon mx-4" src="{% static 'images/hint.png' %}" alt="" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans "In this editor, you can create and edit all the information in your profile." %}">
+        </div>
         <div class="col-12 d-flex flex-wrap justify-content-around my-3">
             <a href="{% url 'curriculum_detail' profile.pk %}" class="general-button-orange">{% trans "Your Public CV" %}</a>
             <a href="{% url 'download' profile.pk %}" class="general-button-orange">{% trans "Download as PDF" %}</a>

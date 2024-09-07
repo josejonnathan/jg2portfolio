@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 
 {% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h2>{% if object %}{% trans "Edit Education" %}{% else %}{% trans "Add Education" %}{% endif %}</h2>
+            <div class="d-flex my-3">
+                <h2>{% if object %}{% trans "Edit Education" %}{% else %}{% trans "Add Education" %}{% endif %}</h2>
+                <img class="hint-icon mx-4" src="{% static 'images/hint.png' %}" alt="" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans "Make sure to provide accurate information about your education, including the degree obtained and a brief summary. This will be presented starting with the most recent." %}">
+            </div>
             <form method="post">
                 {% csrf_token %}
                 <div class="form-group">

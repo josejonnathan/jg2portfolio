@@ -78,7 +78,7 @@ class ProfileForm(forms.ModelForm):
             'password_protected': _('Protect curriculum with password'),
             'password': _('Password'),
         }
-
+ 
     def clean_picture(self):
         picture = self.cleaned_data.get('picture', False)
         
@@ -104,6 +104,7 @@ class ProfileForm(forms.ModelForm):
             raise ValidationError(_("You must provide a password if password protection is enabled."))
 
         return cleaned_data
+
 
 class ProfileTemplateForm(forms.ModelForm):
     class Meta:

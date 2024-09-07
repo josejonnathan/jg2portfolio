@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 
 {% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-5">
-            <h2>{% if object %}{% trans "Edit Language" %}{% else %}{% trans "Add Language" %}{% endif %}</h2>
+            <div class="d-flex my-3">
+                <h2>{% if object %}{% trans "Edit Language" %}{% else %}{% trans "Add Language" %}{% endif %}</h2>
+                <img class="hint-icon mx-4" src="{% static 'images/hint.png' %}" alt="" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans "Add a language and your proficiency level in it." %}">
+            </div>
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}

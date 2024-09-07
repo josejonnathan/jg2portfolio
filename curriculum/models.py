@@ -82,6 +82,7 @@ class Language(models.Model):
         ('Basic', 'Basic'),
         ('Intermediate', 'Intermediate'),
         ('Advanced', 'Advanced'),
+        ('Native', 'Native'),
     ]
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='languages')
     name = models.CharField(max_length=100)

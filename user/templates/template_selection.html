@@ -16,7 +16,10 @@
 
 {% block content %}
 <div class="container my-4">
-    <h2 class="text-center">{% trans "Themes" %}</h2>
+    <div class="d-flex justify-content-center my-3">
+        <h2 class="text-center">{% trans "Themes" %}</h2>
+        <img class="hint-icon mx-4" src="{% static 'images/hint.png' %}" alt="" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans "Here you can select the theme for your public CV, including the color palette and fonts." %}">
+    </div>
     <div class="row d-flex justify-content-center">
         {% for template in templates %}
         <div class="col-md-2 mb-4">

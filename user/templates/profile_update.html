@@ -1,16 +1,32 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
+
 
 {% block content %}
 <div class="container my-4">
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <h2>{% trans "Profile Update" %}</h2>
+            
+            <!-- Mostrar errores generales del formulario -->
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="row">
                     <!-- First column -->
                     <div class="col-md-6">
+                        <div class="d-flex my-3">
+                            <h4>
+                                {% trans "Photo" %}
+                            </h4>
+                            <img class="hint-icon mx-4" src="{% static 'images/hint.png' %}" alt="" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans "Modern CVs don’t require a photo, but if you think it will help, use a professional-looking one. Avoid ID-style photos, as they are generally outdated." %}">
+                        </div>
                         {% if form.instance.picture %}
                         <div class="mb-3">
                             <img src="{{ form.instance.picture.url }}" class="img-thumbnail" alt="Current Profile Picture" style="max-width: 150px;">
@@ -20,6 +36,13 @@
                             {{ form.picture.label_tag }}
                             {{ form.picture }}
                             {{ form.picture.errors }}
+                        </div>
+                        <hr>
+                        <div class="d-flex my-3">
+                            <h4>
+                                {% trans "Personal" %}
+                            </h4>
+                            <img class="hint-icon mx-4" src="{% static 'images/hint.png' %}" alt="" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans "Your personal information should be clear. Recruiters often use it to search for you online and may discard your profile if the information is inaccurate or inconsistent." %}">
                         </div>
                         <div class="form-group">
                             {{ form.name.label_tag }}
@@ -31,15 +54,6 @@
                             {{ form.title }}
                             {{ form.title.errors }}
                         </div>
-                        <div class="form-group">
-                            {{ form.bio.label_tag }}
-                            {{ form.bio }}
-                            {{ form.bio.errors }}
-                        </div>
-                        
-                    </div>
-                    <!-- Second column -->
-                    <div class="col-md-6">
                         <div class="form-group">
                             {{ form.email.label_tag }}
                             {{ form.email }}
@@ -54,6 +68,28 @@
                             {{ form.address.label_tag }}
                             {{ form.address }}
                             {{ form.address.errors }}
+                        </div>
+                        
+                    </div>
+
+                    <!-- Second column -->
+                    <div class="col-md-6">
+                        <div class="d-flex my-3">
+                            <h4>
+                                {% trans "Profile" %}
+                            </h4>
+                            <img class="hint-icon mx-4" src="{% static 'images/hint.png' %}" alt="" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans "Describe your profile in a short paragraph. Highlight your skills and fit—ideal for those with little experience. A CV summary showcases your achievements, best for seasoned professionals." %}">
+                        </div>
+                        <div class="form-group">
+                            {{ form.bio }}
+                            {{ form.bio.errors }}
+                        </div>
+                        <hr>
+                        <div class="d-flex my-3">
+                            <h4>
+                                {% trans "Links" %}
+                            </h4>
+                            <img class="hint-icon mx-4" src="{% static 'images/hint.png' %}" alt="" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans "Only share links to your social networks where you post work-related content." %}">
                         </div>
                         <div class="form-group">
                             {{ form.website.label_tag }}
@@ -86,6 +122,13 @@
                             {{ form.instagram.errors }}
                         </div>
                         <hr>
+                        <div class="d-flex">
+                            <h4>
+                                {% trans "Password" %}
+                            </h4>
+                            <img class="hint-icon mx-4" src="{% static 'images/hint.png' %}" alt="" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans "Protecting your personal data is important. Using a password on your CV prevents scammers from accessing your information." %}">
+                        </div>
+
                         <div class="form-group">
                             {{ form.password_protected.label_tag }}
                             {{ form.password_protected }}
@@ -96,13 +139,14 @@
                             {{ form.password }}
                             {{ form.password.errors }}
                         </div>
-                        
                     </div>
                 </div>
+                
+                
+                <!-- Mostrar botón de guardado y errores -->
                 <div class="text-center">
                     <button type="submit" class="general-button-orange my-3">{% trans "Save" %}</button>
                     <a class="general-button-black" href="{% url 'user_detail' %}">{% trans "Cancel" %}</a>
-
                 </div>
             </form>
         </div>

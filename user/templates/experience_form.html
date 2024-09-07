@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 
 {% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h2>{% if object %}{% trans "Edit Experience" %}{% else %}{% trans "Add Experience" %}{% endif %}</h2>
+            <div class="d-flex my-3">
+                <h2>{% if object %}{% trans "Edit Experience" %}{% else %}{% trans "Add Experience" %}{% endif %}</h2>
+                <img class="hint-icon mx-4" src="{% static 'images/hint.png' %}" alt="" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans "List your recent work experience. Keep in mind that every role, regardless of title, contributes to your development as a professional. Highlight your achievements and use action verbs like create, analyze, or design." %}">
+            </div>
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
