@@ -121,6 +121,9 @@ def wrong_password(request, pk):
 def TermsAndConditionsView(request):
     return render(request, 'terms_and_conditions.html')
 
+def TurorialView(request):
+    return render(request, 'tutorial.html')
+
 # SEO
 
 def robots_txt(request):

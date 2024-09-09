@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% load static %}
+
+{% block head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="{{ profile.template.font.url }}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container px-0">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-9 col-12 p-4" style="background-color: {{ profile.template.colors.primary }};">
+            <h1 class="text-center my-4">{% trans "Tips for Creating a Standout CV" %}</h1>
+            <p>{% trans "Your CV is your first opportunity to make a strong impression on a recruiter. With increasing competition, it’s crucial that your CV stands out and communicates your skills, experience, and goals clearly and effectively." %}"
+            <br>
+            <br>
+            {% trans "Here are some tips to ensure that your CV looks professional and is relevant to the job you’re applying for." %}</p>
+
+            <img class="img-fluid rounded shadow my-3" src="{% static 'images/dummy_1.png' %}" alt="CV image">
+
+            <h3 class="text-center my-3">{% trans "The Big Picture" %}</h3>
+            <h4 class="my-3">{% trans "Keep Your CV Clear and Concise" %}</h4>
+            <p>{% trans "Recruiters often scan through dozens or even hundreds of CVs a day. Keep your CV short, direct, and easy to read, ideally one or two pages. Use a simple, professional format." %}</p>
+            <h4 class="my-3">{% trans "Tailor Your CV for Each Job" %}</h4>
+            <p>{% trans "Customize your CV to match the job you’re applying for. Highlight the skills and experiences most relevant to the position." %}</p>
+            
+            <h4 class="my-3">{% trans "Use Industry Keywords" %}</h4>
+            <p>{% trans "Many companies use applicant tracking systems (ATS) to filter CVs before they reach a human recruiter. Include relevant industry keywords to ensure your CV passes these filters." %}</p>
+            <!-- tip -->
+            <div class="row d-flex justify-content-center my-4">
+                <div class="col-6 bg-dark text-light p-2 rounded">
+                    <p class="text-center fst-italic"><strong>Tip: </strong>{% trans "Review the job description and align your key skills and profile to match the job requirements. <br>Carefully read the job listing and use the same terms the company uses to describe skills or qualifications." %}</p>
+                </div>
+            </div>
+            <h4 class="my-3">{% trans "Avoiding Gaps in Your CV" %}</h4>
+            <p>{% trans "Gaps in your work history can raise questions for recruiters, but not every gap needs to be seen as negative. Even if you weren’t formally employed during certain periods, consider how you were investing that time. Include any personal projects, freelance work, or additional training you took on between jobs. This shows that you were proactively building your skills, even when not working in a traditional role." %}
+
+            <img class="img-fluid rounded  my-3" src="{% static 'images/photos.png' %}" alt="Photos example">
+
+            <h3 class="text-center my-3">{% trans "Structure of a Great CV" %}</h3>
+            <h4 class="my-3">{% trans "Header" %}</h4>
+            <p>{% trans "Include your full name, phone number, email, and links to your professional social networks like LinkedIn, GitHub, or a personal portfolio. Make sure the social links you include are relevant to your work and showcase your professional image." %}
+                <br>
+                <br>
+                {% trans "In today’s CVs, a photo is not mandatory, but it can help give you a more professional appearance in certain industries. If you choose to include a photo, make sure it aligns with the overall professional tone of your CV." %}
+            </p>
+            <!-- tip -->
+            <div class="row d-flex justify-content-center my-4">
+                <div class="col-6 bg-dark text-light p-2 rounded">
+                    <p class="text-center fst-italic"><strong>Tip: </strong>{% trans "Ensure your email address is professional, and avoid sharing social media accounts that reflect your personal life rather than your professional side. <br>Your photo should have a professional look. Avoid using ID-style photos, as they tend to look outdated." %}</p>
+                </div>
+            </div>
+            <h4 class="my-3">{% trans "Professional Summary or Objective" %}</h4>
+            <p>{% trans "A professional summary is a brief description of your top skills and experience. It’s the first thing recruiters see, so make sure to grab their attention right away." %}</p>
+            <h4 class="my-3">{% trans "Work Experience" %}</h4>
+            <p>{% trans "List your recent work experience. Keep in mind that every role, regardless of title, contributes to your development as a professional. Don’t underestimate any job experience, each one teaches valuable skills, whether it’s problem-solving, communication, or leadership. Highlight your achievements and use action verbs like created, analyzed, or designed." %}</p>
+            <!-- tip -->
+            <div class="row d-flex justify-content-center my-4">
+                <div class="col-6 bg-dark text-light p-2 rounded">
+                    <p class="text-center fst-italic"><strong>Tip: </strong>{% trans "No work experience should be dismissed. Every job provides an opportunity to learn and develop skills, even if the title seems unrelated to your desired career." %}</p>
+                </div>
+            </div>
+            <h4 class="my-3">{% trans "Skills" %}</h4>
+            <p>{% trans "Include a section on your technical and soft skills. Focus on relevant skills that match the job description; you can add a proficiency level next to each skill to give recruiters a better understanding of your strengths (e.g., Advanced, Intermediate, etc.)." %}</p>
+            <h4 class="my-3">{% trans "Languages" %}</h4>
+            <p>{% trans "If you speak multiple languages, include a section for language proficiency. Indicate your level of fluency for each language." %}</p>
+            <h4 class="my-3">{% trans "Interests" %}</h4>
+            <p>{% trans "While not always necessary, including an interests section can help personalize your CV. Make sure to highlight interests that support your skills and the role you’re applying for; avoid adding interests that don’t contribute positively to your professional image" %}</p>
+            <h4 class="my-3">{% trans "Education" %}</h4>
+            <p>{% trans "List your education starting with your most recent degree. Include the institution, degree, and graduation date. If applicable, add a brief description of any relevant coursework or honors; don’t list every course you’ve taken. Focus on subjects related to the job you're applying for." %}</p>
+            <h4 class="my-3">{% trans "Projects" %}</h4>
+            <p>{% trans "Showcasing your projects can be a great way to highlight a variety of skills that may not be immediately apparent through your work experience alone. Projects demonstrate your ability to take initiative, make decisions, and apply problem-solving skills in real-world scenarios. They also show creativity, teamwork, and leadership abilities, especially if you worked with others or led a project to completion." %}</p>
+            <!-- tip -->
+            <div class="row d-flex justify-content-center my-4">
+                <div class="col-6 bg-dark text-light p-2 rounded">
+                    <p class="text-center fst-italic"><strong>Tip: </strong>{% trans "Focus on your role in the project, the challenges you faced, and the solutions you implemented. This helps illustrate both your hard and soft skills, such as leadership, communication, and strategic thinking." %}</p>
+                </div>
+            </div>
+
+            <img class="img-fluid rounded  my-3" src="{% static 'images/styles.png' %}" alt="Photos example">
+
+            <h3 class="text-center my-3">{% trans "Final Touches" %}</h3>
+            <h4 class="my-3">{% trans "Proofread Carefully" %}</h4>
+            <p>{% trans "Before submitting your CV, proofread it multiple times to ensure there are no grammatical errors or typos. A CV with mistakes can leave a negative impression. Ask a friend or colleague to review your CV for fresh eyes." %}</p>
+            <h4 class="my-3">{% trans "Format and Design" %}</h4>
+            <p>{% trans "Use a clean and professional design for your CV. Stick to a simple font and layout to ensure readability." %}</p>
+            </div>
+        <div class="row d-flex justify-content-center my-5">
+            <div class="col-md-8 text-center">
+                <div class="text-center"></div>
+                    <a class="general-button-orange my-4" href="{% url 'home' %}">{% trans "Home" %}</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>  
+
+{% endblock %}
+
+            
+        

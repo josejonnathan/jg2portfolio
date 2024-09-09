@@ -20,7 +20,11 @@
                 <div>
                     <h2 class="my-5" style="font-family: {{ selected_template.font }};">{% trans "Simplified CV Creation" %}</h2>
                     <p style="line-height: 2;">{% trans "Create a stunning CV effortlessly with our customizable templates. Showcase your skills, experience, and personality with just a few clicks." %}</p>
-                    <a href="{% url 'register' %}" class="general-button-orange">{% trans "Start Here" %}</a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'user_detail' %}" class="general-button-orange">{% trans "Go to Your Profile" %}</a>
+                    {% else %}
+                        <a href="{% url 'register' %}" class="general-button-orange">{% trans "Register Now" %}</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -32,7 +36,29 @@
         <div class="col-8 text-center text-black my-5 px-5">
             <h2 class="my-5" style="font-family: {{ selected_template.font }};">{% trans "Professional and Easy!" %}</h2>
             <p>{% trans "Designed for professionals, students, and job seekers who want to make a great impression. We offer a range of beautiful, modern templates that you can customize to reflect your personal style and career aspirations. With our easy-to-use editor, you can update your CV anytime, anywhere, and ensure it always looks its best." %}</p>
-            <a href="{% url 'register' %}" class="general-button-orange">{% trans "Start Here" %}</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'user_detail' %}" class="general-button-orange">{% trans "Go to Your Profile" %}</a>
+            {% else %}
+                <a href="{% url 'register' %}" class="general-button-orange">{% trans "Register Now" %}</a>
+            {% endif %}
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <!-- Aquí podrías agregar contenido adicional si es necesario -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" style="background-color: {{ selected_template.colors.tertiary }};">
+    <div class="row d-flex text-white flex-wrap justify-content-center align-items-center">
+        <div class="col-6 text-center  my-5 px-5">
+            <h2 class="my-5" style="font-family: {{ selected_template.font }};">{% trans "Not sure how to start?" %}</h2>
+            <p>{% trans "This short tutorial will give you an idea of how to create a great CV." %}</p>
+            <a href="{% url 'tutorial' %}" class="general-button-orange">{% trans "Tutorial" %}</a>
+        </div>
+        <div class="col-6 text-center  my-5 px-5">
+            <img src="{% static 'images/styles.png' %}" alt="Tutorial" class="img-fluid">
         </div>
         <div class="row">
             <div class="col-4">

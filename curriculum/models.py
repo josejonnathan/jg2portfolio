@@ -2,6 +2,7 @@
 
 from django.db import models
 from django.conf import settings
+from django.utils.translation import gettext as _
 from api.models import Template
 from PIL import Image 
 import os
@@ -79,17 +80,17 @@ class Skill(models.Model):
     
 class Language(models.Model):
     LEVEL_CHOICES = [
-        ('Basic', 'Basic'),
-        ('Intermediate', 'Intermediate'),
-        ('Advanced', 'Advanced'),
-        ('Native', 'Native'),
+        ('Basic', _('Basic')),
+        ('Intermediate', _('Intermediate')),
+        ('Advanced', _('Advanced')),
+        ('Native', _('Native')),
     ]
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='languages')
     name = models.CharField(max_length=100)
     level = models.CharField(max_length=20, choices=LEVEL_CHOICES)
 
     def __str__(self):
-        return f"{self.name} ({self.level})"
+        return f"{self.name} ({_(self.get_level_display())})"
     
 class Interest(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='interests')

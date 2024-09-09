@@ -3,13 +3,16 @@
 
 <footer class="container-fluid text-center text-light py-3" style="background-color: black;">
     <div class="row flex-wrap justify-content-center">
-      <div class="col-3">
+      <div class="col-2">
         <p>&copy; 2024 Jonnathan Gonzalez</p>
       </div>
-      <div class="col-3">
+      <div class="col-2">
         <p><a class="text-link-white" href="mailto:pro.cur.vit@gmail.com" >{% trans "Contact" %}</a></p>
       </div>
-      <div class="col-3">
+      <div class="col-2">
+        <a href="{% url 'tutorial' %}" class="text-link-white">{% trans "Tutorial" %}</a>
+      </div>
+      <div class="col-2">
         <a href="{% url 'terms' %}" class="text-link-white">{% trans "Terms and Conditions" %}</a>
       </div>
       <div class="col-3 d-flex flex-wrap justify-content-center ">

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-07 13:45+0200\n"
-"PO-Revision-Date: 2024-09-07 14:03+0200\n"
+"POT-Creation-Date: 2024-09-09 23:17+0200\n"
+"PO-Revision-Date: 2024-09-09 23:23+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt\n"
@@ -19,7 +19,23 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.5\n"
 
-#: curriculum/models.py:158 curriculum/models.py:174
+#: curriculum/models.py:83
+msgid "Basic"
+msgstr "Básico"
+
+#: curriculum/models.py:84
+msgid "Intermediate"
+msgstr "Intermediário"
+
+#: curriculum/models.py:85
+msgid "Advanced"
+msgstr "Avançado"
+
+#: curriculum/models.py:86
+msgid "Native"
+msgstr "Nativo"
+
+#: curriculum/models.py:159 curriculum/models.py:175
 msgid "End date cannot be earlier than start date."
 msgstr "A data de término não pode ser anterior à data de início."
 
@@ -83,7 +99,7 @@ msgstr "Seleção de Tema"
 #: frontend/templates/curriculum_detail_pdf.html:202
 #: media/templates/cube.html:33 media/templates/hip_to_be_square.html:95
 #: media/templates/sea_quest.html:31 media/templates/the_two_towers.html:43
-#: user/forms.py:71 user/templates/user_detail.html:51
+#: user/forms.py:71 user/templates/user_detail.html:52
 msgid "Website"
 msgstr "Site"
 
@@ -95,7 +111,7 @@ msgstr "Site"
 #: media/templates/hip_to_be_square.html:157 media/templates/sea_quest.html:34
 #: media/templates/sea_quest.html:172 media/templates/the_two_towers.html:46
 #: media/templates/the_two_towers.html:156 user/forms.py:72
-#: user/templates/user_detail.html:52
+#: user/templates/user_detail.html:53
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
@@ -103,7 +119,7 @@ msgstr "LinkedIn"
 #: frontend/templates/curriculum_detail_pdf.html:214
 #: media/templates/cube.html:39 media/templates/hip_to_be_square.html:101
 #: media/templates/sea_quest.html:37 media/templates/the_two_towers.html:49
-#: user/forms.py:73 user/templates/user_detail.html:53
+#: user/forms.py:73 user/templates/user_detail.html:54
 msgid "GitHub"
 msgstr "GitHub"
 
@@ -115,7 +131,7 @@ msgstr "GitHub"
 #: media/templates/hip_to_be_square.html:154 media/templates/sea_quest.html:40
 #: media/templates/sea_quest.html:169 media/templates/the_two_towers.html:52
 #: media/templates/the_two_towers.html:153 user/forms.py:74
-#: user/templates/user_detail.html:54
+#: user/templates/user_detail.html:55
 msgid "Twitter"
 msgstr "Twitter"
 
@@ -127,7 +143,7 @@ msgstr "Twitter"
 #: media/templates/hip_to_be_square.html:151 media/templates/sea_quest.html:43
 #: media/templates/sea_quest.html:166 media/templates/the_two_towers.html:55
 #: media/templates/the_two_towers.html:150 user/forms.py:76
-#: user/templates/user_detail.html:55
+#: user/templates/user_detail.html:56
 msgid "Facebook"
 msgstr "Facebook"
 
@@ -135,31 +151,32 @@ msgstr "Facebook"
 #: frontend/templates/curriculum_detail_pdf.html:205
 #: media/templates/cube.html:48 media/templates/hip_to_be_square.html:110
 #: media/templates/sea_quest.html:46 media/templates/the_two_towers.html:58
-#: user/forms.py:75 user/templates/user_detail.html:56
+#: user/forms.py:75 user/templates/user_detail.html:57
 msgid "Instagram"
 msgstr "Instagram"
 
 #: frontend/templates/curriculum_detail.html:56
 #: frontend/templates/curriculum_detail_pdf.html:131
-#: media/templates/cube.html:55 media/templates/hip_to_be_square.html:117
-#: media/templates/sea_quest.html:62 media/templates/the_two_towers.html:67
-#: user/templates/skill_form.html:10 user/templates/user_detail.html:66
+#: frontend/templates/tutorial.html:68 media/templates/cube.html:55
+#: media/templates/hip_to_be_square.html:117 media/templates/sea_quest.html:62
+#: media/templates/the_two_towers.html:67 user/templates/skill_form.html:10
+#: user/templates/user_detail.html:67
 msgid "Skills"
 msgstr "Competências"
 
 #: frontend/templates/curriculum_detail.html:66
 #: frontend/templates/curriculum_detail_pdf.html:139
-#: media/templates/cube.html:65 media/templates/hip_to_be_square.html:127
-#: media/templates/sea_quest.html:75 media/templates/the_two_towers.html:77
-#: user/templates/user_detail.html:86
+#: frontend/templates/tutorial.html:70 media/templates/cube.html:65
+#: media/templates/hip_to_be_square.html:127 media/templates/sea_quest.html:75
+#: media/templates/the_two_towers.html:77 user/templates/user_detail.html:87
 msgid "Languages"
 msgstr "Idiomas"
 
 #: frontend/templates/curriculum_detail.html:77
 #: frontend/templates/curriculum_detail_pdf.html:148
-#: media/templates/cube.html:76 media/templates/hip_to_be_square.html:138
-#: media/templates/sea_quest.html:83 media/templates/the_two_towers.html:87
-#: user/templates/user_detail.html:106
+#: frontend/templates/tutorial.html:72 media/templates/cube.html:76
+#: media/templates/hip_to_be_square.html:138 media/templates/sea_quest.html:83
+#: media/templates/the_two_towers.html:87 user/templates/user_detail.html:107
 msgid "Interests"
 msgstr "Interesses"
 
@@ -197,22 +214,24 @@ msgstr "Perfil"
 
 #: frontend/templates/curriculum_detail.html:120
 #: frontend/templates/curriculum_detail_pdf.html:159
-#: media/templates/cube.html:119 media/templates/hip_to_be_square.html:24
-#: media/templates/sea_quest.html:101 media/templates/sea_quest.html:102
-#: media/templates/the_two_towers.html:100 user/templates/user_detail.html:132
+#: frontend/templates/tutorial.html:74 media/templates/cube.html:119
+#: media/templates/hip_to_be_square.html:24 media/templates/sea_quest.html:101
+#: media/templates/sea_quest.html:102 media/templates/the_two_towers.html:100
+#: user/templates/user_detail.html:133
 msgid "Education"
 msgstr "Educação"
 
-#: frontend/templates/curriculum_detail.html:133 media/templates/cube.html:132
+#: frontend/templates/curriculum_detail.html:133
+#: frontend/templates/tutorial.html:60 media/templates/cube.html:132
 #: media/templates/hip_to_be_square.html:37
 msgid "Work Experience"
 msgstr "Experiência Profissional"
 
 #: frontend/templates/curriculum_detail.html:150
 #: frontend/templates/curriculum_detail_pdf.html:185
-#: media/templates/cube.html:149 media/templates/hip_to_be_square.html:53
-#: media/templates/sea_quest.html:132 media/templates/the_two_towers.html:126
-#: user/templates/user_detail.html:186
+#: frontend/templates/tutorial.html:76 media/templates/cube.html:149
+#: media/templates/hip_to_be_square.html:53 media/templates/sea_quest.html:132
+#: media/templates/the_two_towers.html:126 user/templates/user_detail.html:187
 msgid "Projects"
 msgstr "Projetos"
 
@@ -221,37 +240,37 @@ msgid "Curriculum PDF"
 msgstr "PDF do Currículo"
 
 #: frontend/templates/curriculum_detail_pdf.html:117
-#: media/templates/the_two_towers.html:28 user/templates/user_detail.html:43
+#: media/templates/the_two_towers.html:28 user/templates/user_detail.html:44
 msgid "Details"
 msgstr "Detalhes"
 
 #: frontend/templates/curriculum_detail_pdf.html:118
 #: media/templates/sea_quest.html:50 media/templates/the_two_towers.html:33
-#: user/forms.py:30 user/forms.py:68 user/templates/user_detail.html:46
+#: user/forms.py:30 user/forms.py:68 user/templates/user_detail.html:47
 msgid "Email"
 msgstr "E-mail"
 
 #: frontend/templates/curriculum_detail_pdf.html:119
 #: media/templates/sea_quest.html:52 media/templates/the_two_towers.html:34
-#: user/forms.py:69 user/templates/user_detail.html:47
+#: user/forms.py:69 user/templates/user_detail.html:48
 msgid "Phone"
 msgstr "Telefone"
 
 #: frontend/templates/curriculum_detail_pdf.html:120
 #: media/templates/sea_quest.html:55 media/templates/the_two_towers.html:35
-#: user/forms.py:70 user/templates/user_detail.html:48
+#: user/forms.py:70 user/templates/user_detail.html:49
 msgid "Address"
 msgstr "Endereço"
 
 #: frontend/templates/curriculum_detail_pdf.html:172
 #: media/templates/sea_quest.html:117 media/templates/sea_quest.html:118
-#: media/templates/the_two_towers.html:112 user/templates/user_detail.html:156
+#: media/templates/the_two_towers.html:112 user/templates/user_detail.html:157
 msgid "Experience"
 msgstr "Experiência"
 
 #: frontend/templates/curriculum_detail_pdf.html:199
 #: media/templates/the_two_towers.html:40 user/templates/profile_update.html:90
-#: user/templates/user_detail.html:50
+#: user/templates/user_detail.html:51
 msgid "Links"
 msgstr "Links"
 
@@ -259,7 +278,12 @@ msgstr "Links"
 msgid "Contact"
 msgstr "Contato"
 
-#: frontend/templates/footer.html:13
+#: frontend/templates/footer.html:13 frontend/templates/home.html:58
+#: user/templates/user_detail.html:23
+msgid "Tutorial"
+msgstr "Tutorial"
+
+#: frontend/templates/footer.html:16
 msgid "Terms and Conditions"
 msgstr "Termos e condições"
 
@@ -276,15 +300,19 @@ msgstr ""
 "personalizáveis. Mostre suas habilidades, experiência e personalidade com "
 "apenas alguns cliques."
 
-#: frontend/templates/home.html:23 frontend/templates/home.html:35
-msgid "Start Here"
-msgstr "Começar Aqui"
+#: frontend/templates/home.html:24 frontend/templates/home.html:40
+msgid "Go to Your Profile"
+msgstr "Vá para o seu perfil"
 
-#: frontend/templates/home.html:33
+#: frontend/templates/home.html:26 frontend/templates/home.html:42
+msgid "Register Now"
+msgstr "Registre-se agora"
+
+#: frontend/templates/home.html:37
 msgid "Professional and Easy!"
 msgstr "Profissional e Fácil!"
 
-#: frontend/templates/home.html:34
+#: frontend/templates/home.html:38
 msgid ""
 "Designed for professionals, students, and job seekers who want to make a "
 "great impression. We offer a range of beautiful, modern templates that you "
@@ -298,6 +326,14 @@ msgstr ""
 "aspirações de carreira. Com nosso editor fácil de usar, você pode atualizar "
 "seu CV a qualquer momento e garantir que ele esteja sempre com a melhor "
 "aparência."
+
+#: frontend/templates/home.html:56
+msgid "Not sure how to start?"
+msgstr "Não sabe como começar?"
+
+#: frontend/templates/home.html:57
+msgid "This short tutorial will give you an idea of how to create a great CV."
+msgstr "Este breve tutorial lhe dará uma ideia de como criar um ótimo CV."
 
 #: frontend/templates/password_prompt.html:8
 msgid "Enter the password to view this CV"
@@ -534,8 +570,297 @@ msgstr ""
 "Condições, entre em contato conosco pelo e-mail pro.cur.vit@gmail.com."
 
 #: frontend/templates/terms_and_conditions.html:59
+#: frontend/templates/tutorial.html:96
 msgid "Home"
 msgstr "Início"
+
+#: frontend/templates/tutorial.html:18
+msgid "Tips for Creating a Standout CV"
+msgstr "Dicas para Criar um CV de Destaque"
+
+#: frontend/templates/tutorial.html:19
+msgid ""
+"Your CV is your first opportunity to make a strong impression on a "
+"recruiter. With increasing competition, it’s crucial that your CV stands out "
+"and communicates your skills, experience, and goals clearly and effectively."
+msgstr ""
+"O seu CV é a sua primeira oportunidade para causar uma boa impressão em um "
+"recrutador. Com a crescente concorrência, é crucial que o seu CV se destaque "
+"e comunique claramente e de forma eficaz suas habilidades, experiência e "
+"objetivos."
+
+#: frontend/templates/tutorial.html:22
+msgid ""
+"Here are some tips to ensure that your CV looks professional and is relevant "
+"to the job you’re applying for."
+msgstr ""
+"Aqui estão algumas dicas para garantir que o seu CV tenha uma aparência "
+"profissional e seja relevante para o trabalho ao qual você está se "
+"candidatando."
+
+#: frontend/templates/tutorial.html:26
+msgid "The Big Picture"
+msgstr "A Visão Geral"
+
+#: frontend/templates/tutorial.html:27
+msgid "Keep Your CV Clear and Concise"
+msgstr "Mantenha o seu CV claro e conciso"
+
+#: frontend/templates/tutorial.html:28
+msgid ""
+"Recruiters often scan through dozens or even hundreds of CVs a day. Keep "
+"your CV short, direct, and easy to read, ideally one or two pages. Use a "
+"simple, professional format."
+msgstr ""
+"Recrutadores costumam revisar dezenas ou até centenas de CVs por dia. "
+"Mantenha o seu CV curto, direto e fácil de ler, de preferência com uma ou "
+"duas páginas. Use um formato simples e profissional."
+
+#: frontend/templates/tutorial.html:29
+msgid "Tailor Your CV for Each Job"
+msgstr "Personalize o seu CV para cada trabalho"
+
+#: frontend/templates/tutorial.html:30
+msgid ""
+"Customize your CV to match the job you’re applying for. Highlight the skills "
+"and experiences most relevant to the position."
+msgstr ""
+"Adapte o seu CV para o trabalho ao qual você está se candidatando. Destaque "
+"as habilidades e experiências mais relevantes para a posição."
+
+#: frontend/templates/tutorial.html:32
+msgid "Use Industry Keywords"
+msgstr "Use Palavras-Chave da Indústria"
+
+#: frontend/templates/tutorial.html:33
+msgid ""
+"Many companies use applicant tracking systems (ATS) to filter CVs before "
+"they reach a human recruiter. Include relevant industry keywords to ensure "
+"your CV passes these filters."
+msgstr ""
+"Muitas empresas usam sistemas de rastreamento de candidatos (ATS) para "
+"filtrar CVs antes de chegarem a um recrutador humano. Inclua palavras-chave "
+"relevantes da indústria para garantir que o seu CV passe por esses filtros."
+
+#: frontend/templates/tutorial.html:37
+msgid ""
+"Review the job description and align your key skills and profile to match "
+"the job requirements. <br>Carefully read the job listing and use the same "
+"terms the company uses to describe skills or qualifications."
+msgstr ""
+"Revise a descrição do trabalho e alinhe suas principais habilidades e perfil "
+"para atender aos requisitos da vaga. <br>Leia atentamente a lista de "
+"empregos e use os mesmos termos que a empresa usa para descrever habilidades "
+"ou qualificações."
+
+#: frontend/templates/tutorial.html:40
+msgid "Avoiding Gaps in Your CV"
+msgstr "Evitando Lacunas no seu CV"
+
+#: frontend/templates/tutorial.html:41
+msgid ""
+"Gaps in your work history can raise questions for recruiters, but not every "
+"gap needs to be seen as negative. Even if you weren’t formally employed "
+"during certain periods, consider how you were investing that time. Include "
+"any personal projects, freelance work, or additional training you took on "
+"between jobs. This shows that you were proactively building your skills, "
+"even when not working in a traditional role."
+msgstr ""
+"Lacunas no seu histórico de trabalho podem levantar dúvidas para os "
+"recrutadores, mas nem toda lacuna deve ser vista de forma negativa. Mesmo "
+"que você não tenha estado formalmente empregado durante certos períodos, "
+"considere como investiu esse tempo. Inclua projetos pessoais, trabalho "
+"freelance ou treinamentos adicionais realizados entre empregos. Isso "
+"demonstra que você estava proativamente desenvolvendo suas habilidades, "
+"mesmo fora de um emprego formal."
+
+#: frontend/templates/tutorial.html:45
+msgid "Structure of a Great CV"
+msgstr "Estrutura de um Ótimo CV"
+
+#: frontend/templates/tutorial.html:46
+msgid "Header"
+msgstr "Cabeçalho"
+
+#: frontend/templates/tutorial.html:47
+msgid ""
+"Include your full name, phone number, email, and links to your professional "
+"social networks like LinkedIn, GitHub, or a personal portfolio. Make sure "
+"the social links you include are relevant to your work and showcase your "
+"professional image."
+msgstr ""
+"Inclua seu nome completo, número de telefone, e-mail e links para suas redes "
+"sociais profissionais, como LinkedIn, GitHub ou um portfólio pessoal. "
+"Certifique-se de que os links sociais que você fornecer sejam relevantes "
+"para o seu trabalho e mostrem a sua imagem profissional."
+
+#: frontend/templates/tutorial.html:50
+msgid ""
+"In today’s CVs, a photo is not mandatory, but it can help give you a more "
+"professional appearance in certain industries. If you choose to include a "
+"photo, make sure it aligns with the overall professional tone of your CV."
+msgstr ""
+"Nos CVs modernos, uma foto não é obrigatória, mas pode ajudar a dar uma "
+"aparência mais profissional em certas indústrias. Se optar por incluir uma "
+"foto, certifique-se de que ela esteja alinhada com o tom profissional do seu "
+"CV."
+
+#: frontend/templates/tutorial.html:55
+msgid ""
+"Ensure your email address is professional, and avoid sharing social media "
+"accounts that reflect your personal life rather than your professional side. "
+"<br>Your photo should have a professional look. Avoid using ID-style photos, "
+"as they tend to look outdated."
+msgstr ""
+"Certifique-se de que o seu e-mail seja profissional e evite compartilhar "
+"contas de redes sociais que reflitam a sua vida pessoal em vez do seu lado "
+"profissional. <br>Sua foto deve ter uma aparência profissional. Evite usar "
+"fotos estilo documento de identidade, pois elas tendem a parecer "
+"desatualizadas."
+
+#: frontend/templates/tutorial.html:58
+msgid "Professional Summary or Objective"
+msgstr "Resumo Profissional ou Objetivo"
+
+#: frontend/templates/tutorial.html:59
+msgid ""
+"A professional summary is a brief description of your top skills and "
+"experience. It’s the first thing recruiters see, so make sure to grab their "
+"attention right away."
+msgstr ""
+"Um resumo profissional é uma breve descrição das suas principais habilidades "
+"e experiências. É a primeira coisa que os recrutadores veem, então, "
+"certifique-se de capturar a atenção deles imediatamente."
+
+#: frontend/templates/tutorial.html:61
+msgid ""
+"List your recent work experience. Keep in mind that every role, regardless "
+"of title, contributes to your development as a professional. Don’t "
+"underestimate any job experience, each one teaches valuable skills, whether "
+"it’s problem-solving, communication, or leadership. Highlight your "
+"achievements and use action verbs like created, analyzed, or designed."
+msgstr ""
+"Liste a sua experiência profissional recente. Lembre-se de que todo papel, "
+"independentemente do título, contribui para o seu desenvolvimento como "
+"profissional. Não subestime nenhuma experiência de trabalho, pois cada uma "
+"ensina habilidades valiosas, como resolução de problemas, comunicação ou "
+"liderança. Destaque suas conquistas e use verbos de ação como criar, "
+"analisar ou projetar."
+
+#: frontend/templates/tutorial.html:65
+msgid ""
+"No work experience should be dismissed. Every job provides an opportunity to "
+"learn and develop skills, even if the title seems unrelated to your desired "
+"career."
+msgstr ""
+"Nenhuma experiência de trabalho deve ser subestimada. Cada trabalho oferece "
+"a oportunidade de aprender e desenvolver habilidades, mesmo que o título "
+"pareça não estar relacionado com a carreira desejada."
+
+#: frontend/templates/tutorial.html:69
+msgid ""
+"Include a section on your technical and soft skills. Focus on relevant "
+"skills that match the job description; you can add a proficiency level next "
+"to each skill to give recruiters a better understanding of your strengths (e."
+"g., Advanced, Intermediate, etc.)."
+msgstr ""
+"Inclua uma seção sobre suas habilidades técnicas e comportamentais. Foque "
+"nas habilidades relevantes que correspondem à descrição da vaga; você pode "
+"adicionar um nível de proficiência ao lado de cada habilidade para dar aos "
+"recrutadores uma melhor compreensão de seus pontos fortes (por exemplo, "
+"Avançado, Intermediário, etc.)."
+
+#: frontend/templates/tutorial.html:71
+msgid ""
+"If you speak multiple languages, include a section for language proficiency. "
+"Indicate your level of fluency for each language."
+msgstr ""
+"Se você fala várias línguas, inclua uma seção de proficiência em idiomas. "
+"Indique o seu nível de fluência em cada língua."
+
+#: frontend/templates/tutorial.html:73
+msgid ""
+"While not always necessary, including an interests section can help "
+"personalize your CV. Make sure to highlight interests that support your "
+"skills and the role you’re applying for; avoid adding interests that don’t "
+"contribute positively to your professional image"
+msgstr ""
+"Embora não seja sempre necessário, incluir uma seção de interesses pode "
+"ajudar a personalizar o seu CV. Certifique-se de destacar interesses que "
+"complementem suas habilidades e a função para a qual está se candidatando; "
+"evite adicionar interesses que não contribuam positivamente para a sua "
+"imagem profissional"
+
+#: frontend/templates/tutorial.html:75
+msgid ""
+"List your education starting with your most recent degree. Include the "
+"institution, degree, and graduation date. If applicable, add a brief "
+"description of any relevant coursework or honors; don’t list every course "
+"you’ve taken. Focus on subjects related to the job you're applying for."
+msgstr ""
+"Liste sua formação acadêmica começando pelo grau mais recente. Inclua a "
+"instituição, o grau e a data de formatura. Se aplicável, adicione uma breve "
+"descrição dos cursos ou honrarias relevantes; não liste todos os cursos que "
+"você já fez. Foque nas disciplinas relacionadas ao emprego para o qual você "
+"está se candidatando."
+
+#: frontend/templates/tutorial.html:77
+msgid ""
+"Showcasing your projects can be a great way to highlight a variety of skills "
+"that may not be immediately apparent through your work experience alone. "
+"Projects demonstrate your ability to take initiative, make decisions, and "
+"apply problem-solving skills in real-world scenarios. They also show "
+"creativity, teamwork, and leadership abilities, especially if you worked "
+"with others or led a project to completion."
+msgstr ""
+"Mostrar seus projetos pode ser uma ótima maneira de destacar uma variedade "
+"de habilidades que podem não ser imediatamente evidentes apenas com a sua "
+"experiência de trabalho. Projetos demonstram sua capacidade de tomar "
+"iniciativa, tomar decisões e aplicar habilidades de resolução de problemas "
+"em cenários do mundo real. Eles também mostram criatividade, trabalho em "
+"equipe e habilidades de liderança, especialmente se você trabalhou com "
+"outros ou liderou um projeto até a sua conclusão."
+
+#: frontend/templates/tutorial.html:81
+msgid ""
+"Focus on your role in the project, the challenges you faced, and the "
+"solutions you implemented. This helps illustrate both your hard and soft "
+"skills, such as leadership, communication, and strategic thinking."
+msgstr ""
+"Concentre-se no seu papel no projeto, nos desafios que enfrentou e nas "
+"soluções que implementou. Isso ajuda a ilustrar suas habilidades técnicas e "
+"comportamentais, como liderança, comunicação e pensamento estratégico."
+
+#: frontend/templates/tutorial.html:87
+msgid "Final Touches"
+msgstr "Toques Finais"
+
+#: frontend/templates/tutorial.html:88
+msgid "Proofread Carefully"
+msgstr "Revise Cuidadosamente"
+
+#: frontend/templates/tutorial.html:89
+msgid ""
+"Before submitting your CV, proofread it multiple times to ensure there are "
+"no grammatical errors or typos. A CV with mistakes can leave a negative "
+"impression. Ask a friend or colleague to review your CV for fresh eyes."
+msgstr ""
+"Antes de enviar o seu CV, revise-o várias vezes para garantir que não haja "
+"erros gramaticais ou de digitação. Um CV com erros pode deixar uma impressão "
+"negativa. Peça a um amigo ou colega para revisar o seu CV com uma nova "
+"perspectiva."
+
+#: frontend/templates/tutorial.html:90
+msgid "Format and Design"
+msgstr "Formato e Design"
+
+#: frontend/templates/tutorial.html:91
+msgid ""
+"Use a clean and professional design for your CV. Stick to a simple font and "
+"layout to ensure readability."
+msgstr ""
+"Use um design limpo e profissional para o seu CV. Mantenha uma fonte simples "
+"e um layout organizado para garantir a legibilidade."
 
 #: frontend/templates/wrong_password.html:7
 msgid "Wrong password"
@@ -582,12 +907,12 @@ msgid "Share this CV:"
 msgstr "Compartilhar este CV:"
 
 #: media/templates/the_two_towers.html:29 user/forms.py:65
-#: user/templates/user_detail.html:44
+#: user/templates/user_detail.html:45
 msgid "Name"
 msgstr "Nome"
 
 #: media/templates/the_two_towers.html:31 user/forms.py:66
-#: user/templates/user_detail.html:45
+#: user/templates/user_detail.html:46
 msgid "Title"
 msgstr "Título"
 
@@ -623,11 +948,11 @@ msgstr "Foto de Perfil"
 msgid "Protect curriculum with password"
 msgstr "Proteger currículo com senha"
 
-#: user/forms.py:88 user/forms.py:242
+#: user/forms.py:88 user/forms.py:252
 msgid "The image is too large (maximum size is 5 MB)."
 msgstr "A imagem é muito grande (o tamanho máximo é de 5 MB)."
 
-#: user/forms.py:94 user/forms.py:248
+#: user/forms.py:94 user/forms.py:258
 #, python-brace-format
 msgid ""
 "Image Resolution is too high (maximum size is {max_width}x{max_height} "
@@ -656,58 +981,74 @@ msgstr "Nome da Habilidade"
 msgid "Skill Level"
 msgstr "Nível de Habilidade"
 
-#: user/forms.py:144
+#: user/forms.py:136
+msgid "Please enter the skill name"
+msgstr "Por favor, insira o nome da habilidade"
+
+#: user/forms.py:139
+msgid "Please enter the skill level"
+msgstr "Por favor, insira o nível da habilidade"
+
+#: user/forms.py:140
+msgid "Minimum level is 1"
+msgstr "O nível mínimo é 1"
+
+#: user/forms.py:141
+msgid "Maximum level is 100"
+msgstr "O nível máximo é 100"
+
+#: user/forms.py:154
 msgid "Language Name"
 msgstr "Nome do Idioma"
 
-#: user/forms.py:145
+#: user/forms.py:155
 msgid "Proficiency Level"
 msgstr "Nível de Proficiência"
 
-#: user/forms.py:156
+#: user/forms.py:166
 msgid "Interest"
 msgstr "Interesse"
 
-#: user/forms.py:171 user/templates/education_form.html:16
+#: user/forms.py:181 user/templates/education_form.html:16
 msgid "Institution"
 msgstr "Instituição"
 
-#: user/forms.py:172 user/templates/education_form.html:20
+#: user/forms.py:182 user/templates/education_form.html:20
 msgid "Degree"
 msgstr "Grau Acadêmico"
 
-#: user/forms.py:173 user/forms.py:198 user/forms.py:224
+#: user/forms.py:183 user/forms.py:208 user/forms.py:234
 #: user/templates/education_form.html:24
 msgid "Start Date"
 msgstr "Data de Início"
 
-#: user/forms.py:174 user/forms.py:199 user/forms.py:225
+#: user/forms.py:184 user/forms.py:209 user/forms.py:235
 #: user/templates/education_form.html:28
 msgid "End Date"
 msgstr "Data de Término"
 
-#: user/forms.py:175 user/forms.py:200 user/forms.py:223
+#: user/forms.py:185 user/forms.py:210 user/forms.py:233
 #: user/templates/education_form.html:32
 msgid "Description"
 msgstr "Descrição"
 
-#: user/forms.py:196
+#: user/forms.py:206
 msgid "Job Title"
 msgstr "Cargo"
 
-#: user/forms.py:197
+#: user/forms.py:207
 msgid "Company"
 msgstr "Empresa"
 
-#: user/forms.py:222
+#: user/forms.py:232
 msgid "Project Name"
 msgstr "Nome do Projeto"
 
-#: user/forms.py:226
+#: user/forms.py:236
 msgid "Project URL"
 msgstr "URL do Projeto"
 
-#: user/forms.py:227
+#: user/forms.py:237
 msgid "Project Image"
 msgstr "Imagem do Projeto"
 
@@ -738,29 +1079,29 @@ msgstr "Confirmar Exclusão de Educação"
 msgid "Are you sure you want to delete this education?"
 msgstr "Tem certeza de que deseja excluir esta educação?"
 
-#: user/templates/education_confirm_delete.html:11
-#: user/templates/experience_confirm_delete.html:11
-#: user/templates/interest_confirm_delete.html:11
-#: user/templates/language_confirm_delete.html:11
-#: user/templates/project_confirm_delete.html:11
-#: user/templates/skill_confirm_delete.html:11
+#: user/templates/education_confirm_delete.html:12
+#: user/templates/experience_confirm_delete.html:13
+#: user/templates/interest_confirm_delete.html:13
+#: user/templates/language_confirm_delete.html:13
+#: user/templates/project_confirm_delete.html:13
+#: user/templates/skill_confirm_delete.html:13
 msgid "Delete"
 msgstr "Excluir"
 
-#: user/templates/education_confirm_delete.html:12
+#: user/templates/education_confirm_delete.html:13
 #: user/templates/education_form.html:37
-#: user/templates/experience_confirm_delete.html:12
+#: user/templates/experience_confirm_delete.html:14
 #: user/templates/experience_form.html:18
-#: user/templates/interest_confirm_delete.html:12
+#: user/templates/interest_confirm_delete.html:14
 #: user/templates/interest_form.html:18
-#: user/templates/language_confirm_delete.html:12
+#: user/templates/language_confirm_delete.html:14
 #: user/templates/language_form.html:18
 #: user/templates/profile_template_update.html:17
 #: user/templates/profile_update.html:149
-#: user/templates/project_confirm_delete.html:12
+#: user/templates/project_confirm_delete.html:14
 #: user/templates/project_form.html:18
-#: user/templates/skill_confirm_delete.html:12
-#: user/templates/skill_form.html:19
+#: user/templates/skill_confirm_delete.html:14
+#: user/templates/skill_form.html:49
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -1171,7 +1512,7 @@ msgstr ""
 "skills), mas também suas habilidades sociais (soft skills), que são muito "
 "valorizadas pelos recrutadores. Avalie suas habilidades de 0 a 100%%."
 
-#: user/templates/skill_form.html:18
+#: user/templates/skill_form.html:48
 msgid "Save Skill"
 msgstr "Salvar Habilidade"
 
@@ -1229,32 +1570,35 @@ msgstr "Seu CV Público"
 msgid "Download as PDF"
 msgstr "Baixar como PDF"
 
-#: user/templates/user_detail.html:23
+#: user/templates/user_detail.html:24
 msgid "Logout"
 msgstr "Sair"
 
-#: user/templates/user_detail.html:33
+#: user/templates/user_detail.html:34
 msgid "Your Profile"
 msgstr "Seu Perfil"
 
-#: user/templates/user_detail.html:34
+#: user/templates/user_detail.html:35
 msgid "Edit"
 msgstr "Editar"
 
-#: user/templates/user_detail.html:67 user/templates/user_detail.html:87
-#: user/templates/user_detail.html:107 user/templates/user_detail.html:133
-#: user/templates/user_detail.html:157 user/templates/user_detail.html:187
+#: user/templates/user_detail.html:68 user/templates/user_detail.html:88
+#: user/templates/user_detail.html:108 user/templates/user_detail.html:134
+#: user/templates/user_detail.html:158 user/templates/user_detail.html:188
 msgid "New"
 msgstr "Novo"
 
-#: user/templates/user_detail.html:73 user/templates/user_detail.html:93
-#: user/templates/user_detail.html:113 user/templates/user_detail.html:140
-#: user/templates/user_detail.html:164 user/templates/user_detail.html:195
+#: user/templates/user_detail.html:74 user/templates/user_detail.html:94
+#: user/templates/user_detail.html:114 user/templates/user_detail.html:141
+#: user/templates/user_detail.html:165 user/templates/user_detail.html:196
 msgid "edit"
 msgstr "editar"
 
-#: user/templates/user_detail.html:76 user/templates/user_detail.html:96
-#: user/templates/user_detail.html:116 user/templates/user_detail.html:143
-#: user/templates/user_detail.html:167 user/templates/user_detail.html:198
+#: user/templates/user_detail.html:77 user/templates/user_detail.html:97
+#: user/templates/user_detail.html:117 user/templates/user_detail.html:144
+#: user/templates/user_detail.html:168 user/templates/user_detail.html:199
 msgid "delete"
 msgstr "excluir"
+
+#~ msgid "Start Here"
+#~ msgstr "Começar Aqui"

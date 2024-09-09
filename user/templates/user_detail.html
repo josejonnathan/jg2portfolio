@@ -20,6 +20,7 @@
         <div class="col-12 d-flex flex-wrap justify-content-around my-3">
             <a href="{% url 'curriculum_detail' profile.pk %}" class="general-button-orange">{% trans "Your Public CV" %}</a>
             <a href="{% url 'download' profile.pk %}" class="general-button-orange">{% trans "Download as PDF" %}</a>
+            <a href="{% url 'tutorial' %}" class="general-button-orange">{% trans "Tutorial" %}</a>
             <a href="{% url 'logout' %}" class="general-button-orange">{% trans "Logout" %}</a>
 
         </div>
@@ -95,7 +96,7 @@
                     <a class="action-icon text-link-black mx-2" href="{% url 'language_delete' language.pk %}">
                         <img src="{% static 'images/delete.png' %}" alt="{% trans 'delete' %}">
                     </a>
-                    {{ language.name }} - {{ language.level }}
+                    {{ language.name }} - {{ language.get_level_display }}
                 </div>
                 {% endfor %}
             </div>
