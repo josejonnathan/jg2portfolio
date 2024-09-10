@@ -2,7 +2,7 @@
 
 from django.db import models
 from django.conf import settings
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from api.models import Template
 from PIL import Image 
 import os
@@ -90,7 +90,7 @@ class Language(models.Model):
     level = models.CharField(max_length=20, choices=LEVEL_CHOICES)
 
     def __str__(self):
-        return f"{self.name} ({_(self.get_level_display())})"
+        return f"{self.name} ({self.get_level_display()})"
     
 class Interest(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='interests')

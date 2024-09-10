@@ -35,7 +35,7 @@
             <p>{% trans "Address" %}: {{ profile.address }}</p>
 
             <h3 style="font-family: {{ profile.template.font }};">{% trans "Profile" %}</h3>
-            <p class="my-3">{{ profile.bio }}</p>
+            <p class="my-3">{{ profile.bio|linebreaksbr }}</p>
 
             <h3 style="font-family: {{ profile.template.font }};">{% trans "Links" %}</h3>
             <div class="d-flex flex-wrap social-icon p-2">
@@ -103,7 +103,7 @@
                 {% for education in education %}
                 <h5>{{ education.degree }} -{{ education.institution }}</h5>
                 <p>{{ education.start_date|date:"F Y" }} - {{ education.end_date|date:"F Y" }}</p> 
-                <p>{{ education.description }}</p>
+                <p>{{ education.description|linebreaksbr }}</p>
                 {% endfor %}
             </ul>
         </div>
@@ -115,7 +115,7 @@
                 {% for job in experience %}
                 <h5>{{ job.job_title }} - {{ job.company }}</h5>
                 <p>{{ job.start_date|date:"F Y" }} - {{ job.end_date|date:"F Y" }}</p>
-                <p>{{ job.description }}</p>
+                <p>{{ job.description|linebreaksbr }}</p>
                 {% endfor %}
             </ul>
         </div>
@@ -130,11 +130,11 @@
                 <div class="row d-flex flex-wrap justify-content-center my-3">
                     <div class="col-7">
                         <a class="text-link-white" href="{{ project.url }}"><h5>{{ project.name }}</h5></a>
-                        <p>{{ project.description }}</p>
+                        <p>{{ project.description|linebreaksbr }}</p>
                     </div>
-                    <div class="col-3">
+                    <div class="col-3" >
                         {% if project.image %}
-                        <a class="text-link-black" href="{{ project.url }}"><img src="{{ project.image.url }}" alt="{{ project.name }}" class="img-fluid animated-card"></a>
+                        <a class="text-link-black " href="{{ project.url }}" ><img class="img-fluid animated-card" src="{{ project.image.url }}" alt="{{ project.name }}" ></a>
                         {% endif %}
                     </div>
                 </div>

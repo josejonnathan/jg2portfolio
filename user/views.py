@@ -28,6 +28,9 @@ from django.views.generic import CreateView, UpdateView, DeleteView, TemplateVie
 from api.models import Template
 from weasyprint import HTML
 from django.templatetags.static import static
+from django.utils.translation import activate
+from django.utils import translation
+
 
 
 
@@ -159,6 +162,7 @@ class UserDetailView(LoginRequiredMixin, DetailView):
     model = User
     template_name = 'user_detail.html'
     context_object_name = 'user'
+    
 
     def get_object(self):
         # Obtiene el usuario actual autenticado

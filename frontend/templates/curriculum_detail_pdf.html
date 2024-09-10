@@ -28,7 +28,7 @@
             margin: 0 auto;
         }
         .header, .footer {
-            color: white;
+            color: rgb(0, 0, 0);
             padding: 30px;
             text-align: center;
         }
@@ -122,7 +122,7 @@
 
     <div class="profile">
         <h3>{% trans "Profile" %}</h3>  <!-- Traducción para "Profile" -->
-        <p>{{ profile.bio }}</p>
+        <p>{{ profile.bio|linebreaksbr }}</p>
     </div>
 
     <!-- Fila para Skills, Languages, y Interests -->
@@ -162,7 +162,7 @@
                 <li>
                     <strong>{{ edu.degree }}</strong> - {{ edu.institution }}<br>
                     {{ edu.start_date|date:"F Y" }} - {{ edu.end_date|date:"F Y" }}<br>
-                    {{ edu.description }}
+                    {{ edu.description|linebreaksbr }}
                 </li>
             {% endfor %}
         </ul>
@@ -175,7 +175,7 @@
                 <li>
                     <strong>{{ job.job_title }}</strong> - {{ job.company }}<br>
                     {{ job.start_date|date:"F Y" }} - {{ job.end_date|date:"F Y" }}<br>
-                    {{ job.description }}
+                    {{ job.description|linebreaksbr }}
                 </li>
             {% endfor %}
         </ul>
@@ -188,7 +188,7 @@
                 <li>
                     <strong>{{ project.name }}</strong><br>
                     <a href="{{ project.url }}">{{ project.url }}</a><br>
-                    {{ project.description }}
+                    {{ project.description|linebreaksbr }}
                 </li>
             {% endfor %}
         </ul>

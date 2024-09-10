@@ -38,7 +38,7 @@
             {% if profile.picture %}
             <img class="img-fluid profile-image-square" src="{{ profile.picture.url }}" alt="{{ profile.name }}">
             {% endif %}
-            <p class="my-3">{{ profile.bio }}</p>
+            <p class="my-3">{{ profile.bio|linebreaksbr }}</p>
         </div>
         <div class="col-md-6 my-3">
             <h3>{% trans "Details" %}</h3>
@@ -146,7 +146,7 @@
                         {{ education.degree }} - {{ education.institution }}
                     </h5>
                     <p>{{ education.start_date }} - {{ education.end_date }}</p>
-                    <p>{{ education.description }}</p>
+                    <p>{{ education.description|linebreaksbr }}</p>
                 </div>
                 {% endfor %}
             </div>
@@ -170,7 +170,7 @@
                         {{ job.job_title }} - {{ job.company }}
                     </h5>
                     <p>{{ job.start_date }} - {{ job.end_date }}</p>
-                    <p>{{ job.description }}</p>
+                    <p>{{ job.description|linebreaksbr }}</p>
                 </div>
                 {% endfor %}
             </div>
@@ -201,7 +201,7 @@
                             <a class="text-link-black" href="{{ project.url }}">
                                 <h5>{{ project.name }}</h5>
                             </a>
-                            <p>{{ project.description }}</p>
+                            <p>{{ project.description|linebreaksbr }}</p>
                         </div>
                         <div class="col-3">
                             {% if project.image %}

@@ -16,7 +16,7 @@
         <div class="col-md-9 " style="background-color: {{ profile.template.colors.secondary }};">
             <div class="row justify-content-center text-light p-4" style="background-color: {{ profile.template.colors.tertiary }};">
                 <h4 class="border-bottom pb-2 " style="font-family: {{ profile.template.font }};">{% trans "Profile" %}</h4>
-                <p>{{ profile.bio }}</p>
+                <p>{{ profile.bio|linebreaksbr }}</p>
             </div>
 
             <div class="row p-4 text-black" style="background-color: {{ profile.template.colors.secondary }};">
@@ -27,7 +27,7 @@
                     <div>
                         <h5 style="font-family: {{ profile.template.font }};">{{ education.degree }}</h5>
                         <p>{{ education.institution }}</p>
-                        <p>{{ education.description }}</p>
+                        <p>{{ education.description|linebreaksbr }}</p>
                     </div>
                     <div>{{ education.start_date|date:"F Y" }} - {{ education.end_date|date:"F Y" }}</div>
                 </div>
@@ -41,7 +41,7 @@
                         <h5 style="font-family: {{ profile.template.font }};">{{ job.job_title }}</h5>
                         <p>{{ job.company }}</p>
                         <ul>
-                            <li>{{ job.description }}</li>
+                            <li>{{ job.description|linebreaksbr }}</li>
                         </ul>
                     </div>
                     <div>{{ job.start_date|date:"F Y" }} - {{ job.end_date|date:"F Y" }}</div>
@@ -53,7 +53,7 @@
                 <h4 class="border-bottom pb-2 mt-4" style="font-family: {{ profile.template.font }};">{% trans "Projects" %}</h4>
                 <div class="row d-flex flex-wrap justify-content-around">
                     {% for project in projects %}
-                    <div class="col-md-3 col-12 my-4 px-2">
+                    <div class="col-md-5 col-12 my-4 px-2">
                         <div class="card animated-card h-100 d-flex flex-row text-dark" style="background-image: {% if project.image %} url('{{ project.image.url }}') {% endif %}; background-size: cover; background-position: center;">
                             <div class="col-12 d-flex flex-column justify-content-center" style="background-color: rgba(255, 255, 255, 0.773);">
                                 <div class="card-body text-dark">
@@ -61,7 +61,7 @@
                                         <h5 class="card-title" style="font-family: {{ selected_template.font }};">{{ project.name }}</h5>
                                     </a>       
                                     <p class="card-text font-italic">
-                                        {{ project.description|slice:":120" }}{% if project.description|length > 120 %}...{% endif %}
+                                        {{ project.description|linebreaksbr }}
                                     </p>
                                 </div>
                             </div>
