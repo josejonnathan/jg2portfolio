@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-9 col-12">
+            <h1>{% trans "Cookie Policy" %}</h1>
+            <h3>{% trans "What are cookies?" %}</h3>
+            <p>{% trans "Cookies are small text files that are stored on your browser when you visit most websites. They are used to make websites work or work more efficiently, as well as to provide information to the site owners." %}</p>
+            <br>
+            <h3>{% trans "How do we use cookies?" %}</h3>
+            <p>{% trans "On our website, we use cookies for various purposes, including:" %}</p>
+            <br>
+            <ul>
+                <li><strong>{% trans "Strictly necessary cookies:" %}</strong><p>{% trans "These cookies are essential for the website to function and cannot be switched off in our systems. Without them, some parts of the site may not work properly." %}</p></li>
+                <li><strong>{% trans "Performance cookies:" %}</strong><p>{% trans "We use these cookies to collect information about how visitors use our website. All information collected by these cookies is anonymous and used only to improve the site’s performance." %}</p></li>
+                <li><strong>{% trans "Functional cookies:" %}</strong><p>{% trans "These cookies allow our website to remember the choices you make (such as your username, language, or region) and provide enhanced, more personalized features." %}</p></li>
+                <li><strong>{% trans "Marketing or advertising cookies:" %}</strong><p>{% trans "These cookies are used to display advertisements that are relevant to you. They also limit the number of times you see an ad and help measure the effectiveness of advertising campaigns." %}</p></li>
+            </ul>
+            <br>
+            <h3>{% trans "Types of cookies we use" %}</h3>
+            <h4>{% trans "First-party cookies" %}</h4>
+            <p>{% trans "These are cookies we set directly on your device and can only be read by us. For example, they are used to remember your session." %}</p>
+            <h4>{% trans "Third-party cookies" %}</h4>
+            <p>{% trans "These cookies are set by domains that are not directly managed by us, such as Google AdSense or Google Analytics. They allow us to perform analytics on-site behavior and display personalized ads." %}</p>
+            <br>
+            <h3>{% trans "Cookies we use" %}</h3>
+            <p>{% trans "Below is a list of the cookies we use on our website:" %}</p>
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Cookie Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Purpose</th>
+                        <th scope="col">Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>sessionid</td>
+                        <td>Strictly necessary</td>
+                        <td>Keeps the user's session active</td>
+                        <td>1 session</td>
+                    </tr>
+                    <tr>
+                        <td>csrftoken</td>
+                        <td>Strictly necessary</td>
+                        <td>Protects against CSRF attacks</td>
+                        <td>1 year</td>
+                    </tr>
+                    <tr>
+                        <td>_ga</td>
+                        <td>Analytics</td>
+                        <td>Google Analytics: Tracks user behavior anonymously for performance analysis</td>
+                        <td>2 years</td>
+                    </tr>
+                    <tr>
+                        <td>adsbygoogle</td>
+                        <td>Advertising</td>
+                        <td>Used by Google AdSense for showing personalized ads</td>
+                        <td>1 year</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h3>{% trans "Consent" %}</h3>
+            <p>{% trans "By using our website, you consent to the use of cookies in accordance with this Cookie Policy. If you do not agree with the use of cookies, you may disable them through your browser settings or stop using the website." %}</p>
+            <br>
+            <h3>{% trans "Updates to this policy" %}</h3>
+            <p>{% trans "We may update this cookie policy from time to time to reflect changes in our cookie practices. We will notify you of any significant changes by posting the new policy on our website." %}</p>
+            <br>
+            <div class="text-center"></div>
+                <a class="general-button-orange my-4" href="{% url 'home' %}">{% trans "Home" %}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

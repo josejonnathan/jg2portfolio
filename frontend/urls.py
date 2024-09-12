@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import  CurriculumDetailView, home_view, TermsAndConditionsView, robots_txt, wrong_password, TurorialView
+from .views import  CurriculumDetailView, home_view, TermsAndConditionsView, robots_txt, wrong_password, TurorialView, cookies
 
 
 urlpatterns = [
@@ -9,6 +9,7 @@ urlpatterns = [
     path('terms/', TermsAndConditionsView, name='terms'),
     path('tutorial/', TurorialView, name='tutorial'),
     path('robots.txt', robots_txt, name='robots_txt'),
+    path('cookies/', cookies, name='cookies'),
 
     
 ]

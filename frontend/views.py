@@ -133,3 +133,39 @@ def robots_txt(request):
         "Allow: /",
     ]
     return HttpResponse("\n".join(lines), content_type="text/plain")
+
+
+def cookies(request):
+    cookies = request.COOKIES  # Get all the cookies
+    cookie_list = []
+
+    # Example of how you might structure cookie information
+    for cookie_name, cookie_value in cookies.items():
+        if cookie_name == 'sessionid':
+            cookie_list.append({
+                'name': 'sessionid',
+                'type': 'Strictly necessary',
+                'purpose': 'Keeps the user\'s session active',
+                'duration': 'Session'
+            })
+        elif cookie_name == 'csrftoken':
+            cookie_list.append({
+                'name': 'csrftoken',
+                'type': 'Strictly necessary',
+                'purpose': 'Protects against CSRF attacks',
+                'duration': '1 year'
+            })
+        # Add more cookies as needed
+        else:
+            cookie_list.append({
+                'name': cookie_name,
+                'type': 'Other',
+                'purpose': 'Unknown',
+                'duration': 'Unknown'
+            })
+
+    context = {
+        'cookies': cookie_list,
+    }
+
+    return render(request, 'cookies.html', context)

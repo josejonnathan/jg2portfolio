@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-09 23:17+0200\n"
-"PO-Revision-Date: 2024-09-09 23:23+0200\n"
+"POT-Creation-Date: 2024-09-12 08:14+0200\n"
+"PO-Revision-Date: 2024-09-12 08:18+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt\n"
@@ -39,12 +39,12 @@ msgstr "Nativo"
 msgid "End date cannot be earlier than start date."
 msgstr "A data de término não pode ser anterior à data de início."
 
-#: frontend/templates/CV_base.html:10 frontend/templates/base.html:9
+#: frontend/templates/CV_base.html:10 frontend/templates/base.html:11
 msgid "Professional CV Builder | Customizable Templates"
 msgstr "Criador de Currículo Profissional | Modelos Personalizáveis"
 
 #: frontend/templates/CV_base.html:29 frontend/templates/CV_base.html:36
-#: frontend/templates/base.html:26 frontend/templates/base.html:40
+#: frontend/templates/base.html:28 frontend/templates/base.html:42
 msgid ""
 "Create your professional CV for free with customizable templates. Designed "
 "for professionals and students who want to impress."
@@ -52,7 +52,7 @@ msgstr ""
 "Crie seu currículo profissional gratuitamente com modelos personalizáveis. "
 "Projetado para profissionais e estudantes que querem impressionar."
 
-#: frontend/templates/CV_base.html:32 frontend/templates/base.html:29
+#: frontend/templates/CV_base.html:32 frontend/templates/base.html:31
 msgid ""
 "CV, resume, free, create CV, CV template, CV creator, curriculum, vitae, "
 "create resume, resume template"
@@ -61,11 +61,11 @@ msgstr ""
 "vitae, criar currículo, modelo de currículo"
 
 #: frontend/templates/CV_base.html:35 frontend/templates/CV_base.html:43
-#: frontend/templates/base.html:39 frontend/templates/base.html:47
+#: frontend/templates/base.html:41 frontend/templates/base.html:49
 msgid "Free Professional CV Builder"
 msgstr "Criador de Currículo Profissional Grátis"
 
-#: frontend/templates/CV_base.html:44 frontend/templates/base.html:48
+#: frontend/templates/CV_base.html:44 frontend/templates/base.html:50
 msgid "Create your professional CV for free with customizable templates."
 msgstr ""
 "Crie seu currículo profissional gratuitamente com modelos personalizáveis."
@@ -95,6 +95,23 @@ msgstr "Seleção de Modelo"
 msgid "Theme Selection"
 msgstr "Seleção de Tema"
 
+#: frontend/templates/base.html:72
+msgid "This website uses cookies to ensure you get the best experience."
+msgstr ""
+"Este site utiliza cookies para garantir que você tenha a melhor experiência."
+
+#: frontend/templates/base.html:73
+msgid "Accept"
+msgstr "Aceitar"
+
+#: frontend/templates/base.html:74
+msgid "Reject"
+msgstr "Rejeitar"
+
+#: frontend/templates/base.html:75
+msgid "Read more"
+msgstr "Leia mais"
+
 #: frontend/templates/curriculum_detail.html:34
 #: frontend/templates/curriculum_detail_pdf.html:202
 #: media/templates/cube.html:33 media/templates/hip_to_be_square.html:95
@@ -106,7 +123,7 @@ msgstr "Site"
 #: frontend/templates/curriculum_detail.html:37
 #: frontend/templates/curriculum_detail.html:96
 #: frontend/templates/curriculum_detail_pdf.html:211
-#: media/templates/cube.html:36 media/templates/cube.html:95
+#: media/templates/cube.html:36 media/templates/cube.html:98
 #: media/templates/hip_to_be_square.html:98
 #: media/templates/hip_to_be_square.html:157 media/templates/sea_quest.html:34
 #: media/templates/sea_quest.html:172 media/templates/the_two_towers.html:46
@@ -126,7 +143,7 @@ msgstr "GitHub"
 #: frontend/templates/curriculum_detail.html:43
 #: frontend/templates/curriculum_detail.html:93
 #: frontend/templates/curriculum_detail_pdf.html:217
-#: media/templates/cube.html:42 media/templates/cube.html:92
+#: media/templates/cube.html:42 media/templates/cube.html:95
 #: media/templates/hip_to_be_square.html:104
 #: media/templates/hip_to_be_square.html:154 media/templates/sea_quest.html:40
 #: media/templates/sea_quest.html:169 media/templates/the_two_towers.html:52
@@ -138,7 +155,7 @@ msgstr "Twitter"
 #: frontend/templates/curriculum_detail.html:46
 #: frontend/templates/curriculum_detail.html:90
 #: frontend/templates/curriculum_detail_pdf.html:208
-#: media/templates/cube.html:45 media/templates/cube.html:89
+#: media/templates/cube.html:45 media/templates/cube.html:92
 #: media/templates/hip_to_be_square.html:107
 #: media/templates/hip_to_be_square.html:151 media/templates/sea_quest.html:43
 #: media/templates/sea_quest.html:166 media/templates/the_two_towers.html:55
@@ -157,7 +174,7 @@ msgstr "Instagram"
 
 #: frontend/templates/curriculum_detail.html:56
 #: frontend/templates/curriculum_detail_pdf.html:131
-#: frontend/templates/tutorial.html:68 media/templates/cube.html:55
+#: frontend/templates/tutorial.html:68
 #: media/templates/hip_to_be_square.html:117 media/templates/sea_quest.html:62
 #: media/templates/the_two_towers.html:67 user/templates/skill_form.html:10
 #: user/templates/user_detail.html:67
@@ -166,7 +183,7 @@ msgstr "Competências"
 
 #: frontend/templates/curriculum_detail.html:66
 #: frontend/templates/curriculum_detail_pdf.html:139
-#: frontend/templates/tutorial.html:70 media/templates/cube.html:65
+#: frontend/templates/tutorial.html:70 media/templates/cube.html:68
 #: media/templates/hip_to_be_square.html:127 media/templates/sea_quest.html:75
 #: media/templates/the_two_towers.html:77 user/templates/user_detail.html:87
 msgid "Languages"
@@ -174,24 +191,24 @@ msgstr "Idiomas"
 
 #: frontend/templates/curriculum_detail.html:77
 #: frontend/templates/curriculum_detail_pdf.html:148
-#: frontend/templates/tutorial.html:72 media/templates/cube.html:76
+#: frontend/templates/tutorial.html:72 media/templates/cube.html:79
 #: media/templates/hip_to_be_square.html:138 media/templates/sea_quest.html:83
 #: media/templates/the_two_towers.html:87 user/templates/user_detail.html:107
 msgid "Interests"
 msgstr "Interesses"
 
-#: frontend/templates/curriculum_detail.html:86 media/templates/cube.html:85
+#: frontend/templates/curriculum_detail.html:86 media/templates/cube.html:88
 #: media/templates/hip_to_be_square.html:147
 msgid "Share"
 msgstr "Compartilhar"
 
-#: frontend/templates/curriculum_detail.html:99 media/templates/cube.html:98
+#: frontend/templates/curriculum_detail.html:99 media/templates/cube.html:101
 #: media/templates/hip_to_be_square.html:160 media/templates/sea_quest.html:175
 #: media/templates/the_two_towers.html:159
 msgid "WhatsApp"
 msgstr "WhatsApp"
 
-#: frontend/templates/curriculum_detail.html:102 media/templates/cube.html:101
+#: frontend/templates/curriculum_detail.html:102 media/templates/cube.html:104
 #: media/templates/hip_to_be_square.html:163 media/templates/sea_quest.html:178
 #: media/templates/the_two_towers.html:162
 msgid "Telegram"
@@ -199,14 +216,14 @@ msgstr "Telegram"
 
 #: frontend/templates/curriculum_detail.html:106
 #: frontend/templates/curriculum_detail_pdf.html:221
-#: media/templates/cube.html:105 media/templates/hip_to_be_square.html:167
+#: media/templates/cube.html:108 media/templates/hip_to_be_square.html:167
 #: media/templates/sea_quest.html:182 media/templates/the_two_towers.html:166
 msgid "QR Code"
 msgstr "Código QR"
 
 #: frontend/templates/curriculum_detail.html:114
 #: frontend/templates/curriculum_detail_pdf.html:124
-#: media/templates/cube.html:113 media/templates/hip_to_be_square.html:18
+#: media/templates/cube.html:116 media/templates/hip_to_be_square.html:18
 #: media/templates/sea_quest.html:58 media/templates/the_two_towers.html:37
 #: user/templates/profile_update.html:79
 msgid "Profile"
@@ -214,7 +231,7 @@ msgstr "Perfil"
 
 #: frontend/templates/curriculum_detail.html:120
 #: frontend/templates/curriculum_detail_pdf.html:159
-#: frontend/templates/tutorial.html:74 media/templates/cube.html:119
+#: frontend/templates/tutorial.html:74 media/templates/cube.html:122
 #: media/templates/hip_to_be_square.html:24 media/templates/sea_quest.html:101
 #: media/templates/sea_quest.html:102 media/templates/the_two_towers.html:100
 #: user/templates/user_detail.html:133
@@ -222,14 +239,14 @@ msgid "Education"
 msgstr "Educação"
 
 #: frontend/templates/curriculum_detail.html:133
-#: frontend/templates/tutorial.html:60 media/templates/cube.html:132
+#: frontend/templates/tutorial.html:60 media/templates/cube.html:135
 #: media/templates/hip_to_be_square.html:37
 msgid "Work Experience"
 msgstr "Experiência Profissional"
 
 #: frontend/templates/curriculum_detail.html:150
 #: frontend/templates/curriculum_detail_pdf.html:185
-#: frontend/templates/tutorial.html:76 media/templates/cube.html:149
+#: frontend/templates/tutorial.html:76 media/templates/cube.html:152
 #: media/templates/hip_to_be_square.html:53 media/templates/sea_quest.html:132
 #: media/templates/the_two_towers.html:126 user/templates/user_detail.html:187
 msgid "Projects"

@@ -51,6 +51,57 @@
     <meta name="twitter:image" content="{% static 'images/hero_1.png' %}">
 
 
+    <!-- Script para el consentimiento de cookies -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+
+    <script>
+        window.addEventListener("load", function(){
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#000"
+                    },
+                    "button": {
+                        "background": "#ff9500"
+                    }
+                },
+                "theme": "classic",
+                "position": "bottom-left",
+                "content": {
+                    "message": "{% trans 'This website uses cookies to ensure you get the best experience.' %}",
+                    "allow": "{% trans 'Accept' %}",  
+                    "deny": "{% trans 'Reject' %}", 
+                    "link": "{% trans 'Read more' %}",
+                    "href": "/cookies/" 
+                },
+                "type": "opt-in", 
+                "onInitialise": function (status) {
+                    if (status == cookieconsent.status.allow) {
+                        enableAdsense();
+                    }
+                },
+                "onStatusChange": function(status) {
+                    if (status == cookieconsent.status.allow) {
+                        enableAdsense();
+                    }
+                }
+            })
+        });
+
+        function enableAdsense() {
+            // Código de Google AdSense solo se carga si el usuario acepta
+            var script = document.createElement('script');
+            script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+            document.head.appendChild(script);
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-XXXXXX",
+                enable_page_level_ads: true
+            });
+        }
+    </script>
+
+
     {% block head %}
     {% endblock %}
 
