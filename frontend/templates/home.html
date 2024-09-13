@@ -33,7 +33,7 @@
 
 <div class="container-fluid" style="background-color: {{ selected_template.colors.secondary }};">
     <div class="row d-flex flex-wrap justify-content-center align-items-center">
-        <div class="col-8 text-center text-black my-5 px-5">
+        <div class="col-md-8 col-12 text-center text-black my-5 px-5">
             <h2 class="my-5" style="font-family: {{ selected_template.font }};">{% trans "Professional and Easy!" %}</h2>
             <p>{% trans "Designed for professionals, students, and job seekers who want to make a great impression. We offer a range of beautiful, modern templates that you can customize to reflect your personal style and career aspirations. With our easy-to-use editor, you can update your CV anytime, anywhere, and ensure it always looks its best." %}</p>
             {% if user.is_authenticated %}
@@ -52,12 +52,12 @@
 
 <div class="container-fluid" style="background-color: {{ selected_template.colors.tertiary }};">
     <div class="row d-flex text-white flex-wrap justify-content-center align-items-center">
-        <div class="col-6 text-center  my-5 px-5">
+        <div class="col-md-6 col-12 text-center  my-5 px-5">
             <h2 class="my-5" style="font-family: {{ selected_template.font }};">{% trans "Not sure how to start?" %}</h2>
             <p>{% trans "This short tutorial will give you an idea of how to create a great CV." %}</p>
             <a href="{% url 'tutorial' %}" class="general-button-orange">{% trans "Tutorial" %}</a>
         </div>
-        <div class="col-6 text-center  my-5 px-5">
+        <div class="col-md-6 col-12 text-center  my-5 px-5">
             <img src="{% static 'images/styles.png' %}" alt="Tutorial" class="img-fluid">
         </div>
         <div class="row">

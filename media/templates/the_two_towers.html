@@ -78,7 +78,7 @@
             </div>
             <div class="text-center">
                 {% for language in languages %}
-                <p>{{ language.name }} - {{ language.level }}</p>
+                <p>{{ language.name }} - {{ language.get_level_display }}</p>
                 {% endfor %}
             </div>
         </div>

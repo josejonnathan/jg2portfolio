@@ -127,7 +127,7 @@
                 <h5 style="font-family: {{ profile.template.font }};">{% trans "Languages" %}</h5>
                 <ul class="list-unstyled">
                     {% for language in languages %}
-                    <li><i class="fas fa-heart"></i> {{ language.name }} - {{ language.level }}</li>
+                    <li><i class="fas fa-heart"></i> {{ language.name }} - {{ language.get_level_display }}</li>
                     {% endfor %}
                 </ul>
                 <hr class="bg-secondary">

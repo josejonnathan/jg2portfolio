@@ -176,3 +176,4 @@ SESSION_COOKIE_SECURE = False
 SECURE_HSTS_SECONDS = 0  # Asegúrate de que esté desactivado
 SECURE_HSTS_INCLUDE_SUBDOMAINS = False
 SECURE_HSTS_PRELOAD = False
+# test gitignore

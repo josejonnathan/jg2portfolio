@@ -75,7 +75,7 @@
                 <h5 style="font-family: {{ profile.template.font }};"><img class="bullet-icon" src="{% static 'images/languages.png' %}" alt="{% trans 'Languages' %}"> {% trans "Languages" %}</h5>
                 <div class="d-flex flex-wrap">
                     {% for language in languages %}
-                    <span class="badge badge-secondary m-1 text-dark">{{ language.name }} - {{ language.level }}</span>
+                    <span class="badge badge-secondary m-1 text-dark">{{ language.name }} - {{ language.get_level_display }}</span>
                     {% endfor %}
                 </div>
                 {% endif %}
