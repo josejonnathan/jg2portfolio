@@ -161,7 +161,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 # Ignorar el archivo settings.py
-/jg2portfolio/settings.py
+# /jg2portfolio/settings.py
 
 # Ignorar la carpeta media y todo su contenido
-/media/
+# /media/
